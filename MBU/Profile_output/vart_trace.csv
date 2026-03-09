@@ -1,0 +1,23 @@
+HEADER
+VTF File Version,1.0
+VTF File Type,0
+PID,1975
+Generated on,2026-03-07 10:55:48
+Resolution,ms
+Min Resolution,us
+Trace Version,1.0
+XRT Version,0.0.0
+Tool Version,2020.1
+
+STRUCTURE
+Group_Start,DPU
+Dynamic_Row, 1, DPU_0
+Group_End,DPU
+
+MAPPING
+1,
+2,subgraph_quant_conv1_conv
+
+EVENTS
+1,0,975.436000,1,VART_RUNNER,2,1975,1,6.98,695.77,185,1,1,,
+2,1,985.468000,1,VART_RUNNER,2,1975,1,6.98,695.77,185,1,1,,
