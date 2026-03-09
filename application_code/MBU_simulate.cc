@@ -1,5 +1,5 @@
 /*
- * SBU_simulate.cc  -  Single Bit Upset (SBU) Simulation
+ * SBU_simulate.cc  –  Single Bit Upset (SBU) Simulation
  * =======================================================
  *
  * HOW FAULT INJECTION ACTUALLY WORKS
@@ -33,34 +33,18 @@
  *
  * We flip bits directly in these CPU virtual addresses.
  * The DPU reads from those same DDR4 addresses during inference,
- * so it sees the corrupted data -- no file reload needed.
+ * so it sees the corrupted data — no file reload needed.
  *
  * For INSTRUCTIONS: a single bit flip in mc_code typically causes
  * a DPU hang or exception (caught by timeout + HW reset, Solution 1+2).
  * For WEIGHTS: bit flips in weight data cause wrong conv outputs (SDC).
  * After each run we RESTORE the original bytes so the next run is clean.
  *
- * RECOVERY PATH FOR INSTRUCTIONS (ZCU104 / DPUCZDX8G)
- * =====================================================
- * Corrupted instructions lock the DPU IP core FSM (hard SEFI).
- * The only reliable recovery is a full hardware reset of the PL domain.
- *
- * Recovery sequence (tried in order until one succeeds):
- *   [A] DPU IP soft-reset via AP_CTRL register (0x80000000 / 0x8F000000)
- *       Write 0x0 to AP_CTRL, wait 50ms, write 0x1 to re-enable AP_START
- *   [B] ZynqMP PS->PL reset via CRL_APB (0xFF5E0218) -- asserts pl_resetn0
- *   [C] Sysfs reset:  /sys/class/dpu/dpu0/reset
- *   [D] Sysfs reset:  /sys/bus/platform/drivers/zocl/reset
- *   [E] Bitstream reload via fpgautil / xmutil loadapp (last resort)
- *   [F] Kernel module reload: rmmod xrt_core / modprobe xrt_core
- * After any reset succeeds: exponential-backoff sleep + recreate_runner(sg).
- * Up to MAX_RECOVERY_ATTEMPTS retries before giving up.
- *
  * PROTECTION SOLUTIONS (all except checksum):
- *   [1] Timeout Detection   - kills hanging DPU inference
- *   [2] System / HW Reset   - recovers frozen DPU
- *   [3] Subgraph Tracking   - monitors DPU execution progress
- *   [4] Output Sanity Check - NaN / Inf / all-zero detection
+ *   [1] Timeout Detection   – kills hanging DPU inference
+ *   [2] System / HW Reset   – recovers frozen DPU
+ *   [3] Subgraph Tracking   – monitors DPU execution progress
+ *   [4] Output Sanity Check – NaN / Inf / all-zero detection
  *
  * BUILD:
  *   g++ -std=c++17 -O2 -o SBU_simulate src/SBU_simulate.cc \
@@ -113,9 +97,9 @@ using namespace std;
 using namespace cv;
 using namespace std::chrono;
 
-// -----------------------------------------------------------------------------
-// SIGNAL HANDLER -- catches SIGSEGV/SIGABRT from DPU driver crashes
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// SIGNAL HANDLER — catches SIGSEGV/SIGABRT from DPU driver crashes
+// ─────────────────────────────────────────────────────────────────────────────
 static sigjmp_buf  g_crash_jmp;
 static volatile sig_atomic_t g_in_protected = 0;
 
@@ -142,31 +126,29 @@ static void reinstall_crash_handlers() {
     install_crash_handlers();
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // CONSTANTS
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 #define INFERENCE_TIMEOUT_MS   10000
-#define MAX_RECOVERY_ATTEMPTS  5
+#define MAX_RECOVERY_ATTEMPTS  3
 #define TOP_K                  5
 
-// XLNX_DPU_TIMEOUT: sets VART's internal DPU watchdog (seconds).
-// The child process sets this so VART aborts itself after 10s of DPU hang
-// instead of waiting indefinitely. Parent waits INFERENCE_TIMEOUT_MS + 15s margin.
-#define CHILD_DPU_TIMEOUT_STR  "10"
-
-// For INSTRUCTIONS fault injection: corrupt xmodel file -> reload -> create_runner()
+// For INSTRUCTIONS fault injection: corrupt xmodel file → reload → create_runner()
 // copies corrupted instructions into DPU on-chip SRAM.
-// 64KB skip gives a safe margin -- random flips land in weight/instruction data,
+// fault_injection_hybrid.cc used skip=100 bytes which crashes with many flips
+// because protobuf string/length fields are in the first few KB.
+// 64KB skip gives a safe margin — random flips land in weight/instruction data,
 // not in protobuf structural bytes.
+// If deserialization still fails (rare, very unlucky flip) → counted as DUE.
 #define XMODEL_SAFE_SKIP       65536   // 64 KB
 
 static const string baseImagePath       = "../images/";
 static const string wordsPath           = "./";
 static const string CORRUPTED_MODEL_PATH= "/tmp/sbu_corrupted.xmodel";
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // FAULT TARGET
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 enum class FaultTarget {
     INSTRUCTIONS,  // DPU mc_code DDR4 region (instruction SRAM)
     WEIGHTS,       // DPU parameter DDR4 regions (weight SRAM)
@@ -186,9 +168,9 @@ static string targetName(FaultTarget t) {
     return "UNKNOWN";
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // CONFIG
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 struct SimConfig {
     string      model_path;
     int         N          = 100;
@@ -199,9 +181,9 @@ struct SimConfig {
     string      log_file   = "sbu_sim.log";
 };
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // PER-RUN RESULT
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 struct RunResult {
     int         run_id             = 0;
     FaultTarget target_used        = FaultTarget::FEATURE_MAPS;
@@ -223,9 +205,9 @@ struct RunResult {
     string      fault_region;
 };
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // GLOBAL
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 GraphInfo shapes;
 
 struct GoldenRef {
@@ -244,9 +226,9 @@ struct SubgraphTracker {
     void mark_complete() { completed++; }
 } g_tracker;
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // LOGGING
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 static FILE* g_logfp = nullptr;
 static void sim_log(const char* fmt, ...) {
     va_list a1,a2;
@@ -254,9 +236,9 @@ static void sim_log(const char* fmt, ...) {
     if(g_logfp){ va_start(a2,fmt); vfprintf(g_logfp,fmt,a2); va_end(a2); fflush(g_logfp); }
 }
 
-// -----------------------------------------------------------------------------
-// SOLUTION 1 - TIMEOUT
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// SOLUTION 1 – TIMEOUT
+// ─────────────────────────────────────────────────────────────────────────────
 static int run_with_timeout(vart::Runner* runner,
                             vector<vart::TensorBuffer*>& ip,
                             vector<vart::TensorBuffer*>& op,
@@ -282,279 +264,45 @@ static int run_with_timeout(vart::Runner* runner,
     return result.load();
 }
 
-// -----------------------------------------------------------------------------
-// SOLUTION 2 - HW/SW RESET
-// -----------------------------------------------------------------------------
-/*
- * hardware_reset_dpu() -- multi-path DPU recovery for ZCU104 / DPUCZDX8G
- * ========================================================================
- *
- * When a corrupted instruction stream locks the DPU IP core FSM (hard SEFI),
- * a software-only runner recreate is insufficient -- the IP is physically hung.
- * We must reset the DPU at the hardware level before any VART call will work.
- *
- * Strategy (tried in order; first success wins):
- *
- *   [A] DPU AP_CTRL soft-reset via /dev/mem
- *       Works when the AXI bus to the DPU is still responsive.
- *       Write 0x0 to AP_CTRL (de-assert ap_start), sleep, write 0x1.
- *       DPU base addresses tried: 0x8F000000 (default), 0x80000000 (alt),
- *       0x8FF00000 (custom overlays).
- *       AP_CTRL register is at offset 0x0 (PG338 Table 2-1).
- *
- *   [B] ZynqMP PS->PL reset via CRL_APB (0xFF5E0000 + offset 0x218)
- *       Asserts pl_resetn0 -- resets the entire PL domain.
- *       Safe to use when zocl is the only PL consumer (normal ZCU104 setup).
- *       Read-modify-write: set bit 0 (assert reset), wait 100ms, clear bit 0.
- *
- *   [C] Sysfs DPU reset:  /sys/class/dpu/dpu0/reset  (VART 2.x sysfs node)
- *
- *   [D] Sysfs zocl reset: /sys/bus/platform/drivers/zocl/<device>/reset
- *       Iterates /sys/bus/platform/drivers/zocl/ looking for a "reset" file.
- *
- *   [E] fpgautil / xmutil bitstream reload (last resort; slowest ~3s):
- *       system("fpgautil -b /lib/firmware/xilinx/base/base.bit.bin")
- *       system("xmutil loadapp kv260-dp")    (for KV260 variants)
- *
- *   [F] Kernel module reload: rmmod + modprobe xrt_core (slowest; ~5s)
- *
- * Returns 0 if any method succeeded, -1 if all failed.
- */
+// ─────────────────────────────────────────────────────────────────────────────
+// SOLUTION 2 – HW/SW RESET
+// ─────────────────────────────────────────────────────────────────────────────
 static int hardware_reset_dpu() {
-    sim_log("[Reset][2-HW] -- Starting DPU hardware reset sequence --\n");
-
-    // -- [A] DPU IP AP_CTRL soft-reset via /dev/mem ------------------------
-    {
-        // ZCU104 + DPUCZDX8G known DPU AXI-lite base addresses
-        static const uint32_t dpu_bases[] = {
-            0x8F000000,  // DPUCZDX8G default (ZCU104, ZCU102, Ultra96)
-            0x80000000,  // alternate / older board configs
-            0x8FF00000,  // custom overlays
-        };
-        // PG338 Table 2-1: AP_CTRL is at offset 0x00
-        static const uint32_t AP_CTRL_OFFSET = 0x00;
-
-        int fd = open("/dev/mem", O_RDWR | O_SYNC);
-        if (fd >= 0) {
-            for (uint32_t base : dpu_bases) {
-                void* b = mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_SHARED, fd, (off_t)base);
-                if (b == MAP_FAILED) continue;
-                volatile uint32_t* ap = (volatile uint32_t*)((volatile uint8_t*)b + AP_CTRL_OFFSET);
-                // De-assert ap_start (clear bit 0)
-                *ap = 0x00;
-                __sync_synchronize();
-                usleep(50000);   // 50 ms
-                // Re-enable: set ap_start=1 (bit 0)
-                *ap = 0x01;
-                __sync_synchronize();
-                usleep(100000);  // 100 ms let IP come out of reset
-                munmap(b, 4096);
-                sim_log("[Reset][2-A] AP_CTRL soft-reset at base 0x%08X OK\n", base);
-                close(fd);
-                goto method_a_done;
-            }
-            close(fd);
-        } else {
-            sim_log("[Reset][2-A] Cannot open /dev/mem (%s)\n", strerror(errno));
+    sim_log("[Reset][2-HW] Attempting hardware DPU reset...\n");
+    int fd=open("/dev/mem",O_RDWR|O_SYNC);
+    if(fd>=0){
+        void* b=mmap(NULL,4096,PROT_READ|PROT_WRITE,MAP_SHARED,fd,0x80000000);
+        if(b!=MAP_FAILED){
+            volatile uint32_t* c=(volatile uint32_t*)b;
+            c[0]=0x00;usleep(10000);c[1]=0xFF;usleep(10000);
+            c[0]=0x01;usleep(100000);c[0]=0x04;usleep(10000);
+            munmap(b,4096);close(fd);
+            sim_log("[Reset][2-HW] Register reset done\n"); return 0;
         }
-        sim_log("[Reset][2-A] AP_CTRL soft-reset: no base address responded\n");
-        method_a_done:;
+        close(fd);
     }
-
-    // -- [B] ZynqMP PS->PL hard reset via CRL_APB --------------------------
-    {
-        // CRL_APB base + PL0_RESET_CTRL offset (ZynqMP TRM, Table 6-96)
-        static const off_t  CRL_APB_BASE      = 0xFF5E0000;
-        static const uint32_t PL_RESET_OFFSET = 0x218;  // PL0_RESET_CTRL
-
-        int fd = open("/dev/mem", O_RDWR | O_SYNC);
-        if (fd >= 0) {
-            void* b = mmap(NULL, 4096, PROT_READ|PROT_WRITE, MAP_SHARED, fd, CRL_APB_BASE);
-            if (b != MAP_FAILED) {
-                volatile uint32_t* rst = (volatile uint32_t*)((volatile uint8_t*)b + PL_RESET_OFFSET);
-                uint32_t orig = *rst;
-                // Assert reset (bit 0 = 1)
-                *rst = orig | 0x1u;
-                __sync_synchronize();
-                usleep(100000);  // 100 ms -- hold reset
-                // De-assert reset (bit 0 = 0)
-                *rst = orig & ~0x1u;
-                __sync_synchronize();
-                usleep(200000);  // 200 ms -- PL boot time
-                munmap(b, 4096);
-                close(fd);
-                sim_log("[Reset][2-B] ZynqMP PL reset (CRL_APB 0xFF5E0218) OK\n");
-                return 0;
-            }
-            close(fd);
-        }
-        sim_log("[Reset][2-B] ZynqMP CRL_APB mmap failed\n");
-    }
-
-    // -- [C] Sysfs DPU reset node ------------------------------------------
-    {
-        const char* sysfs_paths[] = {
-            "/sys/class/dpu/dpu0/reset",
-            "/sys/class/dpu/dpu1/reset",
-            nullptr
-        };
-        for (int i = 0; sysfs_paths[i]; i++) {
-            FILE* fp = fopen(sysfs_paths[i], "w");
-            if (fp) {
-                fprintf(fp, "1\n");
-                fclose(fp);
-                sleep(1);
-                sim_log("[Reset][2-C] Sysfs reset via %s OK\n", sysfs_paths[i]);
-                return 0;
-            }
-        }
-        sim_log("[Reset][2-C] Sysfs DPU reset nodes not found\n");
-    }
-
-    // -- [D] zocl platform driver reset -----------------------------------
-    {
-        // Walk /sys/bus/platform/drivers/zocl/ for a reset file
-        const char* zocl_drv = "/sys/bus/platform/drivers/zocl";
-        DIR* dh = opendir(zocl_drv);
-        if (dh) {
-            struct dirent* de;
-            while ((de = readdir(dh))) {
-                if (de->d_name[0] == '.') continue;
-                char path[512];
-                snprintf(path, sizeof(path), "%s/%s/reset", zocl_drv, de->d_name);
-                FILE* fp = fopen(path, "w");
-                if (fp) {
-                    fprintf(fp, "1\n");
-                    fclose(fp);
-                    closedir(dh);
-                    sleep(1);
-                    sim_log("[Reset][2-D] zocl driver reset via %s OK\n", path);
-                    return 0;
-                }
-            }
-            closedir(dh);
-        }
-        sim_log("[Reset][2-D] zocl sysfs reset: driver dir not found or no reset node\n");
-    }
-
-    // -- [E] fpgautil / xmutil bitstream reload ----------------------------
-    {
-        // Common firmware paths on ZCU104 / KV260 / ZCU102 PetaLinux images
-        static const char* cmds[] = {
-            "fpgautil -b /lib/firmware/xilinx/base/base.bit.bin 2>/dev/null",
-            "xmutil loadapp kv260-dp 2>/dev/null",
-            "fpgautil -b /lib/firmware/base.bit 2>/dev/null",
-            nullptr
-        };
-        for (int i = 0; cmds[i]; i++) {
-            if (system(cmds[i]) == 0) {
-                sleep(3);  // PL reconfiguration time
-                sim_log("[Reset][2-E] Bitstream reload via '%s' OK\n", cmds[i]);
-                return 0;
-            }
-        }
-        sim_log("[Reset][2-E] Bitstream reload: all commands failed\n");
-    }
-
-    // -- [F] Kernel module reload (last resort) ----------------------------
-    {
-        if (system("rmmod xrt_core 2>/dev/null; sleep 1; modprobe xrt_core 2>/dev/null") == 0) {
-            sleep(2);
-            sim_log("[Reset][2-F] Kernel module reload OK\n");
-            return 0;
-        }
-        sim_log("[Reset][2-F] Module reload failed\n");
-    }
-
-    sim_log("[Reset][2-HW] !! All reset methods exhausted -- DPU may remain hung !!\n");
+    FILE* fp=fopen("/sys/class/dpu/dpu0/reset","w");
+    if(fp){fprintf(fp,"1\n");fclose(fp);sleep(1);
+           sim_log("[Reset][2-HW] Sysfs reset done\n"); return 0;}
+    if(system("rmmod xrt_core 2>/dev/null;sleep 1;modprobe xrt_core 2>/dev/null")==0){
+        sleep(2); sim_log("[Reset][2-HW] Module reload done\n"); return 0;}
+    sim_log("[Reset][2-HW] All HW reset methods unavailable\n");
     return -1;
 }
 
-// -----------------------------------------------------------------------------
-// SOLUTION 2 - SW RUNNER RECREATE
-// -----------------------------------------------------------------------------
 static unique_ptr<vart::Runner> recreate_runner(const xir::Subgraph* sg){
     sim_log("[Reset][2-SW] Recreating runner...\n");
     try{
         auto r=vart::Runner::create_runner(sg,"run");
-        sim_log("[Reset][2-SW] Runner recreated OK\n"); return r;
+        sim_log("[Reset][2-SW] OK\n"); return r;
     }catch(const exception& e){sim_log("[Reset][2-SW] FAIL: %s\n",e.what());}
      catch(...){sim_log("[Reset][2-SW] FAIL: unknown\n");}
     return nullptr;
 }
 
-// -----------------------------------------------------------------------------
-// SOLUTION 2 - FULL RECOVERY AFTER DPU HANG  (hardware + software, with retry)
-// -----------------------------------------------------------------------------
-/*
- * recover_dpu_after_hang()
- * ========================
- * Called after a confirmed DPU hang (instruction SEFI or timeout from any
- * fault target). Combines hardware reset + runner recreate with exponential
- * backoff and up to MAX_RECOVERY_ATTEMPTS retries.
- *
- * Why retries matter on ZCU104:
- *   - The PL domain takes variable time to come back after CRL_APB reset
- *     depending on bitstream complexity and PS clock gating.
- *   - zocl's XRT context may need extra time to re-enumerate AXI devices.
- *   - First create_runner() call may fail if the DPU /dev/dpu* node
- *     re-appears asynchronously (udev re-scanning takes 100-800 ms).
- *
- * Backoff schedule (attempt 0..MAX_RECOVERY_ATTEMPTS-1):
- *   wait_ms = 500 * 2^attempt  ->  500, 1000, 2000, 4000, 8000 ms
- *
- * Returns true  if runner was successfully recreated (caller should use it).
- * Returns false if all attempts failed (subsequent runs will likely also fail;
- *               the outer loop continues anyway and will collect DUE counts).
- */
-static bool recover_dpu_after_hang(vart::Runner*& runner,
-                                   const xir::Subgraph* sg,
-                                   int run_id)
-{
-    sim_log("[Recover][run %d] -- DPU hang recovery sequence starting --\n", run_id);
-
-    for (int attempt = 0; attempt < MAX_RECOVERY_ATTEMPTS; attempt++) {
-        sim_log("[Recover][%d/%d] Attempt %d of %d\n",
-                attempt+1, MAX_RECOVERY_ATTEMPTS, attempt+1, MAX_RECOVERY_ATTEMPTS);
-
-        // Step 1: Hardware reset
-        int hw_ret = hardware_reset_dpu();
-        if (hw_ret != 0) {
-            sim_log("[Recover][%d/%d] Hardware reset returned non-zero; "
-                    "trying runner recreate anyway\n", attempt+1, MAX_RECOVERY_ATTEMPTS);
-        }
-
-        // Step 2: Exponential-backoff sleep -- give PL / zocl time to recover
-        int wait_ms = 500 * (1 << attempt);  // 500, 1000, 2000, 4000, 8000 ms
-        sim_log("[Recover][%d/%d] Waiting %d ms for DPU/zocl to stabilize...\n",
-                attempt+1, MAX_RECOVERY_ATTEMPTS, wait_ms);
-        this_thread::sleep_for(chrono::milliseconds(wait_ms));
-
-        // Step 3: Reinstall signal handlers (hardware_reset may have triggered some)
-        reinstall_crash_handlers();
-
-        // Step 4: Try to recreate the runner
-        auto nr = recreate_runner(sg);
-        if (nr) {
-            runner = nr.release();
-            sim_log("[Recover][%d/%d] SUCCESS -- DPU recovered and runner is live\n",
-                    attempt+1, MAX_RECOVERY_ATTEMPTS);
-            return true;
-        }
-
-        sim_log("[Recover][%d/%d] Runner recreate failed -- will retry\n",
-                attempt+1, MAX_RECOVERY_ATTEMPTS);
-    }
-
-    sim_log("[Recover] !! FAILED after %d attempts -- DPU remains hung !!\n",
-            MAX_RECOVERY_ATTEMPTS);
-    sim_log("[Recover] Subsequent runs will continue collecting DUE statistics.\n");
-    return false;
-}
-
-// -----------------------------------------------------------------------------
-// SOLUTION 4 - OUTPUT SANITY
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// SOLUTION 4 – OUTPUT SANITY
+// ─────────────────────────────────────────────────────────────────────────────
 static bool output_tensor_sane(const int8_t* d, int sz){
     if(sz<=0) return false;
     int zeros=0,mn=127,mx=-128;
@@ -572,9 +320,9 @@ static bool softmax_anomalous(const float* s, int sz){
     return sum<1e-3f;
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // PREPROCESSING / POSTPROCESSING
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 static void preprocess_image(const Mat& src, int8_t* dst,
                               int inH, int inW, float scale){
     static const float mean[3]={104.f,107.f,123.f};
@@ -601,9 +349,9 @@ static vector<int> topk(const float* p, int sz, int k){
     idx.resize(k); return idx;
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // FILE HELPERS
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 static void ListImages(const string& path, vector<string>& images){
     images.clear();
     struct stat s; lstat(path.c_str(),&s);
@@ -627,9 +375,9 @@ static void LoadWords(const string& path, vector<string>& kinds){
     string line; while(getline(f,line))kinds.push_back(line);
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // SBU FLIP PRIMITIVE  (operates on a raw byte pointer)
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 struct FlipInfo { size_t offset; int bit; uint8_t before; uint8_t after; };
 
 static vector<FlipInfo> inject_sbu(uint8_t* base, size_t region_sz,
@@ -661,19 +409,36 @@ static void restore_flips(uint8_t* base, const vector<FlipInfo>& flips){
     for(auto& f:flips) base[f.offset]=f.before;
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // DDR4 REGION ACCESS VIA XIR SUBGRAPH ATTRIBUTES
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+/*
+ * XIR stores the DPU memory regions as subgraph attributes.
+ * We enumerate ALL attributes at startup so we can see exactly what the
+ * real hardware exposes, then pick the right ones for fault injection.
+ *
+ * Known attribute names across Vitis AI versions:
+ *   "mc_code"                    vector<char>             – instruction stream
+ *   "reg_id_to_parameter_value"  map<string,vector<char>> – weight regions
+ *   "reg_id_to_context_type"     map<string,string>       – REG type: PARAM/CODE/IO
+ *   "reg_id_to_code"             map<string,vector<char>> – alt instruction attr
+ */
+
 struct RegionHandle {
     uint8_t* ptr  = nullptr;
     size_t   size = 0;
     string   name;
 };
 
+// ── Dump every subgraph attribute with its size ───────────────────────────────
+// Call this once at startup. Output tells us exactly what is available
+// on this specific VART/XIR version and model.
 static void dump_subgraph_attrs(const xir::Subgraph* sg) {
     sim_log("\n[AttrDump] Subgraph: %s\n", sg->get_name().c_str());
     sim_log("[AttrDump] Probing known XIR attributes:\n");
 
+    // Probe all known attribute names — avoids get_attr_names()/get_attrs()
+    // version differences across Vitis AI releases.
     static const char* known_vec_char[] = {
         "mc_code", "elf_code", "dpu_fingerprint", nullptr
     };
@@ -737,9 +502,13 @@ static void dump_subgraph_attrs(const xir::Subgraph* sg) {
     sim_log("\n");
 }
 
+// ── Get instruction region ────────────────────────────────────────────────────
+// Tries multiple known attr names in priority order.
+// Uses .size() of the vector<char> as the EXACT instruction byte count.
 static RegionHandle get_instruction_region(const xir::Subgraph* sg) {
     RegionHandle h;
 
+    // Priority 1: "mc_code"
     try {
         auto& mc = sg->get_attr<vector<char>>("mc_code");
         if (!mc.empty()) {
@@ -751,6 +520,7 @@ static RegionHandle get_instruction_region(const xir::Subgraph* sg) {
         }
     } catch(...) {}
 
+    // Priority 2: "reg_id_to_context_type" — find CODE-type registers
     try {
         auto& ctx_map = sg->get_attr<map<string,string>>("reg_id_to_context_type");
         auto& val_map = sg->get_attr<map<string,vector<char>>>("reg_id_to_parameter_value");
@@ -771,6 +541,7 @@ static RegionHandle get_instruction_region(const xir::Subgraph* sg) {
         }
     } catch(...) {}
 
+    // Priority 3: "reg_id_to_code"
     try {
         auto& code_map = sg->get_attr<map<string,vector<char>>>("reg_id_to_code");
         for (auto& [reg_id, data] : code_map) {
@@ -787,9 +558,89 @@ static RegionHandle get_instruction_region(const xir::Subgraph* sg) {
     } catch(...) {}
 
     sim_log("[DDR4] WARNING: No instruction region found.\n");
+    sim_log("[DDR4] Check AttrDump above for the correct attr name.\n");
     return h;
 }
 
+// ── Force DPU to re-fetch instructions from DDR4 (ZCU104 / DPUCZDX8G) ────────
+//
+// On ZCU104 + DPUCZDX8G (Vitis-AI 3.0) the DPU copies mc_code into its
+// on-chip instruction memory at create_runner() time.  After that the PS
+// DDR4 mc_code region is NOT re-read during inference — so flipping bits
+// there has no effect.
+//
+// Fix (from Grok analysis + DPU register map):
+//   Write the mc_code DDR4 virtual address into DPU registers 4 and 5
+//   (high-32 and low-32 of the 64-bit instruction base address).
+//   This forces the DPU to reload instructions from DDR4 on the next
+//   execute_async(), bypassing the on-chip cache.
+//
+//   DPU base register addresses for ZCU104 + DPUCZDX8G (Vitis-AI 2.x/3.0):
+//     Primary:   0x8F000000  (DPUCZDX8G default in device tree)
+//     Alternate: 0x80000000  (used in some board configurations)
+//
+//   Within the DPU register bank, the instruction address registers are:
+//     Offset 0x208 = INSTR_ADDR_L  (low  32-bit of instruction base)
+//     Offset 0x20C = INSTR_ADDR_H  (high 32-bit of instruction base)
+//   (From Xilinx PG338 DPU TRM, Table: DPU Control Registers)
+//
+// Per-run independence: flip → reload corrupted → inference → restore → reload clean
+// Each run independently picks new random bit positions in mc_code DDR4.
+//
+// Returns true if register write succeeded (false = platform limitation,
+// instruction faults will have no effect on this run).
+static bool force_dpu_reload_instructions(uint64_t instr_vaddr) {
+    // Try all known DPU base addresses for ZCU104 / Versal / Zynq platforms
+    static const uint32_t dpu_bases[] = {
+        0x8F000000,   // DPUCZDX8G default (ZCU104, ZCU102, Ultra96)
+        0x80000000,   // alternate / older board configs
+        0x8FF00000,   // some custom overlays
+    };
+    // Instruction address register offsets (PG338 Table 2-6)
+    static const uint32_t INSTR_ADDR_L = 0x208;  // low  32-bit
+    static const uint32_t INSTR_ADDR_H = 0x20C;  // high 32-bit
+
+    int fd = open("/dev/mem", O_RDWR | O_SYNC);
+    if (fd < 0) {
+        sim_log("[InstrReload] ERROR: Cannot open /dev/mem (%s)\n"
+                "[InstrReload] Instruction fault injection NOT active on this run.\n",
+                strerror(errno));
+        return false;
+    }
+
+    bool wrote = false;
+    for (uint32_t base_addr : dpu_bases) {
+        void* b = mmap(NULL, 4096, PROT_READ|PROT_WRITE,
+                       MAP_SHARED, fd, (off_t)base_addr);
+        if (b == MAP_FAILED) continue;
+
+        volatile uint8_t* regs = (volatile uint8_t*)b;
+
+        // Write low-32 first, then high-32 (matches DPU register update sequence)
+        *((volatile uint32_t*)(regs + INSTR_ADDR_L)) =
+            (uint32_t)(instr_vaddr & 0xFFFFFFFF);
+        *((volatile uint32_t*)(regs + INSTR_ADDR_H)) =
+            (uint32_t)((instr_vaddr >> 32) & 0xFFFFFFFF);
+        __sync_synchronize();
+
+        sim_log("[InstrReload] Wrote instr ptr 0x%016lX to DPU base 0x%08X "
+                "(offset L=0x%03X H=0x%03X)\n",
+                instr_vaddr, base_addr, INSTR_ADDR_L, INSTR_ADDR_H);
+
+        munmap(b, 4096);
+        wrote = true;
+        break;  // stop at first successful mmap
+    }
+    close(fd);
+
+    if (!wrote)
+        sim_log("[InstrReload] ERROR: All DPU base addresses failed to mmap.\n"
+                "[InstrReload] Instruction fault injection NOT active on this run.\n");
+    return wrote;
+}
+
+// ── Get weight region names and sizes only (no raw pointers — get_attr by value) ─
+// Returns map of reg_id → size for logging. Actual data accessed via get_attr copy.
 static void log_weight_regions(const xir::Subgraph* sg) {
     try {
         auto val_map = sg->get_attr<map<string,vector<char>>>(
@@ -804,15 +655,20 @@ static void log_weight_regions(const xir::Subgraph* sg) {
     }
 }
 
+// ── Find byte offset of needle inside haystack ────────────────────────────────
+// Used to locate mc_code bytes inside the xmodel binary for surgical patching.
+// Returns offset of first match, or string::npos if not found.
 static size_t find_bytes_offset(const vector<uint8_t>& haystack,
                                  const vector<char>& needle,
                                  size_t search_start = 0) {
     if(needle.empty() || needle.size() > haystack.size()) return string::npos;
+    // Search using first 32 bytes as signature to keep it fast
     size_t sig_len = min((size_t)32, needle.size());
     const uint8_t* h = haystack.data() + search_start;
     size_t h_len = haystack.size() - search_start;
     for(size_t i = 0; i + sig_len <= h_len; i++){
         if(memcmp(h + i, needle.data(), sig_len) == 0){
+            // Verify full match (first 256 bytes)
             size_t verify_len = min((size_t)256, needle.size());
             if(memcmp(h + i, needle.data(), verify_len) == 0)
                 return search_start + i;
@@ -821,6 +677,10 @@ static size_t find_bytes_offset(const vector<uint8_t>& haystack,
     return string::npos;
 }
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Cached file offsets for INSTRUCTIONS and WEIGHTS (computed once at startup)
+// Avoids 25MB get_attr copy + find_bytes_offset search every single run.
+// ─────────────────────────────────────────────────────────────────────────────
 static size_t g_mc_code_offset = string::npos;
 static size_t g_mc_code_size   = 0;
 static size_t g_weight_offset  = string::npos;
@@ -830,6 +690,7 @@ static void cache_region_offsets(const xir::Subgraph* sg,
                                   const vector<uint8_t>& clean_model) {
     auto* sgm = const_cast<xir::Subgraph*>(sg);
 
+    // mc_code
     try {
         auto mc = sgm->get_attr<vector<char>>("mc_code");
         if(!mc.empty()){
@@ -843,6 +704,7 @@ static void cache_region_offsets(const xir::Subgraph* sg,
         }
     } catch(...) { sim_log("[Cache] mc_code attr not available\n"); }
 
+    // weights (first non-empty entry of reg_id_to_parameter_value)
     try {
         auto wmap = sgm->get_attr<map<string,vector<char>>>(
                         "reg_id_to_parameter_value");
@@ -860,9 +722,8 @@ static void cache_region_offsets(const xir::Subgraph* sg,
     } catch(...) { sim_log("[Cache] reg_id_to_parameter_value attr not available\n"); }
 }
 
-// -----------------------------------------------------------------------------
-// INFERENCE HELPER
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
 struct InferenceResult {
     bool     ok            = false;
     bool     timed_out     = false;
@@ -901,15 +762,18 @@ static InferenceResult run_inference(
 
     vector<vart::TensorBuffer*> ip={ibuf[0].get()}, op={obuf[0].get()};
 
+    // Solution 3: track subgraph
     g_tracker.reset(1);
 
+    // Solution 1: timeout
     int ret = run_with_timeout(runner, ip, op, INFERENCE_TIMEOUT_MS);
 
     if(ret==1){ R.timed_out=true;  return R; }
     if(ret==2){ R.exception=true;  return R; }
 
-    g_tracker.mark_complete();
+    g_tracker.mark_complete();  // Solution 3
 
+    // Solution 4: sanity
     if(!output_tensor_sane(fcBuf,outSz)){ R.output_bad=true; }
 
     vector<float> sm(outSz);
@@ -923,9 +787,9 @@ static InferenceResult run_inference(
     return R;
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // GOLDEN BASELINE
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 static bool run_golden_baseline(vart::Runner* runner,
                                 const vector<string>& images,
                                 const vector<string>& kinds){
@@ -969,34 +833,17 @@ static bool run_golden_baseline(vart::Runner* runner,
     return true;
 }
 
-// -----------------------------------------------------------------------------
-// SUBPROCESS INFERENCE  (INSTRUCTIONS and WEIGHTS fault targets)
-// -----------------------------------------------------------------------------
-/*
- * run_in_subprocess()
- * ===================
- * Isolates VART's abort() from the main process.
- *
- * KEY CHANGES vs original:
- *
- *   1. Child sets XLNX_DPU_TIMEOUT = CHILD_DPU_TIMEOUT_STR (10s).
- *      This activates VART's internal DPU watchdog timer.  When the DPU
- *      hangs on corrupted instructions, VART's timeout thread calls
- *      LOG(FATAL) -> abort() after exactly 10 seconds, killing only the
- *      child.  Without this env var the child hangs indefinitely and the
- *      parent must SIGKILL it manually at INFERENCE_TIMEOUT_MS + 15s.
- *
- *   2. On child death the parent now calls recover_dpu_after_hang()
- *      instead of a single-shot hardware_reset_dpu() + recreate_runner().
- *      recover_dpu_after_hang() tries all 6 hardware reset methods and
- *      retries runner creation up to MAX_RECOVERY_ATTEMPTS times with
- *      exponential backoff.  This is the fix for the DPU remaining hung
- *      after the first recovery attempt fails.
- *
- *   3. The corrupted xmodel file is always unlinked before returning,
- *      whether the child succeeded or not, to prevent stale files
- *      accumulating in /tmp/.
- */
+// ─────────────────────────────────────────────────────────────────────────────
+// SUBPROCESS INFERENCE — isolates VART abort() from the main process
+//
+// When corrupted instructions/weights cause a DPU hang, VART's worker thread
+// calls LOG(FATAL) → abort(). This cannot be caught by try/catch or signal
+// handlers since it originates in a background thread.
+//
+// Solution: fork() a child. Child runs the corrupted inference and may die
+// from VART's abort(). Parent detects child death, resets DPU IP via /dev/mem
+// (zocl already cleaned up ERT when child exited), recreates main runner.
+// ─────────────────────────────────────────────────────────────────────────────
 static bool run_in_subprocess(
     const string& corrupted_path,
     const int8_t* imgBuf,
@@ -1007,29 +854,18 @@ static bool run_in_subprocess(
     RunResult& RES)
 {
     int pfd[2];
-    if(pipe(pfd)!=0){
-        sim_log("[Run %4d] pipe: %s\n",run_id,strerror(errno));
-        RES.crash=true; return false;
-    }
+    if(pipe(pfd)!=0){ sim_log("[Run %4d] pipe: %s\n",run_id,strerror(errno));
+                      RES.crash=true; return false; }
 
     pid_t pid = fork();
-    if(pid<0){
-        close(pfd[0]); close(pfd[1]);
-        sim_log("[Run %4d] fork: %s\n",run_id,strerror(errno));
-        RES.crash=true; return false;
-    }
+    if(pid<0){ close(pfd[0]); close(pfd[1]);
+               sim_log("[Run %4d] fork: %s\n",run_id,strerror(errno));
+               RES.crash=true; return false; }
 
     if(pid==0){
-        // -- CHILD ---------------------------------------------------------
+        // ── CHILD ─────────────────────────────────────────────────────────
         close(pfd[0]);
         auto die=[&](){ write(pfd[1],"DUE\n",4); close(pfd[1]); _exit(1); };
-
-        // FIX 1: Set VART's DPU timeout watchdog so the child's VART
-        //        aborts itself after CHILD_DPU_TIMEOUT_STR seconds of DPU hang.
-        //        This prevents the child from blocking indefinitely and
-        //        ensures the DPU IP reset fires at a predictable time.
-        setenv("XLNX_DPU_TIMEOUT", CHILD_DPU_TIMEOUT_STR, 1);
-
         try {
             auto cg   = xir::Graph::deserialize(corrupted_path);
             auto csgv = get_dpu_subgraph(cg.get());
@@ -1054,9 +890,8 @@ static bool run_in_subprocess(
             cob.push_back(make_unique<CpuFlatTensorBuffer>(cfcBuf.data(),cbt.back().get()));
             vector<vart::TensorBuffer*> ip={cib[0].get()},op={cob[0].get()};
 
-            // No software timeout in child -- XLNX_DPU_TIMEOUT handles this.
-            // If DPU hangs: VART's internal watchdog fires -> LOG(FATAL) -> abort()
-            // -> child exits with SIGABRT -> parent detects and calls recover_dpu_after_hang().
+            // No software timeout — VART's XLNX_DPU_TIMEOUT will abort() this
+            // child if the DPU hangs; the parent process is unaffected.
             auto fut=cr->execute_async(ip,op);
             cr->wait(fut.first,-1);
 
@@ -1073,11 +908,9 @@ static bool run_in_subprocess(
         } catch(...){ die(); }
     }
 
-    // -- PARENT ------------------------------------------------------------
+    // ── PARENT ────────────────────────────────────────────────────────────
     close(pfd[1]);
-
-    // Wait for child. Timeout = VART's internal timeout + 15s safety margin.
-    // The child should self-abort via XLNX_DPU_TIMEOUT after ~10s of DPU hang.
+    // Wait up to VART DPU timeout + 15s margin
     const int WAIT_MS = INFERENCE_TIMEOUT_MS + 15000;
     auto t0c = chrono::steady_clock::now();
     int wst=0; pid_t wr=0;
@@ -1086,51 +919,29 @@ static bool run_in_subprocess(
         if(wr==pid) break;
         if(chrono::duration_cast<chrono::milliseconds>(
                chrono::steady_clock::now()-t0c).count()>WAIT_MS){
-            sim_log("[Run %4d] Child exceeded wait budget (%d ms) -- SIGKILL\n",
-                    run_id, WAIT_MS);
             kill(pid,SIGKILL); waitpid(pid,&wst,0); break;
         }
         this_thread::sleep_for(chrono::milliseconds(100));
     }
-
-    // Always read pipe and unlink temp file
     char rbuf[256]={}; read(pfd[0],rbuf,sizeof(rbuf)-1);
     close(pfd[0]);
     unlink(corrupted_path.c_str());
 
-    bool child_ok = (WIFEXITED(wst)&&WEXITSTATUS(wst)==0);
-    if(!child_ok){
-        // Child died -- DPU hung from corrupted instructions (hard SEFI).
-        // The child process exiting frees zocl's ERT execution context,
-        // but the DPU IP core FSM is still locked at the hardware level.
-        //
-        // FIX 2: Call recover_dpu_after_hang() instead of a single-shot
-        // hardware_reset_dpu() + recreate_runner(). This retries the full
-        // hardware reset + runner creation sequence MAX_RECOVERY_ATTEMPTS
-        // times with exponential backoff, giving the PL domain enough time
-        // to stabilize before VART tries to re-enumerate the DPU device.
-        sim_log("[Run %4d] Subprocess died (exit=%d sig=%d) -- DPU SEFI detected\n",
-                run_id,
-                WIFEXITED(wst)   ? WEXITSTATUS(wst) : -1,
-                WIFSIGNALED(wst) ? WTERMSIG(wst)    : 0);
-        sim_log("[Run %4d] Initiating full DPU recovery...\n", run_id);
-
-        bool recovered = recover_dpu_after_hang(runner, sg, run_id);
-        RES.recovered = recovered;
-        RES.timeout   = true;  // Counts as DUE (Detected Unrecoverable Error)
-
-        if (!recovered) {
-            sim_log("[Run %4d] WARNING: DPU recovery failed -- "
-                    "subsequent runs may also time out\n", run_id);
-        }
-        return true;
+    bool ok = (WIFEXITED(wst)&&WEXITSTATUS(wst)==0);
+    if(!ok){
+        // Child died (DPU hung → VART abort, or deserialization crash).
+        // zocl cleaned up ERT on child exit. Reset DPU IP via /dev/mem.
+        sim_log("[Run %4d] Subprocess died — DUE. Resetting DPU IP...\n",run_id);
+        hardware_reset_dpu();
+        this_thread::sleep_for(chrono::milliseconds(2000));
+        // Recreate main runner so parent's XRT context is fresh.
+        auto nr=recreate_runner(sg);
+        if(nr){ runner=nr.release();
+                sim_log("[Run %4d] Main runner recreated\n",run_id); }
+        RES.timeout=true; return true;
     }
 
-    // Child exited cleanly -- parse result
-    if(strncmp(rbuf,"OK ",3)!=0){
-        sim_log("[Run %4d] Child OK exit but bad pipe data: '%s'\n", run_id, rbuf);
-        RES.crash=true; return true;
-    }
+    if(strncmp(rbuf,"OK ",3)!=0){ RES.crash=true; return true; }
     int ftop1,t0r,t1r,t2r,t3r,t4r; float fprob;
     if(sscanf(rbuf+3,"%d %f %d %d %d %d %d",
               &ftop1,&fprob,&t0r,&t1r,&t2r,&t3r,&t4r)<2){
@@ -1148,9 +959,9 @@ static bool run_in_subprocess(
     return true;
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // SINGLE FAULTY RUN
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 static bool perform_faulty_run(vart::Runner*& runner,
                                const xir::Subgraph* sg,
                                const vector<uint8_t>& clean_model,
@@ -1201,31 +1012,70 @@ static bool perform_faulty_run(vart::Runner*& runner,
     }
     preprocess_image(raw,imgBuf.data(),inH,inW,in_scale);
 
-    // -- FAULT INJECTION -------------------------------------------------------
+    // ── FAULT INJECTION ───────────────────────────────────────────────────────
     vector<FlipInfo> flips;
     uint8_t* flip_base = nullptr;
     size_t   flip_size = 0;
     string   flip_tag;
 
-    if(eff==FaultTarget::INSTRUCTIONS){
-        // -- File-patch + subprocess for INSTRUCTIONS only --------------------
-        // Corrupted instructions lock the DPU FSM (hard SEFI) so we isolate
-        // in a child process. Never mix with WEIGHTS -- WEIGHTS do not need
-        // a subprocess and the XRT buffer re-allocation inside the child
-        // crashes with allocation failure on ZCU104.
-        if(clean_model.empty() || g_mc_code_offset==string::npos || g_mc_code_size==0){
-            sim_log("[Run %4d] mc_code region not cached -- skipping\n",run_id);
+    if(eff==FaultTarget::INSTRUCTIONS || eff==FaultTarget::WEIGHTS){
+        // ── Unified file-patch approach for both INSTRUCTIONS and WEIGHTS ────
+        //
+        // INSTRUCTIONS: mc_code bytes are 742492 bytes in the file.
+        //   DPU on-chip SRAM is programmed at first create_runner and persists.
+        //   We must hardware_reset_dpu() to clear on-chip SRAM, then load fresh.
+        //
+        // WEIGHTS: REG_0 is 25.7MB — too large for on-chip SRAM, always in DDR4.
+        //   create_runner(new_subgraph) allocates DDR4 and DMAs weights from file.
+        //   We must NOT call create_runner(original_sg) — that segfaults because
+        //   a runner already exists on it. Use csg[0] from the new deserialized graph.
+        //
+        // Shared procedure:
+        //   1. find attr bytes in clean_model binary
+        //   2. flip k bits only within that byte range
+        //   3. write patched file to /tmp/
+        //   4. [INSTRUCTIONS only] hardware reset to clear on-chip SRAM
+        //   5. deserialize + create_runner(csg[0])
+        //   6. run inference, record result
+
+        if(clean_model.empty()){
+            sim_log("[Run %4d] clean_model not loaded\n",run_id);
             RES.crash=true; return false;
         }
+
+        // Use cached file offsets (computed once at startup by cache_region_offsets)
+        size_t attr_offset, attr_size;
+        string attr_name;
+        if(eff==FaultTarget::INSTRUCTIONS){
+            attr_offset = g_mc_code_offset;
+            attr_size   = g_mc_code_size;
+            attr_name   = "mc_code";
+        } else {
+            attr_offset = g_weight_offset;
+            attr_size   = g_weight_size;
+            attr_name   = "WEIGHTS[REG_0]";
+        }
+
+        if(attr_offset == string::npos || attr_size == 0){
+            sim_log("[Run %4d] %s region not cached — skipping\n",run_id,attr_name.c_str());
+            RES.crash=true; return false;
+        }
+
+        // Make per-run copy, flip k bits only within attr payload range
         vector<uint8_t> patched = clean_model;
+        if(cfg.verbose)
+            sim_log("  [Patch] %s at file offset %zu  size=%zu bytes\n",
+                    attr_name.c_str(), attr_offset, attr_size);
         vector<FlipInfo> pf = inject_sbu(
-            patched.data() + g_mc_code_offset, g_mc_code_size,
-            cfg.k, rng, cfg.verbose, "mc_code");
+            patched.data() + attr_offset, attr_size,
+            cfg.k, rng, cfg.verbose, attr_name.c_str());
         if(!pf.empty()){
-            RES.fault_byte_offset = g_mc_code_offset + pf[0].offset;
+            RES.fault_byte_offset = attr_offset + pf[0].offset;
             RES.fault_addr        = RES.fault_byte_offset;
             RES.fault_bit         = pf[0].bit;
         }
+
+        // Write patched file
         {
             ofstream out(CORRUPTED_MODEL_PATH, ios::binary);
             if(!out){
@@ -1234,85 +1084,17 @@ static bool perform_faulty_run(vart::Runner*& runner,
             }
             out.write(reinterpret_cast<const char*>(patched.data()), patched.size());
         }
+
+        // Run corrupted inference in a subprocess so VART's abort() on DPU hang
+        // kills only the child, not the main simulator process.
         return run_in_subprocess(
             CORRUPTED_MODEL_PATH,
             imgBuf.data(), outSz, out_scale,
             run_id, cfg.verbose,
             runner, sg, RES);
 
-    } else if(eff==FaultTarget::WEIGHTS){
-        // -- Direct in-memory flip for WEIGHTS --------------------------------
-        // Weights live in DDR4 and are already mapped into this process via
-        // the XIR subgraph attribute pointer. Flipping them NEVER locks the
-        // DPU FSM -- worst case is SDC (wrong conv output). We flip directly,
-        // run inference on the existing runner, then restore. No subprocess,
-        // no XRT buffer re-allocation, no recovery needed.
-        try {
-            auto& wmap = const_cast<xir::Subgraph*>(sg)
-                         ->get_attr<map<string,vector<char>>>("reg_id_to_parameter_value");
-            uint8_t* wptr = nullptr;
-            size_t   wsz  = 0;
-            string wname;
-            for(auto& [rid, d] : wmap){
-                if(!d.empty()){
-                    wptr  = reinterpret_cast<uint8_t*>(const_cast<char*>(d.data()));
-                    wsz   = d.size();
-                    wname = rid;
-                    break;
-                }
-            }
-            if(!wptr){
-                sim_log("[Run %4d] No weight region found\n",run_id);
-                RES.crash=true; return false;
-            }
-            if(cfg.verbose)
-                sim_log("  [WeightFlip] region=%s  vaddr=0x%lX  size=%zu\n",
-                        wname.c_str(), (uint64_t)wptr, wsz);
-
-            vector<FlipInfo> wf = inject_sbu(wptr, wsz, cfg.k, rng, cfg.verbose, wname.c_str());
-            if(!wf.empty()){
-                RES.fault_addr       = (uint64_t)wptr + wf[0].offset;
-                RES.fault_byte_offset= wf[0].offset;
-                RES.fault_bit        = wf[0].bit;
-            }
-
-            // Run inference with corrupted weights in DDR4
-            auto IR = run_inference(runner,
-                                    imgBuf.data(),inSz,inH,inW,
-                                    fcBuf.data(),outSz,out_scale,
-                                    inT[0],outT[0]);
-
-            // Restore immediately -- before any logging or branching
-            if(!wf.empty()) restore_flips(wptr, wf);
-            if(cfg.verbose)
-                sim_log("  [WeightFlip] %zu flips restored in %s\n",
-                        wf.size(), wname.c_str());
-
-            if(IR.timed_out){ RES.timeout=true; return true; }
-            if(IR.exception){ RES.crash=true;   return false; }
-            if(IR.output_bad) RES.output_anomaly=true;
-
-            RES.faulty_top1      = IR.top1;
-            RES.faulty_top1_prob = IR.top1_prob;
-            RES.prob_drop        = g_golden.top1_prob - IR.top1_prob;
-            RES.top1_match       = (IR.top1 == g_golden.top1_class);
-            for(int i=0;i<TOP_K;i++)
-                if(g_golden.top5_classes[i]==IR.top1){RES.top5_match=true;break;}
-            if(cfg.verbose){
-                const char* lbl=(IR.top1>=0&&IR.top1<(int)kinds.size())
-                                ?kinds[IR.top1].c_str():"?";
-                sim_log("[Run %4d] base=%-4d(%.3f) faulty=%-4d(%.3f) %s  %s\n",
-                        run_id, g_golden.top1_class, g_golden.top1_prob,
-                        IR.top1, IR.top1_prob,
-                        RES.top1_match?"MATCH   ":"MISMATCH", lbl);
-            }
-            return true;
-        } catch(const exception& e){
-            sim_log("[Run %4d] Weight attr access failed: %s\n", run_id, e.what());
-            RES.crash=true; return false;
-        }
-
     } else if(eff==FaultTarget::FEATURE_MAPS){
+        // Flip bits in the input DDR4 buffer (imageInputs in main.cc terms)
         flip_base=reinterpret_cast<uint8_t*>(imgBuf.data());
         flip_size=(size_t)inSz;
         flip_tag ="feature_maps";
@@ -1322,16 +1104,18 @@ static bool perform_faulty_run(vart::Runner*& runner,
             RES.fault_byte_offset=flips[0].offset;
             RES.fault_bit        =flips[0].bit;
         }
+        // No restore needed – imgBuf is per-run and re-preprocessed next run
     }
     // BUFFERS: injected AFTER inference (see below)
 
-    // -- RUN INFERENCE ---------------------------------------------------------
+    // ── RUN INFERENCE ─────────────────────────────────────────────────────────
     auto IR=run_inference(runner,
                           imgBuf.data(),inSz,inH,inW,
                           fcBuf.data(),outSz,out_scale,
                           inT[0],outT[0]);
 
-    // -- RESTORE DDR4 BEFORE ANYTHING ELSE (critical!) -------------------------
+    // ── RESTORE DDR4 BEFORE ANYTHING ELSE (critical!) ─────────────────────────
+    // Only reached by WEIGHTS/FEATURE_MAPS/BUFFERS — INSTRUCTIONS returns early.
     if(flip_base && !flips.empty()){
         restore_flips(flip_base,flips);
         if(cfg.verbose)
@@ -1339,19 +1123,18 @@ static bool perform_faulty_run(vart::Runner*& runner,
                     flips.size(),flip_tag.c_str());
     }
 
-    // -- HANDLE TIMEOUT / CRASH ------------------------------------------------
+    // ── HANDLE TIMEOUT / CRASH ────────────────────────────────────────────────
     if(IR.timed_out){
         RES.timeout=true;
         sim_log("[Run %4d] TIMEOUT (DPU hang from %s fault)\n",
                 run_id,targetName(eff).c_str());
-        // SW-only recovery for non-instruction faults: recreate runner only.
+        // SW-only recovery: recreate runner from original model.
         // hardware_reset_dpu() destroys the XRT bitstream state and breaks
-        // all subsequent runs -- only use it for the instruction SEFI case
-        // (handled inside run_in_subprocess above).
+        // all subsequent runs — never use it unless the process is exiting.
         auto nr=recreate_runner(sg);
         if(nr){ runner=nr.release(); RES.recovered=true;
                 sim_log("[Run %4d] Runner restored (SW recreate)\n",run_id); }
-        else   sim_log("[Run %4d] Runner recreate failed\n",run_id);
+        else   sim_log("[Run %4d] Runner recreate failed — subsequent runs may fail\n",run_id);
         return true;
     }
     if(IR.exception){
@@ -1360,8 +1143,9 @@ static bool perform_faulty_run(vart::Runner*& runner,
         return false;
     }
 
-    // -- POST-INFERENCE FAULT INJECTION (BUFFERS) ------------------------------
+    // ── POST-INFERENCE FAULT INJECTION (BUFFERS) ──────────────────────────────
     if(eff==FaultTarget::BUFFERS){
+        // Flip bits in the DPU output DDR4 buffer (FCResult in main.cc terms)
         uint8_t* out_base=reinterpret_cast<uint8_t*>(fcBuf.data());
         auto post_flips=inject_sbu(out_base,(size_t)outSz,
                                    cfg.k,rng,cfg.verbose,"buffers");
@@ -1369,6 +1153,8 @@ static bool perform_faulty_run(vart::Runner*& runner,
             RES.fault_addr       =(uint64_t)out_base+post_flips[0].offset;
             RES.fault_byte_offset=post_flips[0].offset;
             RES.fault_bit        =post_flips[0].bit;
+            // Re-run softmax on corrupted fcBuf
+            // (run_inference already ran on clean output; redo postprocessing)
             if(!output_tensor_sane(fcBuf.data(),outSz)) RES.output_anomaly=true;
             vector<float> sm(outSz);
             CPUCalcSoftmax(fcBuf.data(),outSz,sm.data(),out_scale);
@@ -1381,7 +1167,7 @@ static bool perform_faulty_run(vart::Runner*& runner,
 
     if(IR.output_bad) RES.output_anomaly=true;
 
-    // -- COMPARE AGAINST GOLDEN ------------------------------------------------
+    // ── COMPARE AGAINST GOLDEN ────────────────────────────────────────────────
     RES.faulty_top1      =IR.top1;
     RES.faulty_top1_prob =IR.top1_prob;
     RES.prob_drop        =g_golden.top1_prob-IR.top1_prob;
@@ -1402,15 +1188,20 @@ static bool perform_faulty_run(vart::Runner*& runner,
     return true;
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // STATISTICS
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 struct SimStats {
     int total=0,timeouts=0,crashes=0,anomalies=0,recovered=0;
     int top1_ok=0,top5_ok=0;
 
+    // Coarse accuracy-drop bins (based on top-1 class match)
     int bin_lt1=0,bin_lt2=0,bin_lt5=0,bin_lt10=0,bin_lt20=0,bin_ge20=0;
 
+    // Fine probability degradation bins for TOP-1 class probability
+    // Tracks how much the top-1 class probability dropped vs golden baseline,
+    // even when the top-1 class identity is preserved (fault masked but prob shifted)
+    // Bins: <0.01, <0.05, <0.1, <0.5, <0.75, <1.0, <1.5, <2.0, <3.0, >=3.0  (all in %)
     int pdeg_lt001=0, pdeg_lt005=0, pdeg_lt01=0,  pdeg_lt05=0,
         pdeg_lt075=0, pdeg_lt1=0,   pdeg_lt15=0,  pdeg_lt2=0,
         pdeg_lt3=0,   pdeg_ge3=0;
@@ -1430,6 +1221,7 @@ static void update_stats(SimStats& S, const RunResult& R){
     if(R.top1_match) S.top1_ok++;
     if(R.top5_match) S.top5_ok++;
 
+    // Coarse accuracy-drop bin (100% drop if top-1 class changed)
     float drop=!R.top1_match?100.f:fabsf(R.prob_drop)*100.f;
     if     (drop< 1.f) S.bin_lt1++;
     else if(drop< 2.f) S.bin_lt2++;
@@ -1438,7 +1230,10 @@ static void update_stats(SimStats& S, const RunResult& R){
     else if(drop<20.f) S.bin_lt20++;
     else               S.bin_ge20++;
 
-    float pd = fabsf(R.prob_drop) * 100.f;
+    // Fine probability degradation bin (always based on raw prob_drop)
+    // prob_drop = baseline_prob - faulty_prob  (positive = degraded)
+    // Use absolute value; negative means prob accidentally increased
+    float pd = fabsf(R.prob_drop) * 100.f;  // convert to percentage points
     if     (pd < 0.01f) S.pdeg_lt001++;
     else if(pd < 0.05f) S.pdeg_lt005++;
     else if(pd < 0.10f) S.pdeg_lt01++;
@@ -1510,7 +1305,7 @@ static void print_report(const SimStats& S, const SimConfig& cfg,
     sim_log("  drop <  0.05pp : %5d  (%5.1f%%)\n",S.pdeg_lt005,pct(S.pdeg_lt005,valid));
     sim_log("  drop <  0.10pp : %5d  (%5.1f%%)\n",S.pdeg_lt01, pct(S.pdeg_lt01, valid));
     sim_log("  drop <  0.50pp : %5d  (%5.1f%%)\n",S.pdeg_lt05, pct(S.pdeg_lt05, valid));
-    sim_log("  drop <  0.75pp : %5d  (%5.1f%%)  \n",S.pdeg_lt075,pct(S.pdeg_lt075,valid));
+    sim_log("  drop <  0.75pp : %5d  (%5.1f%%)\n",S.pdeg_lt075,pct(S.pdeg_lt075,valid));
     sim_log("  drop <  1.00pp : %5d  (%5.1f%%)\n",S.pdeg_lt1,  pct(S.pdeg_lt1,  valid));
     sim_log("  drop <  1.50pp : %5d  (%5.1f%%)\n",S.pdeg_lt15, pct(S.pdeg_lt15, valid));
     sim_log("  drop <  2.00pp : %5d  (%5.1f%%)\n",S.pdeg_lt2,  pct(S.pdeg_lt2,  valid));
@@ -1560,9 +1355,9 @@ static void print_report(const SimStats& S, const SimConfig& cfg,
     sim_log("========================================================\n");
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // CSV
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 static void write_csv(const vector<RunResult>& results, const string& path){
     ofstream f(path);
     if(!f){fprintf(stderr,"[CSV] Cannot write %s\n",path.c_str());return;}
@@ -1583,9 +1378,9 @@ static void write_csv(const vector<RunResult>& results, const string& path){
     printf("[CSV] Results -> %s\n",path.c_str());
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // UI
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 static FaultTarget parse_target(const string& s){
     string lo=s; transform(lo.begin(),lo.end(),lo.begin(),::tolower);
     if(lo=="instructions")                         return FaultTarget::INSTRUCTIONS;
@@ -1622,9 +1417,9 @@ static SimConfig prompt_user(const string& model_path){
     return cfg;
 }
 
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 // MAIN
-// -----------------------------------------------------------------------------
+// ─────────────────────────────────────────────────────────────────────────────
 int main(int argc, char* argv[]){
     if(argc<2){
         printf("Usage: %s <model.xmodel> [N] [k] [target] [-v]\n",argv[0]);
@@ -1634,6 +1429,8 @@ int main(int argc, char* argv[]){
 
     mt19937 rng(static_cast<uint32_t>(time(nullptr))^(uint32_t)getpid());
 
+    // Install signal handlers for SIGSEGV/SIGABRT — used to catch DPU driver
+    // crashes when loading corrupted instructions (INSTRUCTIONS fault target).
     install_crash_handlers();
 
     SimConfig cfg; cfg.model_path=argv[1];
@@ -1681,7 +1478,7 @@ int main(int argc, char* argv[]){
             outT[0]->get_name().c_str(),
             shapes.outTensorList[0].size);
 
-    // Load clean model bytes once -- used for per-run xmodel corruption
+    // Load clean model bytes once — used for per-run xmodel corruption (INSTRUCTIONS)
     vector<uint8_t> clean_model;
     {
         ifstream mf(cfg.model_path, ios::binary);
@@ -1693,7 +1490,7 @@ int main(int argc, char* argv[]){
             fprintf(stderr,"[Error] Model smaller than XMODEL_SAFE_SKIP\n"); return -1; }
     }
 
-    // Resolve DDR4 regions
+    // Then resolve and print the specific fault injection regions
     sim_log("[DDR4 Map] Resolving fault injection regions...\n");
     { auto h=get_instruction_region(subgraph[0]);
       if(!h.ptr) sim_log("[DDR4 Map] WARNING: instruction region unavailable\n"); }
@@ -1703,7 +1500,7 @@ int main(int argc, char* argv[]){
     sim_log("[DDR4 Map] Output buffer: size=%d bytes (addr allocated per-run)\n",
             shapes.outTensorList[0].size);
 
-    // Cache file offsets once -- avoids 25MB get_attr copy per run
+    // Cache file offsets for INSTRUCTIONS and WEIGHTS (once — avoids 25MB copy per run)
     cache_region_offsets(subgraph[0], clean_model);
 
     // Baseline
@@ -1729,11 +1526,10 @@ int main(int argc, char* argv[]){
         bool ok=perform_faulty_run(runner,subgraph[0],clean_model,images,kinds,
                                    cfg,run,rng,R);
         if(!ok&&!R.timeout){
-            sim_log("[Main] Hard crash run %d -- attempting full recovery\n",run);
-            bool recovered = recover_dpu_after_hang(runner, subgraph[0], run);
-            R.recovered = recovered;
-            if(!recovered)
-                sim_log("[Main] Recovery failed for run %d\n", run);
+            sim_log("[Main] Hard crash run %d\n",run);
+            auto nr=recreate_runner(subgraph[0]);
+            if(nr){runner=nr.release();R.recovered=true;}
+            else  sim_log("[Main] Runner recreate failed\n");
         }
         update_stats(stats,R);
         all_results.push_back(R);
