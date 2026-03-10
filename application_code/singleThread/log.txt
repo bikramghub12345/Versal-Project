@@ -1,0 +1,144 @@
+root@xilinx-zcu104-20222:~/Vitis-AI/examples/vai_runtime/resnet50# ./resnet50_st /usr/share/vitis_ai_library/models/resnet50/resnet50.xmodel ./image_test/
+[Model]  /usr/share/vitis_ai_library/models/resnet50/resnet50.xmodel
+[Input]  data_fixed  size=150528  h=224  w=224
+[Output] fc1000_fixed  size=1000
+
+[Info] Found 16 images in ./image_test/
+
+[   1 /   16]  brain_coral.jpg
+  time=21.85 ms
+  top[0]  prob=0.982662  class=109  brain coral
+  top[1]  prob=0.008502  class=973  coral reef
+  top[2]  prob=0.006621  class=955  jackfruit, jak, jack
+  top[3]  prob=0.000543  class=397  puffer, pufferfish, blowfish, globefish
+  top[4]  prob=0.000330  class=390  eel
+
+[   2 /   16]  cheetah.jpg
+  time=21.85 ms
+  top[0]  prob=0.539918  class=293  cheetah, chetah, Acinonyx jubatus
+  top[1]  prob=0.420489  class=288  leopard, Panthera pardus
+  top[2]  prob=0.016304  class=290  jaguar, panther, Panthera onca, Felis onca
+  top[3]  prob=0.016304  class=289  snow leopard, ounce, Panthera uncia
+  top[4]  prob=0.000812  class=41  whiptail, whiptail lizard
+
+[   3 /   16]  cookie.jpg
+  time=31.94 ms
+  top[0]  prob=0.327276  class=996  hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa
+  top[1]  prob=0.154594  class=993  gyromitra
+  top[2]  prob=0.154594  class=961  dough
+  top[3]  prob=0.044292  class=988  acorn
+  top[4]  prob=0.034495  class=991  coral fungus
+
+[   4 /   16]  cucumber_and vase.jpg
+  time=31.96 ms
+  top[0]  prob=0.244280  class=868  tray
+  top[1]  prob=0.190245  class=968  cup
+  top[2]  prob=0.115390  class=883  vase
+  top[3]  prob=0.069987  class=572  goblet
+  top[4]  prob=0.054506  class=923  plate
+
+[   5 /   16]  deer.jpg
+  time=23.81 ms
+  top[0]  prob=0.855315  class=353  gazelle
+  top[1]  prob=0.115754  class=352  impala, Aepyceros melampus
+  top[2]  prob=0.007400  class=351  hartebeest
+  top[3]  prob=0.003495  class=355  llama
+  top[4]  prob=0.002120  class=350  ibex, Capra ibex
+
+[   6 /   16]  dog.jpg
+  time=24.36 ms
+  top[0]  prob=0.071502  class=161  basset, basset hound
+  top[1]  prob=0.043368  class=292  tiger, Panthera tigris
+  top[2]  prob=0.043368  class=163  bloodhound, sleuthhound
+  top[3]  prob=0.033775  class=212  English setter
+  top[4]  prob=0.020486  class=843  swing
+
+[   7 /   16]  donut.jpg
+  time=29.05 ms
+  top[0]  prob=0.477851  class=934  hotdog, hot dog, red hot
+  top[1]  prob=0.106623  class=415  bakery, bakeshop, bakehouse
+  top[2]  prob=0.083038  class=930  French loaf
+  top[3]  prob=0.050365  class=932  pretzel
+  top[4]  prob=0.039224  class=960  chocolate sauce, chocolate syrup
+
+[   8 /   16]  fire.jpg
+  time=26.30 ms
+  top[0]  prob=0.409548  class=556  fire screen, fireguard
+  top[1]  prob=0.318956  class=766  rotisserie
+  top[2]  prob=0.091382  class=827  stove
+  top[3]  prob=0.033618  class=469  caldron, cauldron
+  top[4]  prob=0.020390  class=567  frying pan, frypan, skillet
+
+[   9 /   16]  flower.jpg
+  time=21.30 ms
+  top[0]  prob=0.375921  class=985  daisy
+  top[1]  prob=0.228008  class=883  vase
+  top[2]  prob=0.039622  class=619  lampshade, lamp shade
+  top[3]  prob=0.018716  class=846  table lamp
+  top[4]  prob=0.018716  class=631  lotion
+
+[  10 /   16]  icecream.jpg
+  time=27.88 ms
+  top[0]  prob=0.996087  class=928  ice cream, icecream
+  top[1]  prob=0.000707  class=969  eggnog
+  top[2]  prob=0.000429  class=960  chocolate sauce, chocolate syrup
+  top[3]  prob=0.000429  class=929  ice lolly, lolly, lollipop, popsicle
+  top[4]  prob=0.000334  class=112  conch
+
+[  11 /   16]  lego_head.jpg
+  time=30.94 ms
+  top[0]  prob=0.295855  class=987  corn
+  top[1]  prob=0.295855  class=582  grocery store, grocery, food market, market
+  top[2]  prob=0.084764  class=767  rubber eraser, rubber, pencil eraser
+  top[3]  prob=0.066014  class=509  confectionery, confectionary, candy store
+  top[4]  prob=0.051412  class=852  tennis ball
+
+[  12 /   16]  lotus.jpg
+  time=25.57 ms
+  top[0]  prob=0.133153  class=738  pot, flowerpot
+  top[1]  prob=0.062897  class=985  daisy
+  top[2]  prob=0.062897  class=883  vase
+  top[3]  prob=0.048984  class=588  hamper
+  top[4]  prob=0.048984  class=580  greenhouse, nursery, glasshouse
+
+[  13 /   16]  moon.jpg
+  time=20.41 ms
+  top[0]  prob=0.396087  class=971  bubble
+  top[1]  prob=0.240239  class=818  spotlight, spot
+  top[2]  prob=0.068830  class=677  nail
+  top[3]  prob=0.053605  class=852  tennis ball
+  top[4]  prob=0.015358  class=618  ladle
+
+[  14 /   16]  sunflower.jpg
+  time=22.40 ms
+  top[0]  prob=0.540041  class=309  bee
+  top[1]  prob=0.327551  class=985  daisy
+  top[2]  prob=0.044329  class=984  rapeseed
+  top[3]  prob=0.016308  class=324  cabbage butterfly
+  top[4]  prob=0.009891  class=325  sulphur butterfly, sulfur butterfly
+
+[  15 /   16]  watermelon.jpg
+  time=29.95 ms
+  top[0]  prob=0.794678  class=861  toilet seat
+  top[1]  prob=0.107548  class=768  rugby ball
+  top[2]  prob=0.039565  class=952  fig
+  top[3]  prob=0.006875  class=939  zucchini, courgette
+  top[4]  prob=0.006875  class=808  sombrero
+
+[  16 /   16]  woman_face.jpg
+  time=30.03 ms
+  top[0]  prob=0.141929  class=435  bathtub, bathing tub, bath, tub
+  top[1]  prob=0.110534  class=876  tub, vat
+  top[2]  prob=0.067042  class=614  kimono
+  top[3]  prob=0.067042  class=419  Band Aid
+  top[4]  prob=0.052213  class=903  wig
+
+════════════════════════════════════════
+  TIMING SUMMARY  (16 images)
+════════════════════════════════════════
+  Total time       :   419.61 ms  (0.420 s)
+  Avg time/image   :    26.23 ms
+  FPS              :    38.13  (= 1000 / 26.23 ms)
+════════════════════════════════════════
+
+[Done] Processed 16 / 16 images.

@@ -1,0 +1,143 @@
+root@xilinx-zcu104-20222:~/Vitis-AI/examples/vai_runtime/resnet50# ./resnet50_mt /usr/share/vitis_ai_library/models/resnet50/resnet50.xmodel ./image_test/ 2
+════════════════════════════════════════════
+  ResNet50 Multi-Thread Inference
+════════════════════════════════════════════
+  Model       : /usr/share/vitis_ai_library/models/resnet50/resnet50.xmodel
+  Image folder: ./image_test/
+  Images      : 16
+  Threads     : 2
+  Input size  : 150528  (224x224)
+  Output size : 1000
+════════════════════════════════════════════
+
+[   1 /   16]  brain_coral.jpg                 time= 22.84 ms  thread=0
+  top[0]  prob=0.982662  class=109  brain coral
+  top[1]  prob=0.000000  class=973  coral reef
+  top[2]  prob=0.000000  class=955  jackfruit, jak, jack
+  top[3]  prob=0.000000  class=397  puffer, pufferfish, blowfish, globefish
+  top[4]  prob=0.000000  class=390  eel
+
+[   2 /   16]  cheetah.jpg                     time= 23.46 ms  thread=0
+  top[0]  prob=0.539918  class=293  cheetah, chetah, Acinonyx jubatus
+  top[1]  prob=0.000000  class=288  leopard, Panthera pardus
+  top[2]  prob=0.000000  class=290  jaguar, panther, Panthera onca, Felis onca
+  top[3]  prob=0.000000  class=289  snow leopard, ounce, Panthera uncia
+  top[4]  prob=0.000000  class=41  whiptail, whiptail lizard
+
+[   3 /   16]  cookie.jpg                      time= 34.44 ms  thread=0
+  top[0]  prob=0.327276  class=996  hen-of-the-woods, hen of the woods, Polyporus frondosus, Grifola frondosa
+  top[1]  prob=0.000000  class=993  gyromitra
+  top[2]  prob=0.000000  class=961  dough
+  top[3]  prob=0.000000  class=988  acorn
+  top[4]  prob=0.000000  class=991  coral fungus
+
+[   4 /   16]  cucumber_and vase.jpg           time= 34.38 ms  thread=0
+  top[0]  prob=0.244280  class=868  tray
+  top[1]  prob=0.000000  class=968  cup
+  top[2]  prob=0.000000  class=883  vase
+  top[3]  prob=0.000000  class=572  goblet
+  top[4]  prob=0.000000  class=923  plate
+
+[   5 /   16]  deer.jpg                        time= 25.58 ms  thread=0
+  top[0]  prob=0.855315  class=353  gazelle
+  top[1]  prob=0.000000  class=352  impala, Aepyceros melampus
+  top[2]  prob=0.000000  class=351  hartebeest
+  top[3]  prob=0.000000  class=355  llama
+  top[4]  prob=0.000000  class=350  ibex, Capra ibex
+
+[   6 /   16]  dog.jpg                         time= 25.56 ms  thread=0
+  top[0]  prob=0.071502  class=161  basset, basset hound
+  top[1]  prob=0.000000  class=292  tiger, Panthera tigris
+  top[2]  prob=0.000000  class=163  bloodhound, sleuthhound
+  top[3]  prob=0.000000  class=212  English setter
+  top[4]  prob=0.000000  class=843  swing
+
+[   7 /   16]  donut.jpg                       time= 29.39 ms  thread=1
+  top[0]  prob=0.477851  class=934  hotdog, hot dog, red hot
+  top[1]  prob=0.000000  class=415  bakery, bakeshop, bakehouse
+  top[2]  prob=0.000000  class=930  French loaf
+  top[3]  prob=0.000000  class=932  pretzel
+  top[4]  prob=0.000000  class=960  chocolate sauce, chocolate syrup
+
+[   8 /   16]  fire.jpg                        time= 27.72 ms  thread=0
+  top[0]  prob=0.409548  class=556  fire screen, fireguard
+  top[1]  prob=0.000000  class=766  rotisserie
+  top[2]  prob=0.000000  class=827  stove
+  top[3]  prob=0.000000  class=469  caldron, cauldron
+  top[4]  prob=0.000000  class=567  frying pan, frypan, skillet
+
+[   9 /   16]  flower.jpg                      time= 21.61 ms  thread=1
+  top[0]  prob=0.375921  class=985  daisy
+  top[1]  prob=0.000000  class=883  vase
+  top[2]  prob=0.000000  class=619  lampshade, lamp shade
+  top[3]  prob=0.000000  class=846  table lamp
+  top[4]  prob=0.000000  class=631  lotion
+
+[  10 /   16]  icecream.jpg                    time= 29.37 ms  thread=0
+  top[0]  prob=0.996087  class=928  ice cream, icecream
+  top[1]  prob=0.000000  class=969  eggnog
+  top[2]  prob=0.000000  class=960  chocolate sauce, chocolate syrup
+  top[3]  prob=0.000000  class=929  ice lolly, lolly, lollipop, popsicle
+  top[4]  prob=0.000000  class=112  conch
+
+[  11 /   16]  lego_head.jpg                   time= 31.48 ms  thread=1
+  top[0]  prob=0.295855  class=987  corn
+  top[1]  prob=0.000000  class=582  grocery store, grocery, food market, market
+  top[2]  prob=0.000000  class=767  rubber eraser, rubber, pencil eraser
+  top[3]  prob=0.000000  class=509  confectionery, confectionary, candy store
+  top[4]  prob=0.000000  class=852  tennis ball
+
+[  12 /   16]  lotus.jpg                       time= 27.41 ms  thread=0
+  top[0]  prob=0.133153  class=738  pot, flowerpot
+  top[1]  prob=0.000000  class=985  daisy
+  top[2]  prob=0.000000  class=883  vase
+  top[3]  prob=0.000000  class=588  hamper
+  top[4]  prob=0.000000  class=580  greenhouse, nursery, glasshouse
+
+[  13 /   16]  moon.jpg                        time= 21.21 ms  thread=1
+  top[0]  prob=0.396087  class=971  bubble
+  top[1]  prob=0.000000  class=818  spotlight, spot
+  top[2]  prob=0.000000  class=677  nail
+  top[3]  prob=0.000000  class=852  tennis ball
+  top[4]  prob=0.000000  class=618  ladle
+
+[  14 /   16]  sunflower.jpg                   time= 23.08 ms  thread=1
+  top[0]  prob=0.540041  class=309  bee
+  top[1]  prob=0.000000  class=985  daisy
+  top[2]  prob=0.000000  class=984  rapeseed
+  top[3]  prob=0.000000  class=324  cabbage butterfly
+  top[4]  prob=0.000000  class=325  sulphur butterfly, sulfur butterfly
+
+[  15 /   16]  watermelon.jpg                  time= 31.42 ms  thread=0
+  top[0]  prob=0.794678  class=861  toilet seat
+  top[1]  prob=0.000000  class=768  rugby ball
+  top[2]  prob=0.000000  class=952  fig
+  top[3]  prob=0.000000  class=939  zucchini, courgette
+  top[4]  prob=0.000000  class=808  sombrero
+
+[  16 /   16]  woman_face.jpg                  time= 29.76 ms  thread=1
+  top[0]  prob=0.141929  class=435  bathtub, bathing tub, bath, tub
+  top[1]  prob=0.000000  class=876  tub, vat
+  top[2]  prob=0.000000  class=614  kimono
+  top[3]  prob=0.000000  class=419  Band Aid
+  top[4]  prob=0.000000  class=903  wig
+
+════════════════════════════════════════════
+  TIMING SUMMARY  (16 images, 2 threads)
+════════════════════════════════════════════
+  Total wall time  :   694.78 ms  (0.695 s)
+  Sum of img times :   438.72 ms
+  Avg time/image   :    27.42 ms
+  Min time/image   :    21.21 ms
+  Max time/image   :    34.44 ms
+────────────────────────────────────────────
+  FPS (wall clock) :    23.03  <- actual throughput
+  FPS (theoretical):    72.94  <- 2 x (1000/27.42ms)
+────────────────────────────────────────────
+  Per-thread breakdown:
+    Thread 0 :  10 images  avg=28.22 ms
+    Thread 1 :   6 images  avg=26.09 ms
+════════════════════════════════════════════
+
+[Done] Processed 16 / 16 images  |  2 threads
+
