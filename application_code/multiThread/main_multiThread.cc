@@ -61,7 +61,8 @@ struct ImageResult {
     int      top1_class   = -1;
     float    top1_prob    = 0.f;
     int      top5[5]      = {};
-    double   time_ms      = 0.0;   // preprocess + DPU + postprocess
+    float    top5_prob[5] = {};
+    double   time_ms      = 0.0;
     int      thread_id    = -1;
 };
 
@@ -247,7 +248,10 @@ void worker(int thread_id,
         R.filename  = imgName;
         R.top1_class= tk[0];
         R.top1_prob = softmax[tk[0]];
-        for (int i = 0; i < 5 && i < (int)tk.size(); i++) R.top5[i] = tk[i];
+        for (int i = 0; i < 5 && i < (int)tk.size(); i++) {
+            R.top5[i]      = tk[i];
+            R.top5_prob[i] = softmax[tk[i]];
+        }
         R.time_ms   = img_ms;
         R.thread_id = thread_id;
 
@@ -375,7 +379,7 @@ int main(int argc, char* argv[]) {
         for (int k = 1; k < 5; k++) {
             int cls = R.top5[k];
             printf("  top[%d]  prob=%.6f  class=%d  %s\n",
-                   k, 0.f, cls,  // prob for top2-5 not stored to keep struct small
+                   k, R.top5_prob[k], cls,
                    cls < (int)kinds.size() ? kinds[cls].c_str() : "?");
         }
         printf("\n");
