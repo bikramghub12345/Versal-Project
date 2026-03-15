@@ -5,19 +5,14 @@
 [Setup] Model in RAM: 26653773 bytes
 [Cache] mc_code: file_offset=25828936  size=742492 bytes
 [Cache] weights[REG_0]: file_offset=99895  size=25726976 bytes
-[Baseline] Clean accuracy: 48/100 = 48.00%
+[Baseline] Clean accuracy: 61/100 = 61.00%
 
 ---------------- k=1 bits ----------------
-[Summary] k=1    correct=48/100  acc=48.00%
-
----------------- k=5 bits ----------------
-[Summary] k=5    correct=49/100  acc=49.00%
-
----------------- k=10 bits ----------------
-[Summary] k=10   correct=49/100  acc=49.00%
-
----------------- k=15 bits ----------------
-[Summary] k=15   correct=49/100  acc=49.00%
-
----------------- k=20 bits ----------------
-[Summary] k=20   correct=50/100  acc=50.00%
+[n01484850/ILSVRC2012_val_00014467.JPEG] Subprocess died DUE. Resetting DPU...
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+[n01484850/ILSVRC2012_val_00019409.JPEG] Subprocess died DUE. Resetting DPU...
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
