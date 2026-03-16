@@ -1,0 +1,23 @@
+[Setup] 1000 classes  |  1000 synsets
+[Setup] 100 images with ground truth labels
+[Setup] Input  data_fixed  size=150528 h=224 w=224
+[Setup] Output fc1000_fixed  size=1000
+[Setup] Model in RAM: 26653773 bytes
+[Cache] mc_code: file_offset=25828936  size=742492 bytes
+[Cache] weights[REG_0]: file_offset=99895  size=25726976 bytes
+[Baseline] Clean accuracy: 75/100 = 75.00%
+
+---------------- k=1 bits ----------------
+[Summary] k=1    baseline=75/100(75.00%)  faulty=75/100(75.00%)
+
+---------------- k=5 bits ----------------
+[Summary] k=5    baseline=75/100(75.00%)  faulty=77/100(77.00%)
+
+---------------- k=10 bits ----------------
+[Summary] k=10   baseline=75/100(75.00%)  faulty=74/100(74.00%)
+
+---------------- k=15 bits ----------------
+[Summary] k=15   baseline=75/100(75.00%)  faulty=75/100(75.00%)
+
+---------------- k=20 bits ----------------
+[Summary] k=20   baseline=75/100(75.00%)  faulty=76/100(76.00%)
