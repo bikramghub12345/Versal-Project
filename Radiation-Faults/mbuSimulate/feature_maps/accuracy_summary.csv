@@ -1,0 +1,6 @@
+bits,total_images,baseline_correctly_classified,baseline_accuracy_pct,correctly_classified,misclassified,accuracy_pct
+100,100,75,75.00,76,24,76.00
+1000,100,75,75.00,71,29,71.00
+5000,100,75,75.00,59,41,59.00
+10000,100,75,75.00,53,47,53.00
+20000,100,75,75.00,33,67,33.00
