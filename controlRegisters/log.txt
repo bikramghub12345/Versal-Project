@@ -1,0 +1,62 @@
+root@xilinx-zcu104-20222:~/Vitis-AI/examples/vai_runtime/resnet50# ./controlRegisters /usr/share/vitis_ai_library/models/resnet50/resnet50.xmodel
+========================================================
+  DPU CONTROL REGISTERS -- DURING INFERENCE
+  Model: /usr/share/vitis_ai_library/models/resnet50/resnet50.xmodel
+  Image: 001.jpg
+========================================================
+
+  DPUCZDX8G_1  (base=0x80000000)
+  Phys Addr     Register            Value (hex)     Value (dec)   AXI Port / DDR4 Bank
+  --------------------------------------------------------------------------------
+  0x80000040  dpu_doneclr         0x00000000    0             S_AXI_CONTROL / -
+  0x80000044  dpu_prof_en         0x00000001    1             S_AXI_CONTROL / -
+  0x80000048  dpu_cmd             0x07070F0F    117903119     S_AXI_CONTROL / -
+  0x80000050  dpu_instr_addr      0x0001B900    112896        M_AXI_GP0 / HPC0
+  0x80000054  dpu_instr_addr      0x00000000    0             M_AXI_GP0 / HPC0 (H32)
+  0x80000058  dpu_prof_addr       0x00000000    0             M_AXI_GP0 / HPC0
+  0x8000005C  dpu_prof_addr       0x00000000    0             M_AXI_GP0 / HPC0 (H32)
+  0x80000060  dpu_base0_addr      0x1C000000    469762048     M_AXI_HP0 / HP0/HP2
+  0x80000064  dpu_base0_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80000068  dpu_base1_addr      0x1D900000    495976448     M_AXI_HP0 / HP0/HP2
+  0x8000006C  dpu_base1_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80000070  dpu_base2_addr      0x1B9C0000    463208448     M_AXI_HP0 / HP0/HP2
+  0x80000074  dpu_base2_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80000078  dpu_base3_addr      0x0596A000    93757440      M_AXI_HP0 / HP0/HP2
+  0x8000007C  dpu_base3_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80000080  dpu_base4_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3
+  0x80000084  dpu_base4_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3(H)
+  0x80000088  dpu_base5_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3
+  0x8000008C  dpu_base5_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3(H)
+  0x80000090  dpu_base6_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3
+  0x80000094  dpu_base6_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3(H)
+  0x80000098  dpu_base7_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3
+  0x8000009C  dpu_base7_addr      0xFFFFFFFF    4294967295    M_AXI_HP2 / HP1/HP3(H)
+
+  DPUCZDX8G_2  (base=0x80001000)
+  Phys Addr     Register            Value (hex)     Value (dec)   AXI Port / DDR4 Bank
+  --------------------------------------------------------------------------------
+  0x80001040  dpu_doneclr         0x00000000    0             S_AXI_CONTROL / -
+  0x80001044  dpu_prof_en         0x00000000    0             S_AXI_CONTROL / -
+  0x80001048  dpu_cmd             0x07070F0F    117903119     S_AXI_CONTROL / -
+  0x80001050  dpu_instr_addr      0x00000000    0             M_AXI_GP0 / HPC0
+  0x80001054  dpu_instr_addr      0x00000000    0             M_AXI_GP0 / HPC0 (H32)
+  0x80001058  dpu_prof_addr       0x00000000    0             M_AXI_GP0 / HPC0
+  0x8000105C  dpu_prof_addr       0x00000000    0             M_AXI_GP0 / HPC0 (H32)
+  0x80001060  dpu_base0_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2
+  0x80001064  dpu_base0_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80001068  dpu_base1_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2
+  0x8000106C  dpu_base1_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80001070  dpu_base2_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2
+  0x80001074  dpu_base2_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80001078  dpu_base3_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2
+  0x8000107C  dpu_base3_addr      0x00000000    0             M_AXI_HP0 / HP0/HP2(H)
+  0x80001080  dpu_base4_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3
+  0x80001084  dpu_base4_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3(H)
+  0x80001088  dpu_base5_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3
+  0x8000108C  dpu_base5_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3(H)
+  0x80001090  dpu_base6_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3
+  0x80001094  dpu_base6_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3(H)
+  0x80001098  dpu_base7_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3
+  0x8000109C  dpu_base7_addr      0x00000000    0             M_AXI_HP2 / HP1/HP3(H)
+
+[Done]
