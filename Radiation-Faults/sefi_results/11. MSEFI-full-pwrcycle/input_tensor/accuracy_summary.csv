@@ -1,0 +1,2 @@
+sefi_mode,total_images,baseline_correct,baseline_accuracy_pct,faulty_correct,faulty_wrong,faulty_accuracy_pct,msefi_recovered,recovery_accuracy_pct
+MSEFI-full-pwrcycle,100,75,75.00,31,69,31.00,37,37.00

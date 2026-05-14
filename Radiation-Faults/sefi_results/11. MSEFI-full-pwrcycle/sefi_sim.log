@@ -1,0 +1,2415 @@
+[Setup] Input  data_fixed  size=150528 h=224 w=224
+[Setup] Output fc1000_fixed  size=1000
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001B9C0000  total=152608 B  pixel_start=+2080 B
+[Baseline] Accuracy: 75/100 = 75.00%
+
+──── target=weights ────
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C239EEA  start=3383018  size=2572697 B  bits~10329594
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001B9C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C091B3E  start=1645374  size=2572697 B  bits~10329797
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001B9C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D26DB03  start=20372227  size=2572697 B  bits~10333003
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BA40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3538F7  start=4536567  size=2572697 B  bits~10332454
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BA40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4E63AD  start=6185901  size=2572697 B  bits~10329395
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BAC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2BB042  start=3911746  size=2572697 B  bits~10328995
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BAC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C26C542  start=3589442  size=2572697 B  bits~10329929
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BCC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2F0042  start=4128834  size=2572697 B  bits~10326355
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BCC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D0F5DFD  start=18832893  size=2572697 B  bits~10334547
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BE80000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C23DB63  start=3398499  size=2572697 B  bits~10327229
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001BE80000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D019533  start=17929523  size=2572697 B  bits~10332402
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001D7C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D25E28B  start=20308619  size=2572697 B  bits~10333005
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001D7C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD913C1  start=15274945  size=2572697 B  bits~10331850
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DA80000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CDE7328  start=15627048  size=2572697 B  bits~10325968
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DA80000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3ADC19  start=4906009  size=2572697 B  bits~10330699
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DD40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C7B4DD5  start=9129429  size=2572697 B  bits~10326797
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DD40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C1A2F6E  start=2764654  size=2572697 B  bits~10332252
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DDC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CF51E1E  start=17112606  size=2572697 B  bits~10333144
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DDC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4471F5  start=22311413  size=2572697 B  bits~10329767
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DE40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C6AA222  start=8036898  size=2572697 B  bits~10329984
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DE40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C849FE2  start=9740258  size=2572697 B  bits~10328173
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DEC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1D63BC  start=19751868  size=2572697 B  bits~10331288
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DEC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2983C4  start=3769284  size=2572697 B  bits~10330225
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DF40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C6CA869  start=8169577  size=2572697 B  bits~10333697
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DF40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2389F6  start=20154870  size=2572697 B  bits~10331405
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DFC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C1576F0  start=2455280  size=2572697 B  bits~10327939
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001DFC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BFCC479  start=836729  size=2572697 B  bits~10334615
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3B993A  start=4954426  size=2572697 B  bits~10327691
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD3CE67  start=14929511  size=2572697 B  bits~10334961
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E0C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD44C01  start=14961665  size=2572697 B  bits~10330362
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E0C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C910D4D  start=10554701  size=2572697 B  bits~10330015
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC630CD  start=14037197  size=2572697 B  bits~10333982
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CE7C786  start=16238470  size=2572697 B  bits~10333998
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E1C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C08EE1E  start=1633822  size=2572697 B  bits~10328624
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E1C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF22207  start=139783  size=2572697 B  bits~10331710
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C89C519  start=10077465  size=2572697 B  bits~10335534
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CE517F1  start=16062449  size=2572697 B  bits~10332425
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E2C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CCF156A  start=14620010  size=2572697 B  bits~10328507
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E2C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4C27B9  start=6039481  size=2572697 B  bits~10330498
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C68218F  start=7872911  size=2572697 B  bits~10335683
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4B39DD  start=22755805  size=2572697 B  bits~10333486
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E3C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D273419  start=20395033  size=2572697 B  bits~10332279
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E3C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CAD9BA4  start=12426148  size=2572697 B  bits~10330770
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D33E314  start=21226260  size=2572697 B  bits~10332880
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CE8083B  start=16255035  size=2572697 B  bits~10330673
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E4C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CEAA1CC  start=16425420  size=2572697 B  bits~10332057
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E4C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB84523  start=13124899  size=2572697 B  bits~10332532
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D165DBC  start=19291580  size=2572697 B  bits~10330576
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC178DA  start=13727962  size=2572697 B  bits~10333846
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E5C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA05B81  start=11557761  size=2572697 B  bits~10331197
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E5C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CF79952  start=17275218  size=2572697 B  bits~10329231
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD4DF0F  start=14999311  size=2572697 B  bits~10332924
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C53A056  start=6529110  size=2572697 B  bits~10331939
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E6C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BFD7910  start=882960  size=2572697 B  bits~10334973
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E6C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C41BA4F  start=5356111  size=2572697 B  bits~10328296
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D124B8C  start=19024780  size=2572697 B  bits~10330617
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CDFE105  start=15720709  size=2572697 B  bits~10333884
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E7C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1EEBA0  start=19852192  size=2572697 B  bits~10330820
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E7C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D0EDCB5  start=18799797  size=2572697 B  bits~10332934
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D081521  start=18355489  size=2572697 B  bits~10324159
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD7DF16  start=15195926  size=2572697 B  bits~10327733
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E8C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB032FD  start=12595965  size=2572697 B  bits~10331723
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E8C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4F24F8  start=6235384  size=2572697 B  bits~10330943
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD798E8  start=15177960  size=2572697 B  bits~10325969
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0A7884  start=1734788  size=2572697 B  bits~10327634
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E9C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC6124C  start=14029388  size=2572697 B  bits~10328704
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001E9C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C655B13  start=7691027  size=2572697 B  bits~10332590
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EA40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D03BAF0  start=18070256  size=2572697 B  bits~10334760
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EA40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA58E2D  start=11898413  size=2572697 B  bits~10330782
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EAC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C18E3AE  start=2679726  size=2572697 B  bits~10332585
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EAC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C118B49  start=2198345  size=2572697 B  bits~10333031
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EB40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CFB086B  start=17500267  size=2572697 B  bits~10330454
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EB40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4B7828  start=5994536  size=2572697 B  bits~10327536
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EBC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB4E311  start=12903185  size=2572697 B  bits~10328770
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EBC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D058D19  start=18189593  size=2572697 B  bits~10329909
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EC40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CE57932  start=16087346  size=2572697 B  bits~10331164
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EC40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CFE4E3B  start=17714747  size=2572697 B  bits~10329598
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001ECC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C1CFDB9  start=2948537  size=2572697 B  bits~10331742
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001ECC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C8250C9  start=9588937  size=2572697 B  bits~10328615
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001ED40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D09AADA  start=18459354  size=2572697 B  bits~10328710
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001ED40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D11AEAC  start=18984620  size=2572697 B  bits~10330608
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EDC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CFD1CCE  start=17636558  size=2572697 B  bits~10332473
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EDC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA53338  start=11875128  size=2572697 B  bits~10333326
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EE40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C6C82A5  start=8159909  size=2572697 B  bits~10332222
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EE40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C8CF3A0  start=10285984  size=2572697 B  bits~10330547
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EEC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2E5B5B  start=4086619  size=2572697 B  bits~10332274
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EEC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C437F06  start=5472006  size=2572697 B  bits~10331043
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EF40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C5DDADC  start=7199452  size=2572697 B  bits~10330834
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EF40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D44472E  start=22300462  size=2572697 B  bits~10333587
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EFC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D02DA25  start=18012709  size=2572697 B  bits~10329858
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001EFC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1481B4  start=19169716  size=2572697 B  bits~10328125
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C025EF4  start=1203956  size=2572697 B  bits~10331144
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2094F4  start=3183860  size=2572697 B  bits~10332147
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F0C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2C8E4D  start=20745805  size=2572697 B  bits~10330410
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F0C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC93DB8  start=14237112  size=2572697 B  bits~10329634
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D448338  start=22315832  size=2572697 B  bits~10334786
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4478C1  start=22313153  size=2572697 B  bits~10326682
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F1C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF6E8D9  start=452825  size=2572697 B  bits~10333928
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F1C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF73F7D  start=475005  size=2572697 B  bits~10330778
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2E372C  start=20854572  size=2572697 B  bits~10333708
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+[Summary] target=weights  baseline=75.00%  faulty=31.00%  recovery=37.00%
+
+──── target=input_tensor ────
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3D2F46  start=5058374  size=2572697 B  bits~10325884
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F2C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C97AEB7  start=10989239  size=2572697 B  bits~10326088
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F2C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1F2F8B  start=19869579  size=2572697 B  bits~10332158
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D0B66A9  start=18572969  size=2572697 B  bits~10332064
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB1CA23  start=12700195  size=2572697 B  bits~10329259
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F3C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CE73BA1  start=16202657  size=2572697 B  bits~10328927
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F3C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CBBE309  start=13361929  size=2572697 B  bits~10325600
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D286115  start=20472085  size=2572697 B  bits~10334003
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C9023D3  start=10494931  size=2572697 B  bits~10329442
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F4C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C6FCF8C  start=8376204  size=2572697 B  bits~10332198
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F4C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4728CF  start=5712079  size=2572697 B  bits~10326469
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CBBA309  start=13345545  size=2572697 B  bits~10333644
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2E97C7  start=20879303  size=2572697 B  bits~10330636
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F5C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C6A6CEB  start=8023275  size=2572697 B  bits~10333017
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F5C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4F9FD7  start=23044055  size=2572697 B  bits~10331824
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CFE515E  start=17715550  size=2572697 B  bits~10331803
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C58E779  start=6875001  size=2572697 B  bits~10335469
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F6C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BFCA1CF  start=827855  size=2572697 B  bits~10334000
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F6C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2863CA  start=3695562  size=2572697 B  bits~10333264
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CCCD574  start=14472564  size=2572697 B  bits~10327999
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C385267  start=4739687  size=2572697 B  bits~10328885
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F7C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C8E9496  start=10392726  size=2572697 B  bits~10332544
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F7C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF9D44F  start=644175  size=2572697 B  bits~10335945
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D45CE87  start=22400647  size=2572697 B  bits~10328303
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C041D9F  start=1318303  size=2572697 B  bits~10333025
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F8C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C090E30  start=1642032  size=2572697 B  bits~10332696
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F8C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C5D7359  start=7172953  size=2572697 B  bits~10332889
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C961C9B  start=10886299  size=2572697 B  bits~10329451
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C579182  start=6787458  size=2572697 B  bits~10329351
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F9C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC7E90E  start=14149902  size=2572697 B  bits~10326555
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001F9C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB3CEB8  start=12832440  size=2572697 B  bits~10333291
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FA40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C71D035  start=8507445  size=2572697 B  bits~10330786
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FA40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D185F54  start=19423060  size=2572697 B  bits~10334095
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FAC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C59A983  start=6924675  size=2572697 B  bits~10328914
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FAC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C108F0B  start=2133771  size=2572697 B  bits~10326560
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FB40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D14E240  start=19194432  size=2572697 B  bits~10333454
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FB40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D363E59  start=21380697  size=2572697 B  bits~10330390
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FBC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB64B53  start=12995411  size=2572697 B  bits~10332986
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FBC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3874B8  start=4748472  size=2572697 B  bits~10333649
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FC40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA95193  start=12145043  size=2572697 B  bits~10336454
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FC40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C04989E  start=1349790  size=2572697 B  bits~10329728
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FCC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3D1CC7  start=5053639  size=2572697 B  bits~10329325
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FCC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3A90E0  start=21663968  size=2572697 B  bits~10331154
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FD40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C423EDD  start=5390045  size=2572697 B  bits~10331384
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FD40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D171608  start=19338760  size=2572697 B  bits~10334547
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FDC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C436D62  start=5467490  size=2572697 B  bits~10327270
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FDC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3AF990  start=21690768  size=2572697 B  bits~10330144
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FE40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2DF9FF  start=20838911  size=2572697 B  bits~10332392
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FE40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF4F3C0  start=324544  size=2572697 B  bits~10330211
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FEC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C251D44  start=3480900  size=2572697 B  bits~10327741
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FEC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C451EF4  start=5578484  size=2572697 B  bits~10332838
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FF40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C00C28A  start=1098378  size=2572697 B  bits~10329155
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FF40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C270A4F  start=3607119  size=2572697 B  bits~10328407
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FFC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D506271  start=23093873  size=2572697 B  bits~10332204
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x000000001FFC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CAF4869  start=12535913  size=2572697 B  bits~10328922
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2D85D8  start=4031960  size=2572697 B  bits~10330674
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D01FD70  start=17956208  size=2572697 B  bits~10327828
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000200C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD371DC  start=14905820  size=2572697 B  bits~10332004
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000200C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D28AECA  start=20491978  size=2572697 B  bits~10330017
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4D6A20  start=6122016  size=2572697 B  bits~10332973
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0F4B86  start=2050950  size=2572697 B  bits~10329568
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000201C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C8F9167  start=10457447  size=2572697 B  bits~10331581
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000201C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C5F83D1  start=7308241  size=2572697 B  bits~10329441
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA13BD7  start=11615191  size=2572697 B  bits~10334807
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C8DD8B9  start=10344633  size=2572697 B  bits~10332015
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000202C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C81ABD1  start=9546705  size=2572697 B  bits~10328105
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000202C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C1AAABE  start=2796222  size=2572697 B  bits~10333044
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4CEBFE  start=22866942  size=2572697 B  bits~10331174
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BFBC132  start=770354  size=2572697 B  bits~10328439
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000203C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D14244C  start=19145804  size=2572697 B  bits~10331541
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000203C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF50965  start=330085  size=2572697 B  bits~10328834
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C016471  start=1139825  size=2572697 B  bits~10327246
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA02325  start=11543333  size=2572697 B  bits~10331727
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000204C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C438667  start=5473895  size=2572697 B  bits~10328510
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000204C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2E9BEA  start=4103146  size=2572697 B  bits~10331174
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C70961F  start=8427039  size=2572697 B  bits~10332767
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0A21DE  start=1712606  size=2572697 B  bits~10333145
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000205C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4870AD  start=5796013  size=2572697 B  bits~10329220
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000205C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C9B4360  start=11223904  size=2572697 B  bits~10325174
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2CF667  start=3995239  size=2572697 B  bits~10331906
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CF3147D  start=16979069  size=2572697 B  bits~10326044
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000206C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CCB6081  start=14377089  size=2572697 B  bits~10333081
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000206C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C36751C  start=4617500  size=2572697 B  bits~10328471
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C51A240  start=6398528  size=2572697 B  bits~10331519
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C57E88A  start=6809738  size=2572697 B  bits~10329693
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000207C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CBC480E  start=13387790  size=2572697 B  bits~10332622
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000207C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C077C4F  start=1539151  size=2572697 B  bits~10333211
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CFB9249  start=17535561  size=2572697 B  bits~10332025
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4CB9E8  start=22854120  size=2572697 B  bits~10330147
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000208C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C51BD90  start=6405520  size=2572697 B  bits~10332618
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000208C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C65AF1E  start=7712542  size=2572697 B  bits~10332875
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CEE374F  start=16660303  size=2572697 B  bits~10330772
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1225A0  start=19015072  size=2572697 B  bits~10331555
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000209C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C5794D1  start=6788305  size=2572697 B  bits~10333913
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000209C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C665746  start=7755590  size=2572697 B  bits~10333343
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020A40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C404089  start=5259401  size=2572697 B  bits~10334637
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020A40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA9B50B  start=12170507  size=2572697 B  bits~10330313
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020AC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C86F5BC  start=9893308  size=2572697 B  bits~10333218
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020AC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CFBF35F  start=17560415  size=2572697 B  bits~10328468
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020B40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D056799  start=18179993  size=2572697 B  bits~10325594
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020B40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+[Summary] target=input_tensor  baseline=75.00%  faulty=31.00%  recovery=37.00%
+
+──── target=buffers ────
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC1E384  start=13755268  size=2572697 B  bits~10330502
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020BC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C960F51  start=10882897  size=2572697 B  bits~10330244
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020BC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C8457D2  start=9721810  size=2572697 B  bits~10330320
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020C40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D038D8A  start=18058634  size=2572697 B  bits~10328664
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020C40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C420344  start=5374788  size=2572697 B  bits~10331147
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020CC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C9126DF  start=10561247  size=2572697 B  bits~10333166
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020CC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2B5BED  start=20667373  size=2572697 B  bits~10331457
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020D40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D11BA46  start=18987590  size=2572697 B  bits~10328121
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020D40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1645B8  start=19285432  size=2572697 B  bits~10332980
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020DC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C9E792C  start=11434284  size=2572697 B  bits~10330772
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020DC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C1AD8A3  start=2807971  size=2572697 B  bits~10330158
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020E40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C1BDB99  start=2874265  size=2572697 B  bits~10333623
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020E40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C77B5CF  start=8893903  size=2572697 B  bits~10332199
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020EC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4D6F8C  start=22900620  size=2572697 B  bits~10330981
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020EC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C178741  start=2590529  size=2572697 B  bits~10329295
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020F40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3B25B1  start=21702065  size=2572697 B  bits~10332967
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020F40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3C2FBF  start=21770175  size=2572697 B  bits~10336720
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020FC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C42174E  start=5379918  size=2572697 B  bits~10331981
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000020FC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA649A1  start=11946401  size=2572697 B  bits~10330850
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BFD45BF  start=869823  size=2572697 B  bits~10330350
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CEEB7BE  start=16693182  size=2572697 B  bits~10329911
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000210C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C06840B  start=1475595  size=2572697 B  bits~10332499
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000210C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4E09AE  start=6162862  size=2572697 B  bits~10332239
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D204527  start=19940647  size=2572697 B  bits~10331201
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D077471  start=18314353  size=2572697 B  bits~10329598
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000211C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C84A856  start=9742422  size=2572697 B  bits~10329821
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000211C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB447A9  start=12863401  size=2572697 B  bits~10331237
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CDB6312  start=15426322  size=2572697 B  bits~10328164
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C1D1F49  start=2957129  size=2572697 B  bits~10327053
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000212C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC136C6  start=13711046  size=2572697 B  bits~10326911
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000212C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CF3BCFB  start=17022203  size=2572697 B  bits~10331824
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB05F5A  start=12607322  size=2572697 B  bits~10331919
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3ABFD0  start=21675984  size=2572697 B  bits~10324801
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000213C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1847E6  start=19417062  size=2572697 B  bits~10324668
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000213C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C56A309  start=6726409  size=2572697 B  bits~10330426
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C778644  start=8881732  size=2572697 B  bits~10330587
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C33EFE7  start=4452327  size=2572697 B  bits~10329858
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000214C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2CB992  start=20756882  size=2572697 B  bits~10333526
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000214C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2AA306  start=3842822  size=2572697 B  bits~10335429
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3B1659  start=4920921  size=2572697 B  bits~10334261
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021540000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3E9384  start=21926788  size=2572697 B  bits~10331739
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000215C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C591E0A  start=6888970  size=2572697 B  bits~10330675
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000215C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF4414C  start=278860  size=2572697 B  bits~10334327
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C4BFCF0  start=6028528  size=2572697 B  bits~10331122
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021640000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CFF1726  start=17766182  size=2572697 B  bits~10333277
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000216C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C8554FB  start=9786619  size=2572697 B  bits~10334435
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000216C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CF1045A  start=16843866  size=2572697 B  bits~10326087
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2C21B2  start=3940786  size=2572697 B  bits~10326062
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021740000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C790EB7  start=8982199  size=2572697 B  bits~10330786
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000217C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D375830  start=21452848  size=2572697 B  bits~10329806
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000217C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C11B7CF  start=2209743  size=2572697 B  bits~10330524
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D08A4B6  start=18392246  size=2572697 B  bits~10326530
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021840000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D38425D  start=21512797  size=2572697 B  bits~10330884
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000218C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF20831  start=133169  size=2572697 B  bits~10332699
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000218C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CCCE081  start=14475393  size=2572697 B  bits~10332632
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CCAB17F  start=14332287  size=2572697 B  bits~10329673
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021940000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CE137B5  start=15808437  size=2572697 B  bits~10332742
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000219C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2CD5C2  start=3986882  size=2572697 B  bits~10328915
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000219C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3169AE  start=4286894  size=2572697 B  bits~10327595
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021A40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C742AD6  start=8661718  size=2572697 B  bits~10331357
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021A40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C319C3A  start=4299834  size=2572697 B  bits~10329083
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021AC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C596F2C  start=6909740  size=2572697 B  bits~10332364
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021AC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0BA84F  start=1812559  size=2572697 B  bits~10332830
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021B40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB4E010  start=12902416  size=2572697 B  bits~10336423
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021B40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C96A16A  start=10920298  size=2572697 B  bits~10332553
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021BC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C962AD0  start=10889936  size=2572697 B  bits~10330974
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021BC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0853D2  start=1594322  size=2572697 B  bits~10333927
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021C40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CF4B8C5  start=17086661  size=2572697 B  bits~10330974
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021C40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D4E8F59  start=22974297  size=2572697 B  bits~10329205
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021CC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D42ED69  start=22211945  size=2572697 B  bits~10331044
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021CC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CE612D3  start=16126675  size=2572697 B  bits~10331164
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021D40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C9C6E08  start=11300360  size=2572697 B  bits~10329074
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021D40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0F81D0  start=2064848  size=2572697 B  bits~10330977
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021DC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA5D2E8  start=11916008  size=2572697 B  bits~10328906
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021DC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3ED0C4  start=21942468  size=2572697 B  bits~10327475
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021E40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C7DF40A  start=9303050  size=2572697 B  bits~10337096
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021E40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0C1D17  start=1842455  size=2572697 B  bits~10330208
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021EC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3B8AA2  start=21727906  size=2572697 B  bits~10332537
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021EC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1E05AF  start=19793327  size=2572697 B  bits~10333410
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021F40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C377ED8  start=4685528  size=2572697 B  bits~10329881
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021F40000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC4412B  start=13910315  size=2572697 B  bits~10330462
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021FC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C3F8C08  start=5213192  size=2572697 B  bits~10335638
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000021FC0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D2FB667  start=20952679  size=2572697 B  bits~10332056
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C508DC5  start=6327749  size=2572697 B  bits~10331060
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022040000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C29447B  start=3753083  size=2572697 B  bits~10333001
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000220C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D003E75  start=17841781  size=2572697 B  bits~10331246
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000220C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB9B710  start=13219600  size=2572697 B  bits~10332472
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3C6A4E  start=21785166  size=2572697 B  bits~10336134
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022140000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF6C247  start=442951  size=2572697 B  bits~10330799
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000221C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C0D5F30  start=1924912  size=2572697 B  bits~10332336
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000221C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C72B297  start=8565399  size=2572697 B  bits~10334696
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CD7935C  start=15176540  size=2572697 B  bits~10331157
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022240000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001BF41662  start=267874  size=2572697 B  bits~10335772
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000222C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CA325F5  start=11740661  size=2572697 B  bits~10334453
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000222C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C2532E0  start=3486432  size=2572697 B  bits~10330115
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001C5BDCAF  start=7068847  size=2572697 B  bits~10331197
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022340000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CC1BA9F  start=13744799  size=2572697 B  bits~10328600
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000223C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001CB11728  start=12654376  size=2572697 B  bits~10330819
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x00000000223C0000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D3D14F4  start=21828852  size=2572697 B  bits~10329382
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+  [MSEFI-full-pwrcycle] SEFI-block  phys=0x000000001D1F5A37  start=19880503  size=2572697 B  bits~10331424
+[Reset][HW] Attempting hardware DPU reset...
+[Reset][HW] Done
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001BF00000  size=25726976 B
+[DDR4] Input region: phys=0x0000000022440000  total=152608 B  pixel_start=+2080 B
+[Reset][SW] Recreating runner...
+[Reset][SW] OK
+[Summary] target=buffers  baseline=75.00%  faulty=31.00%  recovery=37.00%
