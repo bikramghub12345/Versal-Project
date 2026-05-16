@@ -1,2 +1,0 @@
-sefi_mode,total_images,baseline_correct,baseline_accuracy_pct,faulty_correct,faulty_wrong,faulty_accuracy_pct,msefi_recovered,recovery_accuracy_pct
-SEFI-column,100,75,75.00,1,99,1.00,0,0.00
