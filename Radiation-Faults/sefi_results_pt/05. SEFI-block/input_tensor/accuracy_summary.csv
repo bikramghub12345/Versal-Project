@@ -1,0 +1,2 @@
+sefi_mode,total_images,baseline_correct,baseline_accuracy_pct,faulty_correct,faulty_wrong,faulty_accuracy_pct
+SEFI-block,100,6,6.0000,6,94,6.0000

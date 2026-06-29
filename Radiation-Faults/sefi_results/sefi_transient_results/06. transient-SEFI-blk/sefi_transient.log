@@ -1,0 +1,437 @@
+╔══════════════════════════════════════════════════════════╗
+║   SEFI Transient — Layer-by-Layer Weight Injection        ║
+║   ZCU104 | DPUCZDX8G | PyTorch ResNet50 (18-piece split)  ║
+╚══════════════════════════════════════════════════════════╝
+
+[Config] mode=transient-SEFI-blk      models=./compiled
+[Config] images=./train_subset          col_width=8  block_size=4096
+
+[Dataset] 100 images
+
+[Discover] Piece addresses:
+  [00] piece_00_stem                   w_phys=0x1B8E8000  w_size=9536
+  [01] piece_01_layer1_0               w_phys=0x1B8E8000  w_size=75008
+  [02] piece_02_layer1_1               w_phys=0x1B900000  w_size=70400
+  [03] piece_03_layer1_2               w_phys=0x1B900000  w_size=70400
+  [04] piece_04_layer2_0               w_phys=0x1B980000  w_size=379392
+  [05] piece_05_layer2_1               w_phys=0x1B980000  w_size=280064
+  [06] piece_06_layer2_2               w_phys=0x1B900000  w_size=280064
+  [07] piece_07_layer2_3               w_phys=0x1B900000  w_size=280064
+  [08] piece_08_layer3_0               w_phys=0x1BA00000  w_size=1512448
+  [09] piece_09_layer3_1               w_phys=0x1BA00000  w_size=1117184
+  [10] piece_10_layer3_2               w_phys=0x1B900000  w_size=1117184
+  [11] piece_11_layer3_3               w_phys=0x1B900000  w_size=1117184
+  [12] piece_12_layer3_4               w_phys=0x1B900000  w_size=1117184
+  [13] piece_13_layer3_5               w_phys=0x1B900000  w_size=1117184
+  [14] piece_14_layer4_0               w_phys=0x1C100000  w_size=6039552
+  [15] piece_15_layer4_1               w_phys=0x1C100000  w_size=4462592
+  [16] piece_16_layer4_2               w_phys=0x1C100000  w_size=4462592
+  [17] piece_17_head                   w_phys=0x1C100000  w_size=2049000
+  total_conceptual=25557032 B
+
+[Baseline] Running clean inference on 100 images ...
+[Baseline] Clean accuracy: 76/100 = 76.00%
+
+[SEFI] Starting transient-SEFI-blk on target=weights ...
+[block] start=23238912 end=23243008 flips=4096
+  [1/100] n01748264/n01748264_12351.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16370
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [1/100] n01748264/n01748264_12351.JPEG  baseline=Indian cobra, Naja naja(0.986)  top1=Indian cobra, Naja naja(0.992)  drop=-0.006
+[block] start=20070005 end=20074101 flips=4096
+  [2/100] n01748264/n01748264_12842.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16505
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [2/100] n01748264/n01748264_12842.JPEG  baseline=Indian cobra, Naja naja(0.868)  top1=Indian cobra, Naja naja(0.703)  drop=0.165
+[block] start=12433218 end=12437314 flips=4096
+  [3/100] n01748264/n01748264_15432.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16409
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [3/100] n01748264/n01748264_15432.JPEG  baseline=Indian cobra, Naja naja(0.997)  top1=Indian cobra, Naja naja(0.997)  drop=0.000
+[block] start=1545447 end=1549543 flips=4096
+  [4/100] n01748264/n01748264_19883.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16427
+  [transient-SEFI-blk] pieces=piece_08_layer3_0
+  [4/100] n01748264/n01748264_19883.JPEG  baseline=Indian cobra, Naja naja(0.992)  top1=Indian cobra, Naja naja(0.968)  drop=0.024
+[block] start=4433114 end=4437210 flips=4096
+  [5/100] n01748264/n01748264_2196.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16516
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [5/100] n01748264/n01748264_2196.JPEG  baseline=Indian cobra, Naja naja(0.978)  top1=Indian cobra, Naja naja(0.965)  drop=0.013
+[block] start=13328315 end=13332411 flips=4096
+  [6/100] n02093991/n02093991_2155.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16446
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [6/100] n02093991/n02093991_2155.JPEG  baseline=Irish terrier(0.864)  top1=Irish terrier(0.801)  drop=0.064
+[block] start=17076951 end=17081047 flips=4096
+  [7/100] n02093991/n02093991_75.JPEG                    [transient-SEFI-blk]  bytes=4096  bits~16616
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [7/100] n02093991/n02093991_75.JPEG  baseline=Irish terrier(0.799)  top1=Irish terrier(0.767)  drop=0.033
+[block] start=5882726 end=5886822 flips=4096
+  [8/100] n02093991/n02093991_7823.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16504
+  [transient-SEFI-blk] pieces=piece_11_layer3_3
+  [8/100] n02093991/n02093991_7823.JPEG  baseline=Irish terrier(0.433)  top1=Irish terrier(0.509)  drop=-0.076
+[block] start=16986967 end=16991063 flips=4096
+  [9/100] n02093991/n02093991_7935.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16428
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [9/100] n02093991/n02093991_7935.JPEG  baseline=Irish terrier(0.905)  top1=Irish terrier(0.887)  drop=0.018
+[block] start=13966476 end=13970572 flips=4096
+  [10/100] n02093991/n02093991_8145.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16423
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [10/100] n02093991/n02093991_8145.JPEG  baseline=bull mastiff(0.649)  top1=bull mastiff(0.596)  drop=0.053
+[block] start=13352443 end=13356539 flips=4096
+  [11/100] n02096051/n02096051_2751.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16481
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [11/100] n02096051/n02096051_2751.JPEG  baseline=Airedale, Airedale terrier(0.693)  top1=Airedale, Airedale terrier(0.739)  drop=-0.046
+[block] start=3882899 end=3886995 flips=4096
+  [12/100] n02096051/n02096051_2946.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16522
+  [transient-SEFI-blk] pieces=piece_09_layer3_1
+  [12/100] n02096051/n02096051_2946.JPEG  baseline=Airedale, Airedale terrier(0.949)  top1=Airedale, Airedale terrier(0.949)  drop=0.000
+[block] start=16131592 end=16135688 flips=4096
+  [13/100] n02096051/n02096051_495.JPEG                   [transient-SEFI-blk]  bytes=4096  bits~16377
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [13/100] n02096051/n02096051_495.JPEG  baseline=Airedale, Airedale terrier(0.985)  top1=Airedale, Airedale terrier(0.990)  drop=-0.004
+[block] start=692423 end=696519 flips=4096
+  [14/100] n02096051/n02096051_5436.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16521
+  [transient-SEFI-blk] pieces=piece_05_layer2_1
+  [14/100] n02096051/n02096051_5436.JPEG  baseline=Airedale, Airedale terrier(0.932)  top1=Airedale, Airedale terrier(0.932)  drop=0.000
+[block] start=20432546 end=20436642 flips=4096
+  [15/100] n02096051/n02096051_668.JPEG                   [transient-SEFI-blk]  bytes=4096  bits~16440
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [15/100] n02096051/n02096051_668.JPEG  baseline=Airedale, Airedale terrier(0.937)  top1=Airedale, Airedale terrier(0.950)  drop=-0.013
+[block] start=5428424 end=5432520 flips=4096
+  [16/100] n02113186/n02113186_12291.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16448
+  [transient-SEFI-blk] pieces=piece_11_layer3_3
+  [16/100] n02113186/n02113186_12291.JPEG  baseline=toy terrier(0.346)  top1=toy terrier(0.402)  drop=-0.057
+[block] start=19550166 end=19554262 flips=4096
+  [17/100] n02113186/n02113186_13231.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16592
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [17/100] n02113186/n02113186_13231.JPEG  baseline=tiger cat(0.400)  top1=leopard, Panthera pardus(0.457)  drop=-0.057
+[block] start=15678567 end=15682663 flips=4096
+  [18/100] n02113186/n02113186_50.JPEG                    [transient-SEFI-blk]  bytes=4096  bits~16327
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [18/100] n02113186/n02113186_50.JPEG  baseline=Pembroke, Pembroke Welsh corgi(0.758)  top1=Pembroke, Pembroke Welsh corgi(0.756)  drop=0.002
+[block] start=5269506 end=5273602 flips=4096
+  [19/100] n02113186/n02113186_5538.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16558
+  [transient-SEFI-blk] pieces=piece_11_layer3_3
+  [19/100] n02113186/n02113186_5538.JPEG  baseline=beagle(0.454)  top1=Pembroke, Pembroke Welsh corgi(0.444)  drop=0.010
+[block] start=15883232 end=15887328 flips=4096
+  [20/100] n02113186/n02113186_9772.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16487
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [20/100] n02113186/n02113186_9772.JPEG  baseline=basenji(0.601)  top1=basenji(0.606)  drop=-0.005
+[block] start=1742061 end=1746157 flips=4096
+  [21/100] n02114855/n02114855_1044.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16589
+  [transient-SEFI-blk] pieces=piece_08_layer3_0
+  [21/100] n02114855/n02114855_1044.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.909)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.904)  drop=0.005
+[block] start=4338294 end=4342390 flips=4096
+  [22/100] n02114855/n02114855_1047.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16467
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [22/100] n02114855/n02114855_1047.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.495)  top1=fur coat(0.326)  drop=0.169
+[block] start=4211582 end=4215678 flips=4096
+  [23/100] n02114855/n02114855_18848.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16436
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [23/100] n02114855/n02114855_18848.JPEG  baseline=cheetah, chetah, Acinonyx jubatus(0.273)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.236)  drop=0.036
+[block] start=691521 end=695617 flips=4096
+  [24/100] n02114855/n02114855_7204.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16381
+  [transient-SEFI-blk] pieces=piece_05_layer2_1
+  [24/100] n02114855/n02114855_7204.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.205)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.205)  drop=0.000
+[block] start=15698472 end=15702568 flips=4096
+  [25/100] n02114855/n02114855_7265.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16396
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [25/100] n02114855/n02114855_7265.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.342)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.365)  drop=-0.023
+[block] start=15945466 end=15949562 flips=4096
+  [26/100] n02134418/n02134418_11090.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16494
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [26/100] n02134418/n02134418_11090.JPEG  baseline=American black bear, black bear, Ursus americanus, Euarctos americanus(0.484)  top1=American black bear, black bear, Ursus americanus, Euarctos americanus(0.498)  drop=-0.014
+[block] start=14177691 end=14181787 flips=4096
+  [27/100] n02134418/n02134418_2895.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16568
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [27/100] n02134418/n02134418_2895.JPEG  baseline=sloth bear, Melursus ursinus, Ursus ursinus(0.936)  top1=sloth bear, Melursus ursinus, Ursus ursinus(0.936)  drop=-0.000
+[block] start=19234700 end=19238796 flips=4096
+  [28/100] n02134418/n02134418_3846.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16520
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [28/100] n02134418/n02134418_3846.JPEG  baseline=sloth bear, Melursus ursinus, Ursus ursinus(0.938)  top1=sloth bear, Melursus ursinus, Ursus ursinus(0.950)  drop=-0.012
+[block] start=12220875 end=12224971 flips=4096
+  [29/100] n02134418/n02134418_4725.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16496
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [29/100] n02134418/n02134418_4725.JPEG  baseline=sloth bear, Melursus ursinus, Ursus ursinus(0.941)  top1=sloth bear, Melursus ursinus, Ursus ursinus(0.921)  drop=0.020
+[block] start=6076852 end=6080948 flips=4096
+  [30/100] n02134418/n02134418_5777.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16574
+  [transient-SEFI-blk] pieces=piece_11_layer3_3
+  [30/100] n02134418/n02134418_5777.JPEG  baseline=fountain(0.271)  top1=greenhouse, nursery, glasshouse(0.345)  drop=-0.074
+[block] start=20593042 end=20597138 flips=4096
+  [31/100] n02264363/n02264363_13680.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16344
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [31/100] n02264363/n02264363_13680.JPEG  baseline=bubble(0.970)  top1=bubble(0.972)  drop=-0.002
+[block] start=4350786 end=4354882 flips=4096
+  [32/100] n02264363/n02264363_3092.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16551
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [32/100] n02264363/n02264363_3092.JPEG  baseline=lacewing, lacewing fly(0.876)  top1=lacewing, lacewing fly(0.837)  drop=0.039
+[block] start=1083803 end=1087899 flips=4096
+  [33/100] n02264363/n02264363_4632.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16301
+  [transient-SEFI-blk] pieces=piece_06_layer2_2
+  [33/100] n02264363/n02264363_4632.JPEG  baseline=lacewing, lacewing fly(0.991)  top1=lacewing, lacewing fly(0.905)  drop=0.087
+[block] start=23605105 end=23609201 flips=4096
+  [34/100] n02264363/n02264363_5318.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16402
+  [transient-SEFI-blk] pieces=piece_17_head
+  [34/100] n02264363/n02264363_5318.JPEG  baseline=lacewing, lacewing fly(1.000)  top1=lacewing, lacewing fly(1.000)  drop=0.000
+[block] start=6257485 end=6261581 flips=4096
+  [35/100] n02264363/n02264363_9846.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16398
+  [transient-SEFI-blk] pieces=piece_11_layer3_3
+  [35/100] n02264363/n02264363_9846.JPEG  baseline=lacewing, lacewing fly(1.000)  top1=lacewing, lacewing fly(1.000)  drop=0.000
+[block] start=2978923 end=2983019 flips=4096
+  [36/100] n02699494/n02699494_12579.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16379
+  [transient-SEFI-blk] pieces=piece_09_layer3_1
+  [36/100] n02699494/n02699494_12579.JPEG  baseline=altar(0.746)  top1=altar(0.773)  drop=-0.027
+[block] start=1146348 end=1150444 flips=4096
+  [37/100] n02699494/n02699494_18171.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16586
+  [transient-SEFI-blk] pieces=piece_06_layer2_2
+  [37/100] n02699494/n02699494_18171.JPEG  baseline=altar(0.826)  top1=altar(0.809)  drop=0.017
+[block] start=9777860 end=9781956 flips=4096
+  [38/100] n02699494/n02699494_2349.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16409
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [38/100] n02699494/n02699494_2349.JPEG  baseline=altar(0.921)  top1=altar(0.921)  drop=0.000
+[block] start=14314536 end=14318632 flips=4096
+  [39/100] n02699494/n02699494_4661.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16464
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [39/100] n02699494/n02699494_4661.JPEG  baseline=altar(0.968)  top1=altar(0.968)  drop=-0.000
+[block] start=16677056 end=16681152 flips=4096
+  [40/100] n02699494/n02699494_4682.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16527
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [40/100] n02699494/n02699494_4682.JPEG  baseline=altar(0.860)  top1=altar(0.860)  drop=0.000
+[block] start=16532348 end=16536444 flips=4096
+  [41/100] n02704792/n02704792_13304.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16439
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [41/100] n02704792/n02704792_13304.JPEG  baseline=amphibian, amphibious vehicle(0.971)  top1=amphibian, amphibious vehicle(0.954)  drop=0.017
+[block] start=4133095 end=4137191 flips=4096
+  [42/100] n02704792/n02704792_2135.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16557
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [42/100] n02704792/n02704792_2135.JPEG  baseline=amphibian, amphibious vehicle(0.738)  top1=amphibian, amphibious vehicle(0.740)  drop=-0.003
+[block] start=2453304 end=2457400 flips=4096
+  [43/100] n02704792/n02704792_28593.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16353
+  [transient-SEFI-blk] pieces=piece_08_layer3_0
+  [43/100] n02704792/n02704792_28593.JPEG  baseline=amphibian, amphibious vehicle(0.997)  top1=amphibian, amphibious vehicle(0.997)  drop=0.000
+[block] start=540742 end=544838 flips=4096
+  [44/100] n02704792/n02704792_4565.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16399
+  [transient-SEFI-blk] pieces=piece_04_layer2_0
+  [44/100] n02704792/n02704792_4565.JPEG  baseline=amphibian, amphibious vehicle(0.973)  top1=amphibian, amphibious vehicle(0.968)  drop=0.005
+[block] start=15933688 end=15937784 flips=4096
+  [45/100] n02704792/n02704792_7641.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16327
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [45/100] n02704792/n02704792_7641.JPEG  baseline=amphibian, amphibious vehicle(0.681)  top1=amphibian, amphibious vehicle(0.732)  drop=-0.051
+[block] start=22330494 end=22334590 flips=4096
+  [46/100] n02794156/n02794156_202.JPEG                   [transient-SEFI-blk]  bytes=4096  bits~16301
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [46/100] n02794156/n02794156_202.JPEG  baseline=barometer(0.806)  top1=barometer(0.808)  drop=-0.002
+[block] start=21037923 end=21042019 flips=4096
+  [47/100] n02794156/n02794156_3679.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16450
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [47/100] n02794156/n02794156_3679.JPEG  baseline=microwave, microwave oven(0.162)  top1=microwave, microwave oven(0.137)  drop=0.025
+[block] start=7630334 end=7634430 flips=4096
+  [48/100] n02794156/n02794156_4688.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16413
+  [transient-SEFI-blk] pieces=piece_13_layer3_5
+  [48/100] n02794156/n02794156_4688.JPEG  baseline=barometer(0.995)  top1=barometer(0.996)  drop=-0.001
+[block] start=9132157 end=9136253 flips=4096
+  [49/100] n02794156/n02794156_6604.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16512
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [49/100] n02794156/n02794156_6604.JPEG  baseline=magnetic compass(0.727)  top1=magnetic compass(0.772)  drop=-0.045
+[block] start=120817 end=124913 flips=4096
+  [50/100] n02794156/n02794156_7565.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16462
+  [transient-SEFI-blk] pieces=piece_02_layer1_1
+  [50/100] n02794156/n02794156_7565.JPEG  baseline=barometer(0.519)  top1=barometer(0.530)  drop=-0.010
+[block] start=4629448 end=4633544 flips=4096
+  [51/100] n03124043/n03124043_5402.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16408
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [51/100] n03124043/n03124043_5402.JPEG  baseline=cowboy boot(1.000)  top1=cowboy boot(1.000)  drop=-0.000
+[block] start=19977698 end=19981794 flips=4096
+  [52/100] n03124043/n03124043_5856.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16411
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [52/100] n03124043/n03124043_5856.JPEG  baseline=cowboy boot(0.998)  top1=cowboy boot(0.994)  drop=0.004
+[block] start=24402423 end=24406519 flips=4096
+  [53/100] n03124043/n03124043_6328.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16478
+  [transient-SEFI-blk] pieces=piece_17_head
+  [53/100] n03124043/n03124043_6328.JPEG  baseline=clog, geta, patten, sabot(0.648)  top1=clog, geta, patten, sabot(0.648)  drop=0.000
+[block] start=10425579 end=10429675 flips=4096
+  [54/100] n03124043/n03124043_7091.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16379
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [54/100] n03124043/n03124043_7091.JPEG  baseline=cowboy boot(1.000)  top1=cowboy boot(1.000)  drop=0.000
+[block] start=8482345 end=8486441 flips=4096
+  [55/100] n03124043/n03124043_7889.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16412
+  [transient-SEFI-blk] pieces=piece_13_layer3_5
+  [55/100] n03124043/n03124043_7889.JPEG  baseline=Loafer(0.814)  top1=Loafer(0.827)  drop=-0.013
+[block] start=16269380 end=16273476 flips=4096
+  [56/100] n03637318/n03637318_1066.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16523
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [56/100] n03637318/n03637318_1066.JPEG  baseline=lampshade, lamp shade(0.406)  top1=lampshade, lamp shade(0.424)  drop=-0.018
+[block] start=20734030 end=20738126 flips=4096
+  [57/100] n03637318/n03637318_14251.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16433
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [57/100] n03637318/n03637318_14251.JPEG  baseline=lampshade, lamp shade(0.253)  top1=lampshade, lamp shade(0.365)  drop=-0.112
+[block] start=21270799 end=21274895 flips=4096
+  [58/100] n03637318/n03637318_16044.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16448
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [58/100] n03637318/n03637318_16044.JPEG  baseline=lampshade, lamp shade(0.851)  top1=lampshade, lamp shade(0.880)  drop=-0.029
+[block] start=849694 end=853790 flips=4096
+  [59/100] n03637318/n03637318_6645.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16545
+  [transient-SEFI-blk] pieces=piece_05_layer2_1
+  [59/100] n03637318/n03637318_6645.JPEG  baseline=lampshade, lamp shade(0.646)  top1=lampshade, lamp shade(0.646)  drop=0.000
+[block] start=20759794 end=20763890 flips=4096
+  [60/100] n03637318/n03637318_9369.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16428
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [60/100] n03637318/n03637318_9369.JPEG  baseline=lampshade, lamp shade(0.371)  top1=spotlight, spot(0.412)  drop=-0.040
+[block] start=5667389 end=5671485 flips=4096
+  [61/100] n03874293/n03874293_11031.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16593
+  [transient-SEFI-blk] pieces=piece_11_layer3_3
+  [61/100] n03874293/n03874293_11031.JPEG  baseline=paddlewheel, paddle wheel(1.000)  top1=paddlewheel, paddle wheel(1.000)  drop=0.000
+[block] start=10012734 end=10016830 flips=4096
+  [62/100] n03874293/n03874293_14179.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16394
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [62/100] n03874293/n03874293_14179.JPEG  baseline=paddlewheel, paddle wheel(1.000)  top1=paddlewheel, paddle wheel(1.000)  drop=0.000
+[block] start=7497002 end=7501098 flips=4096
+  [63/100] n03874293/n03874293_152.JPEG                   [transient-SEFI-blk]  bytes=4096  bits~16513
+  [transient-SEFI-blk] pieces=piece_13_layer3_5
+  [63/100] n03874293/n03874293_152.JPEG  baseline=paddlewheel, paddle wheel(0.999)  top1=paddlewheel, paddle wheel(0.999)  drop=-0.000
+[block] start=11744517 end=11748613 flips=4096
+  [64/100] n03874293/n03874293_22199.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16528
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [64/100] n03874293/n03874293_22199.JPEG  baseline=paddlewheel, paddle wheel(0.993)  top1=paddlewheel, paddle wheel(0.991)  drop=0.002
+[block] start=18307621 end=18311717 flips=4096
+  [65/100] n03874293/n03874293_4256.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16408
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [65/100] n03874293/n03874293_4256.JPEG  baseline=paddlewheel, paddle wheel(1.000)  top1=paddlewheel, paddle wheel(1.000)  drop=-0.000
+[block] start=4044752 end=4048848 flips=4096
+  [66/100] n03933933/n03933933_21453.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16516
+  [transient-SEFI-blk] pieces=piece_09_layer3_1
+  [66/100] n03933933/n03933933_21453.JPEG  baseline=pier(0.878)  top1=pier(0.878)  drop=0.000
+[block] start=9431409 end=9435505 flips=4096
+  [67/100] n03933933/n03933933_24591.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16437
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [67/100] n03933933/n03933933_24591.JPEG  baseline=pier(0.465)  top1=pier(0.517)  drop=-0.052
+[block] start=16139955 end=16144051 flips=4096
+  [68/100] n03933933/n03933933_31954.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16333
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [68/100] n03933933/n03933933_31954.JPEG  baseline=pier(0.880)  top1=pier(0.904)  drop=-0.024
+[block] start=15418711 end=15422807 flips=4096
+  [69/100] n03933933/n03933933_4981.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16549
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [69/100] n03933933/n03933933_4981.JPEG  baseline=steel arch bridge(0.511)  top1=steel arch bridge(0.495)  drop=0.016
+[block] start=5841098 end=5845194 flips=4096
+  [70/100] n03933933/n03933933_90.JPEG                    [transient-SEFI-blk]  bytes=4096  bits~16577
+  [transient-SEFI-blk] pieces=piece_11_layer3_3
+  [70/100] n03933933/n03933933_90.JPEG  baseline=steel arch bridge(0.939)  top1=steel arch bridge(0.970)  drop=-0.031
+[block] start=18413555 end=18417651 flips=4096
+  [71/100] n04311004/n04311004_1647.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16378
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [71/100] n04311004/n04311004_1647.JPEG  baseline=steel arch bridge(0.989)  top1=steel arch bridge(0.983)  drop=0.006
+[block] start=13130409 end=13134505 flips=4096
+  [72/100] n04311004/n04311004_2766.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16520
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [72/100] n04311004/n04311004_2766.JPEG  baseline=steel arch bridge(0.987)  top1=steel arch bridge(0.986)  drop=0.000
+[block] start=9860135 end=9864231 flips=4096
+  [73/100] n04311004/n04311004_3501.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16434
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [73/100] n04311004/n04311004_3501.JPEG  baseline=steel arch bridge(0.955)  top1=steel arch bridge(0.972)  drop=-0.017
+[block] start=20037292 end=20041388 flips=4096
+  [74/100] n04311004/n04311004_3797.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16470
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [74/100] n04311004/n04311004_3797.JPEG  baseline=palace(0.383)  top1=dome(0.377)  drop=0.006
+[block] start=18188459 end=18192555 flips=4096
+  [75/100] n04311004/n04311004_6632.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16591
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [75/100] n04311004/n04311004_6632.JPEG  baseline=steel arch bridge(0.762)  top1=steel arch bridge(0.803)  drop=-0.041
+[block] start=17290975 end=17295071 flips=4096
+  [76/100] n04355933/n04355933_13231.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16481
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [76/100] n04355933/n04355933_13231.JPEG  baseline=hair spray(0.499)  top1=hair spray(0.405)  drop=0.094
+[block] start=13663038 end=13667134 flips=4096
+  [77/100] n04355933/n04355933_14508.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16351
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [77/100] n04355933/n04355933_14508.JPEG  baseline=sunglass(0.463)  top1=sunglasses, dark glasses, shades(0.527)  drop=-0.064
+[block] start=21092964 end=21097060 flips=4096
+  [78/100] n04355933/n04355933_1754.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16463
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [78/100] n04355933/n04355933_1754.JPEG  baseline=sunglass(0.576)  top1=sunglass(0.572)  drop=0.004
+[block] start=11447078 end=11451174 flips=4096
+  [79/100] n04355933/n04355933_2717.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16350
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [79/100] n04355933/n04355933_2717.JPEG  baseline=sunglasses, dark glasses, shades(0.649)  top1=sunglasses, dark glasses, shades(0.597)  drop=0.052
+[block] start=1811173 end=1815269 flips=4096
+  [80/100] n04355933/n04355933_3450.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16356
+  [transient-SEFI-blk] pieces=piece_08_layer3_0
+  [80/100] n04355933/n04355933_3450.JPEG  baseline=miniskirt, mini(0.383)  top1=bikini, two-piece(0.245)  drop=0.139
+[block] start=22062349 end=22066445 flips=4096
+  [81/100] n04370456/n04370456_3046.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16373
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [81/100] n04370456/n04370456_3046.JPEG  baseline=sweatshirt(0.366)  top1=stole(0.341)  drop=0.025
+[block] start=7299337 end=7303433 flips=4096
+  [82/100] n04370456/n04370456_4380.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16396
+  [transient-SEFI-blk] pieces=piece_12_layer3_4
+  [82/100] n04370456/n04370456_4380.JPEG  baseline=lab coat, laboratory coat(0.369)  top1=hoopskirt, crinoline(0.375)  drop=-0.006
+[block] start=23273965 end=23278061 flips=4096
+  [83/100] n04370456/n04370456_5698.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16445
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [83/100] n04370456/n04370456_5698.JPEG  baseline=sweatshirt(0.829)  top1=sweatshirt(0.842)  drop=-0.013
+[block] start=24899686 end=24903782 flips=4096
+  [84/100] n04370456/n04370456_6227.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16366
+  [transient-SEFI-blk] pieces=piece_17_head
+  [84/100] n04370456/n04370456_6227.JPEG  baseline=sweatshirt(0.832)  top1=sweatshirt(0.832)  drop=0.000
+[block] start=22747428 end=22751524 flips=4096
+  [85/100] n04370456/n04370456_942.JPEG                   [transient-SEFI-blk]  bytes=4096  bits~16392
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [85/100] n04370456/n04370456_942.JPEG  baseline=sweatshirt(0.997)  top1=sweatshirt(0.997)  drop=0.000
+[block] start=21168513 end=21172609 flips=4096
+  [86/100] n04557648/n04557648_1727.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16512
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [86/100] n04557648/n04557648_1727.JPEG  baseline=pop bottle, soda bottle(0.153)  top1=wok(0.213)  drop=-0.060
+[block] start=22276080 end=22280176 flips=4096
+  [87/100] n04557648/n04557648_2063.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16397
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [87/100] n04557648/n04557648_2063.JPEG  baseline=peacock(0.163)  top1=fountain(0.263)  drop=-0.100
+[block] start=6748470 end=6752566 flips=4096
+  [88/100] n04557648/n04557648_29432.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16522
+  [transient-SEFI-blk] pieces=piece_12_layer3_4
+  [88/100] n04557648/n04557648_29432.JPEG  baseline=washbasin, handbasin, washbowl, lavabo, wash-hand basin(0.589)  top1=washbasin, handbasin, washbowl, lavabo, wash-hand basin(0.504)  drop=0.085
+[block] start=16237811 end=16241907 flips=4096
+  [89/100] n04557648/n04557648_310.JPEG                   [transient-SEFI-blk]  bytes=4096  bits~16500
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [89/100] n04557648/n04557648_310.JPEG  baseline=water bottle(0.455)  top1=water bottle(0.405)  drop=0.049
+[block] start=14612576 end=14616672 flips=4096
+  [90/100] n04557648/n04557648_8444.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16508
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [90/100] n04557648/n04557648_8444.JPEG  baseline=water bottle(0.366)  top1=water bottle(0.354)  drop=0.011
+[block] start=5032924 end=5037020 flips=4096
+  [91/100] n09399592/n09399592_17820.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16602
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [91/100] n09399592/n09399592_17820.JPEG  baseline=promontory, headland, head, foreland(0.888)  top1=promontory, headland, head, foreland(0.810)  drop=0.078
+[block] start=1391164 end=1395260 flips=4096
+  [92/100] n09399592/n09399592_57381.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16304
+  [transient-SEFI-blk] pieces=piece_07_layer2_3
+  [92/100] n09399592/n09399592_57381.JPEG  baseline=promontory, headland, head, foreland(0.864)  top1=boa constrictor, Constrictor constrictor(0.329)  drop=0.535
+[block] start=12490619 end=12494715 flips=4096
+  [93/100] n09399592/n09399592_58193.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16515
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [93/100] n09399592/n09399592_58193.JPEG  baseline=promontory, headland, head, foreland(0.959)  top1=promontory, headland, head, foreland(0.949)  drop=0.011
+[block] start=22952441 end=22956537 flips=4096
+  [94/100] n09399592/n09399592_74394.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16533
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [94/100] n09399592/n09399592_74394.JPEG  baseline=promontory, headland, head, foreland(0.781)  top1=promontory, headland, head, foreland(0.694)  drop=0.087
+[block] start=20970580 end=20974676 flips=4096
+  [95/100] n09399592/n09399592_87777.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16472
+  [transient-SEFI-blk] pieces=piece_16_layer4_2
+  [95/100] n09399592/n09399592_87777.JPEG  baseline=promontory, headland, head, foreland(0.534)  top1=promontory, headland, head, foreland(0.566)  drop=-0.032
+[block] start=4746996 end=4751092 flips=4096
+  [96/100] n12985857/n12985857_10703.JPEG                 [transient-SEFI-blk]  bytes=4096  bits~16504
+  [transient-SEFI-blk] pieces=piece_10_layer3_2
+  [96/100] n12985857/n12985857_10703.JPEG  baseline=coral fungus(0.946)  top1=coral fungus(0.941)  drop=0.005
+[block] start=13445848 end=13449944 flips=4096
+  [97/100] n12985857/n12985857_1312.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16253
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [97/100] n12985857/n12985857_1312.JPEG  baseline=coral fungus(1.000)  top1=coral fungus(1.000)  drop=0.000
+[block] start=16070916 end=16075012 flips=4096
+  [98/100] n12985857/n12985857_6677.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16463
+  [transient-SEFI-blk] pieces=piece_15_layer4_1
+  [98/100] n12985857/n12985857_6677.JPEG  baseline=coral fungus(0.412)  top1=coral fungus(0.420)  drop=-0.008
+[block] start=11426444 end=11430540 flips=4096
+  [99/100] n12985857/n12985857_7042.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16392
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [99/100] n12985857/n12985857_7042.JPEG  baseline=coral fungus(0.461)  top1=coral fungus(0.484)  drop=-0.023
+[block] start=14566050 end=14570146 flips=4096
+  [100/100] n12985857/n12985857_7767.JPEG                  [transient-SEFI-blk]  bytes=4096  bits~16411
+  [transient-SEFI-blk] pieces=piece_14_layer4_0
+  [100/100] n12985857/n12985857_7767.JPEG  baseline=coral fungus(0.987)  top1=coral fungus(0.983)  drop=0.004
+
+[Summary] target=weights         baseline=76.00%  faulty=72.00%

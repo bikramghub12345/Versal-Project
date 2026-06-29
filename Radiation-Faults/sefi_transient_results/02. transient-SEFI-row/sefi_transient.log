@@ -1,0 +1,437 @@
+╔══════════════════════════════════════════════════════════╗
+║   SEFI Transient — Layer-by-Layer Weight Injection        ║
+║   ZCU104 | DPUCZDX8G | PyTorch ResNet50 (18-piece split)  ║
+╚══════════════════════════════════════════════════════════╝
+
+[Config] mode=transient-SEFI-row      models=./compiled
+[Config] images=./train_subset          col_width=8  block_size=4096
+
+[Dataset] 100 images
+
+[Discover] Piece addresses:
+  [00] piece_00_stem                   w_phys=0x1B8E8000  w_size=9536
+  [01] piece_01_layer1_0               w_phys=0x1B8E8000  w_size=75008
+  [02] piece_02_layer1_1               w_phys=0x1B900000  w_size=70400
+  [03] piece_03_layer1_2               w_phys=0x1B900000  w_size=70400
+  [04] piece_04_layer2_0               w_phys=0x1B980000  w_size=379392
+  [05] piece_05_layer2_1               w_phys=0x1B980000  w_size=280064
+  [06] piece_06_layer2_2               w_phys=0x1B900000  w_size=280064
+  [07] piece_07_layer2_3               w_phys=0x1B900000  w_size=280064
+  [08] piece_08_layer3_0               w_phys=0x1BA00000  w_size=1512448
+  [09] piece_09_layer3_1               w_phys=0x1BA00000  w_size=1117184
+  [10] piece_10_layer3_2               w_phys=0x1B900000  w_size=1117184
+  [11] piece_11_layer3_3               w_phys=0x1B900000  w_size=1117184
+  [12] piece_12_layer3_4               w_phys=0x1B900000  w_size=1117184
+  [13] piece_13_layer3_5               w_phys=0x1B900000  w_size=1117184
+  [14] piece_14_layer4_0               w_phys=0x1C100000  w_size=6039552
+  [15] piece_15_layer4_1               w_phys=0x1C100000  w_size=4462592
+  [16] piece_16_layer4_2               w_phys=0x1C100000  w_size=4462592
+  [17] piece_17_head                   w_phys=0x1C100000  w_size=2049000
+  total_conceptual=25557032 B
+
+[Baseline] Running clean inference on 100 images ...
+[Baseline] Clean accuracy: 76/100 = 76.00%
+
+[SEFI] Starting transient-SEFI-row on target=weights ...
+[row] conceptual_start=18751488 end=18759680 flips=8192
+  [1/100] n01748264/n01748264_12351.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32961
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [1/100] n01748264/n01748264_12351.JPEG  baseline=Indian cobra, Naja naja(0.986)  top1=Indian cobra, Naja naja(0.978)  drop=0.008
+[row] conceptual_start=17604608 end=17612800 flips=8192
+  [2/100] n01748264/n01748264_12842.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32920
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [2/100] n01748264/n01748264_12842.JPEG  baseline=Indian cobra, Naja naja(0.868)  top1=Indian cobra, Naja naja(0.893)  drop=-0.025
+[row] conceptual_start=22552576 end=22560768 flips=8192
+  [3/100] n01748264/n01748264_15432.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32752
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [3/100] n01748264/n01748264_15432.JPEG  baseline=Indian cobra, Naja naja(0.997)  top1=Indian cobra, Naja naja(0.995)  drop=0.002
+[row] conceptual_start=15253504 end=15261696 flips=8192
+  [4/100] n01748264/n01748264_19883.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32865
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [4/100] n01748264/n01748264_19883.JPEG  baseline=Indian cobra, Naja naja(0.992)  top1=Indian cobra, Naja naja(0.985)  drop=0.007
+[row] conceptual_start=876544 end=884736 flips=8192
+  [5/100] n01748264/n01748264_2196.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33138
+  [transient-SEFI-row] pieces=piece_05_layer2_1
+  [5/100] n01748264/n01748264_2196.JPEG  baseline=Indian cobra, Naja naja(0.978)  top1=Indian cobra, Naja naja(0.978)  drop=0.000
+[row] conceptual_start=19062784 end=19070976 flips=8192
+  [6/100] n02093991/n02093991_2155.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32836
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [6/100] n02093991/n02093991_2155.JPEG  baseline=Irish terrier(0.864)  top1=Irish terrier(0.860)  drop=0.004
+[row] conceptual_start=19496960 end=19505152 flips=8192
+  [7/100] n02093991/n02093991_75.JPEG                    [transient-SEFI-row]  bytes=8192  bits~32672
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [7/100] n02093991/n02093991_75.JPEG  baseline=Irish terrier(0.799)  top1=Irish terrier(0.677)  drop=0.122
+[row] conceptual_start=4612096 end=4620288 flips=8192
+  [8/100] n02093991/n02093991_7823.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32718
+  [transient-SEFI-row] pieces=piece_10_layer3_2
+  [8/100] n02093991/n02093991_7823.JPEG  baseline=Irish terrier(0.433)  top1=Irish terrier(0.461)  drop=-0.028
+[row] conceptual_start=9027584 end=9035776 flips=8192
+  [9/100] n02093991/n02093991_7935.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32834
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [9/100] n02093991/n02093991_7935.JPEG  baseline=Irish terrier(0.905)  top1=Irish terrier(0.739)  drop=0.167
+[row] conceptual_start=7168000 end=7176192 flips=8192
+  [10/100] n02093991/n02093991_8145.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32956
+  [transient-SEFI-row] pieces=piece_12_layer3_4
+  [10/100] n02093991/n02093991_8145.JPEG  baseline=bull mastiff(0.649)  top1=backpack, back pack, knapsack, packsack, rucksack, haversack(0.771)  drop=-0.122
+[row] conceptual_start=10412032 end=10420224 flips=8192
+  [11/100] n02096051/n02096051_2751.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32911
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [11/100] n02096051/n02096051_2751.JPEG  baseline=Airedale, Airedale terrier(0.693)  top1=Airedale, Airedale terrier(0.694)  drop=-0.000
+[row] conceptual_start=17891328 end=17899520 flips=8192
+  [12/100] n02096051/n02096051_2946.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32872
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [12/100] n02096051/n02096051_2946.JPEG  baseline=Airedale, Airedale terrier(0.949)  top1=Airedale, Airedale terrier(0.920)  drop=0.029
+[row] conceptual_start=2359296 end=2367488 flips=8192
+  [13/100] n02096051/n02096051_495.JPEG                   [transient-SEFI-row]  bytes=8192  bits~32711
+  [transient-SEFI-row] pieces=piece_08_layer3_0
+  [13/100] n02096051/n02096051_495.JPEG  baseline=Airedale, Airedale terrier(0.985)  top1=Airedale, Airedale terrier(0.978)  drop=0.007
+[row] conceptual_start=7421952 end=7430144 flips=8192
+  [14/100] n02096051/n02096051_5436.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32826
+  [transient-SEFI-row] pieces=piece_12_layer3_4,piece_13_layer3_5
+  [14/100] n02096051/n02096051_5436.JPEG  baseline=Airedale, Airedale terrier(0.932)  top1=prayer rug, prayer mat(0.363)  drop=0.568
+[row] conceptual_start=14581760 end=14589952 flips=8192
+  [15/100] n02096051/n02096051_668.JPEG                   [transient-SEFI-row]  bytes=8192  bits~32885
+  [transient-SEFI-row] pieces=piece_14_layer4_0,piece_15_layer4_1
+  [15/100] n02096051/n02096051_668.JPEG  baseline=Airedale, Airedale terrier(0.937)  top1=Lakeland terrier(0.226)  drop=0.711
+[row] conceptual_start=21422080 end=21430272 flips=8192
+  [16/100] n02113186/n02113186_12291.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33215
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [16/100] n02113186/n02113186_12291.JPEG  baseline=toy terrier(0.346)  top1=toy terrier(0.383)  drop=-0.037
+[row] conceptual_start=23896064 end=23904256 flips=8192
+  [17/100] n02113186/n02113186_13231.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32881
+  [transient-SEFI-row] pieces=piece_17_head
+  [17/100] n02113186/n02113186_13231.JPEG  baseline=tiger cat(0.400)  top1=tiger cat(0.400)  drop=0.000
+[row] conceptual_start=19726336 end=19734528 flips=8192
+  [18/100] n02113186/n02113186_50.JPEG                    [transient-SEFI-row]  bytes=8192  bits~32798
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [18/100] n02113186/n02113186_50.JPEG  baseline=Pembroke, Pembroke Welsh corgi(0.758)  top1=Pembroke, Pembroke Welsh corgi(0.607)  drop=0.150
+[row] conceptual_start=8421376 end=8429568 flips=8192
+  [19/100] n02113186/n02113186_5538.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32730
+  [transient-SEFI-row] pieces=piece_13_layer3_5
+  [19/100] n02113186/n02113186_5538.JPEG  baseline=beagle(0.454)  top1=beagle(0.334)  drop=0.120
+[row] conceptual_start=14958592 end=14966784 flips=8192
+  [20/100] n02113186/n02113186_9772.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32985
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [20/100] n02113186/n02113186_9772.JPEG  baseline=basenji(0.601)  top1=Cardigan, Cardigan Welsh corgi(0.497)  drop=0.104
+[row] conceptual_start=9928704 end=9936896 flips=8192
+  [21/100] n02114855/n02114855_1044.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32727
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [21/100] n02114855/n02114855_1044.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.909)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.883)  drop=0.026
+[row] conceptual_start=10002432 end=10010624 flips=8192
+  [22/100] n02114855/n02114855_1047.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33072
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [22/100] n02114855/n02114855_1047.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.495)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.553)  drop=-0.058
+[row] conceptual_start=11616256 end=11624448 flips=8192
+  [23/100] n02114855/n02114855_18848.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32931
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [23/100] n02114855/n02114855_18848.JPEG  baseline=cheetah, chetah, Acinonyx jubatus(0.273)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.107)  drop=0.165
+[row] conceptual_start=16441344 end=16449536 flips=8192
+  [24/100] n02114855/n02114855_7204.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32898
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [24/100] n02114855/n02114855_7204.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.205)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.189)  drop=0.016
+[row] conceptual_start=21045248 end=21053440 flips=8192
+  [25/100] n02114855/n02114855_7265.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32949
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [25/100] n02114855/n02114855_7265.JPEG  baseline=coyote, prairie wolf, brush wolf, Canis latrans(0.342)  top1=coyote, prairie wolf, brush wolf, Canis latrans(0.359)  drop=-0.017
+[row] conceptual_start=3325952 end=3334144 flips=8192
+  [26/100] n02134418/n02134418_11090.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32554
+  [transient-SEFI-row] pieces=piece_09_layer3_1
+  [26/100] n02134418/n02134418_11090.JPEG  baseline=American black bear, black bear, Ursus americanus, Euarctos americanus(0.484)  top1=American black bear, black bear, Ursus americanus, Euarctos americanus(0.484)  drop=0.000
+[row] conceptual_start=10420224 end=10428416 flips=8192
+  [27/100] n02134418/n02134418_2895.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32934
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [27/100] n02134418/n02134418_2895.JPEG  baseline=sloth bear, Melursus ursinus, Ursus ursinus(0.936)  top1=sloth bear, Melursus ursinus, Ursus ursinus(0.918)  drop=0.018
+[row] conceptual_start=8028160 end=8036352 flips=8192
+  [28/100] n02134418/n02134418_3846.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32947
+  [transient-SEFI-row] pieces=piece_13_layer3_5
+  [28/100] n02134418/n02134418_3846.JPEG  baseline=sloth bear, Melursus ursinus, Ursus ursinus(0.938)  top1=sloth bear, Melursus ursinus, Ursus ursinus(0.671)  drop=0.267
+[row] conceptual_start=13508608 end=13516800 flips=8192
+  [29/100] n02134418/n02134418_4725.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32875
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [29/100] n02134418/n02134418_4725.JPEG  baseline=sloth bear, Melursus ursinus, Ursus ursinus(0.941)  top1=sloth bear, Melursus ursinus, Ursus ursinus(0.914)  drop=0.026
+[row] conceptual_start=3350528 end=3358720 flips=8192
+  [30/100] n02134418/n02134418_5777.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32801
+  [transient-SEFI-row] pieces=piece_09_layer3_1
+  [30/100] n02134418/n02134418_5777.JPEG  baseline=fountain(0.271)  top1=fountain(0.271)  drop=0.000
+[row] conceptual_start=11411456 end=11419648 flips=8192
+  [31/100] n02264363/n02264363_13680.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33033
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [31/100] n02264363/n02264363_13680.JPEG  baseline=bubble(0.970)  top1=bubble(0.979)  drop=-0.009
+[row] conceptual_start=16416768 end=16424960 flips=8192
+  [32/100] n02264363/n02264363_3092.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32847
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [32/100] n02264363/n02264363_3092.JPEG  baseline=lacewing, lacewing fly(0.876)  top1=lacewing, lacewing fly(0.855)  drop=0.021
+[row] conceptual_start=24076288 end=24084480 flips=8192
+  [33/100] n02264363/n02264363_4632.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33102
+  [transient-SEFI-row] pieces=piece_17_head
+  [33/100] n02264363/n02264363_4632.JPEG  baseline=lacewing, lacewing fly(0.991)  top1=lacewing, lacewing fly(0.991)  drop=0.000
+[row] conceptual_start=18718720 end=18726912 flips=8192
+  [34/100] n02264363/n02264363_5318.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32917
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [34/100] n02264363/n02264363_5318.JPEG  baseline=lacewing, lacewing fly(1.000)  top1=lacewing, lacewing fly(1.000)  drop=0.000
+[row] conceptual_start=14360576 end=14368768 flips=8192
+  [35/100] n02264363/n02264363_9846.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32858
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [35/100] n02264363/n02264363_9846.JPEG  baseline=lacewing, lacewing fly(1.000)  top1=lacewing, lacewing fly(1.000)  drop=0.000
+[row] conceptual_start=3506176 end=3514368 flips=8192
+  [36/100] n02699494/n02699494_12579.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32839
+  [transient-SEFI-row] pieces=piece_09_layer3_1
+  [36/100] n02699494/n02699494_12579.JPEG  baseline=altar(0.746)  top1=altar(0.746)  drop=0.000
+[row] conceptual_start=21651456 end=21659648 flips=8192
+  [37/100] n02699494/n02699494_18171.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33085
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [37/100] n02699494/n02699494_18171.JPEG  baseline=altar(0.826)  top1=altar(0.754)  drop=0.072
+[row] conceptual_start=3424256 end=3432448 flips=8192
+  [38/100] n02699494/n02699494_2349.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32929
+  [transient-SEFI-row] pieces=piece_09_layer3_1
+  [38/100] n02699494/n02699494_2349.JPEG  baseline=altar(0.921)  top1=altar(0.921)  drop=0.000
+[row] conceptual_start=14221312 end=14229504 flips=8192
+  [39/100] n02699494/n02699494_4661.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32853
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [39/100] n02699494/n02699494_4661.JPEG  baseline=altar(0.968)  top1=altar(0.968)  drop=-0.000
+[row] conceptual_start=4808704 end=4816896 flips=8192
+  [40/100] n02699494/n02699494_4682.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32761
+  [transient-SEFI-row] pieces=piece_10_layer3_2
+  [40/100] n02699494/n02699494_4682.JPEG  baseline=altar(0.860)  top1=altar(0.860)  drop=-0.000
+[row] conceptual_start=2498560 end=2506752 flips=8192
+  [41/100] n02704792/n02704792_13304.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32779
+  [transient-SEFI-row] pieces=piece_08_layer3_0
+  [41/100] n02704792/n02704792_13304.JPEG  baseline=amphibian, amphibious vehicle(0.971)  top1=amphibian, amphibious vehicle(0.846)  drop=0.125
+[row] conceptual_start=2760704 end=2768896 flips=8192
+  [42/100] n02704792/n02704792_2135.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32931
+  [transient-SEFI-row] pieces=piece_08_layer3_0
+  [42/100] n02704792/n02704792_2135.JPEG  baseline=amphibian, amphibious vehicle(0.738)  top1=amphibian, amphibious vehicle(0.710)  drop=0.028
+[row] conceptual_start=20684800 end=20692992 flips=8192
+  [43/100] n02704792/n02704792_28593.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32764
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [43/100] n02704792/n02704792_28593.JPEG  baseline=amphibian, amphibious vehicle(0.997)  top1=amphibian, amphibious vehicle(0.998)  drop=-0.001
+[row] conceptual_start=18866176 end=18874368 flips=8192
+  [44/100] n02704792/n02704792_4565.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32885
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [44/100] n02704792/n02704792_4565.JPEG  baseline=amphibian, amphibious vehicle(0.973)  top1=amphibian, amphibious vehicle(0.913)  drop=0.060
+[row] conceptual_start=21962752 end=21970944 flips=8192
+  [45/100] n02704792/n02704792_7641.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32908
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [45/100] n02704792/n02704792_7641.JPEG  baseline=amphibian, amphibious vehicle(0.681)  top1=amphibian, amphibious vehicle(0.714)  drop=-0.033
+[row] conceptual_start=229376 end=237568 flips=8192
+  [46/100] n02794156/n02794156_202.JPEG                   [transient-SEFI-row]  bytes=8192  bits~32882
+  [transient-SEFI-row] pieces=piece_04_layer2_0
+  [46/100] n02794156/n02794156_202.JPEG  baseline=barometer(0.806)  top1=magnetic compass(0.229)  drop=0.577
+[row] conceptual_start=4653056 end=4661248 flips=8192
+  [47/100] n02794156/n02794156_3679.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32788
+  [transient-SEFI-row] pieces=piece_10_layer3_2
+  [47/100] n02794156/n02794156_3679.JPEG  baseline=microwave, microwave oven(0.162)  top1=microwave, microwave oven(0.168)  drop=-0.006
+[row] conceptual_start=5824512 end=5832704 flips=8192
+  [48/100] n02794156/n02794156_4688.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33173
+  [transient-SEFI-row] pieces=piece_11_layer3_3
+  [48/100] n02794156/n02794156_4688.JPEG  baseline=barometer(0.995)  top1=barometer(0.993)  drop=0.002
+[row] conceptual_start=22355968 end=22364160 flips=8192
+  [49/100] n02794156/n02794156_6604.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33059
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [49/100] n02794156/n02794156_6604.JPEG  baseline=magnetic compass(0.727)  top1=magnetic compass(0.774)  drop=-0.047
+[row] conceptual_start=262144 end=270336 flips=8192
+  [50/100] n02794156/n02794156_7565.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33043
+  [transient-SEFI-row] pieces=piece_04_layer2_0
+  [50/100] n02794156/n02794156_7565.JPEG  baseline=barometer(0.519)  top1=lampshade, lamp shade(0.153)  drop=0.366
+[row] conceptual_start=24780800 end=24788992 flips=8192
+  [51/100] n03124043/n03124043_5402.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32999
+  [transient-SEFI-row] pieces=piece_17_head
+  [51/100] n03124043/n03124043_5402.JPEG  baseline=cowboy boot(1.000)  top1=cowboy boot(1.000)  drop=0.000
+[row] conceptual_start=1015808 end=1024000 flips=8192
+  [52/100] n03124043/n03124043_5856.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32817
+  [transient-SEFI-row] pieces=piece_06_layer2_2
+  [52/100] n03124043/n03124043_5856.JPEG  baseline=cowboy boot(0.998)  top1=cowboy boot(0.992)  drop=0.006
+[row] conceptual_start=2211840 end=2220032 flips=8192
+  [53/100] n03124043/n03124043_6328.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33054
+  [transient-SEFI-row] pieces=piece_08_layer3_0
+  [53/100] n03124043/n03124043_6328.JPEG  baseline=clog, geta, patten, sabot(0.648)  top1=Loafer(0.250)  drop=0.398
+[row] conceptual_start=12599296 end=12607488 flips=8192
+  [54/100] n03124043/n03124043_7091.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33017
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [54/100] n03124043/n03124043_7091.JPEG  baseline=cowboy boot(1.000)  top1=cowboy boot(1.000)  drop=-0.000
+[row] conceptual_start=21463040 end=21471232 flips=8192
+  [55/100] n03124043/n03124043_7889.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32838
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [55/100] n03124043/n03124043_7889.JPEG  baseline=Loafer(0.814)  top1=Loafer(0.785)  drop=0.029
+[row] conceptual_start=11747328 end=11755520 flips=8192
+  [56/100] n03637318/n03637318_1066.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32996
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [56/100] n03637318/n03637318_1066.JPEG  baseline=lampshade, lamp shade(0.406)  top1=lampshade, lamp shade(0.370)  drop=0.035
+[row] conceptual_start=17252352 end=17260544 flips=8192
+  [57/100] n03637318/n03637318_14251.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33067
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [57/100] n03637318/n03637318_14251.JPEG  baseline=lampshade, lamp shade(0.253)  top1=lampshade, lamp shade(0.231)  drop=0.022
+[row] conceptual_start=15630336 end=15638528 flips=8192
+  [58/100] n03637318/n03637318_16044.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32927
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [58/100] n03637318/n03637318_16044.JPEG  baseline=lampshade, lamp shade(0.851)  top1=table lamp(0.624)  drop=0.226
+[row] conceptual_start=4407296 end=4415488 flips=8192
+  [59/100] n03637318/n03637318_6645.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32961
+  [transient-SEFI-row] pieces=piece_10_layer3_2
+  [59/100] n03637318/n03637318_6645.JPEG  baseline=lampshade, lamp shade(0.646)  top1=lampshade, lamp shade(0.663)  drop=-0.016
+[row] conceptual_start=13656064 end=13664256 flips=8192
+  [60/100] n03637318/n03637318_9369.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32702
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [60/100] n03637318/n03637318_9369.JPEG  baseline=lampshade, lamp shade(0.371)  top1=spotlight, spot(0.361)  drop=0.011
+[row] conceptual_start=14909440 end=14917632 flips=8192
+  [61/100] n03874293/n03874293_11031.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33040
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [61/100] n03874293/n03874293_11031.JPEG  baseline=paddlewheel, paddle wheel(1.000)  top1=paddlewheel, paddle wheel(1.000)  drop=0.000
+[row] conceptual_start=18079744 end=18087936 flips=8192
+  [62/100] n03874293/n03874293_14179.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32739
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [62/100] n03874293/n03874293_14179.JPEG  baseline=paddlewheel, paddle wheel(1.000)  top1=paddlewheel, paddle wheel(1.000)  drop=-0.000
+[row] conceptual_start=18030592 end=18038784 flips=8192
+  [63/100] n03874293/n03874293_152.JPEG                   [transient-SEFI-row]  bytes=8192  bits~32851
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [63/100] n03874293/n03874293_152.JPEG  baseline=paddlewheel, paddle wheel(0.999)  top1=paddlewheel, paddle wheel(0.999)  drop=0.000
+[row] conceptual_start=4161536 end=4169728 flips=8192
+  [64/100] n03874293/n03874293_22199.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32872
+  [transient-SEFI-row] pieces=piece_10_layer3_2
+  [64/100] n03874293/n03874293_22199.JPEG  baseline=paddlewheel, paddle wheel(0.993)  top1=paddlewheel, paddle wheel(0.933)  drop=0.060
+[row] conceptual_start=18210816 end=18219008 flips=8192
+  [65/100] n03874293/n03874293_4256.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33072
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [65/100] n03874293/n03874293_4256.JPEG  baseline=paddlewheel, paddle wheel(1.000)  top1=paddlewheel, paddle wheel(1.000)  drop=-0.000
+[row] conceptual_start=5824512 end=5832704 flips=8192
+  [66/100] n03933933/n03933933_21453.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33057
+  [transient-SEFI-row] pieces=piece_11_layer3_3
+  [66/100] n03933933/n03933933_21453.JPEG  baseline=pier(0.878)  top1=pier(0.920)  drop=-0.042
+[row] conceptual_start=24207360 end=24215552 flips=8192
+  [67/100] n03933933/n03933933_24591.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33054
+  [transient-SEFI-row] pieces=piece_17_head
+  [67/100] n03933933/n03933933_24591.JPEG  baseline=pier(0.465)  top1=pier(0.465)  drop=0.000
+[row] conceptual_start=19292160 end=19300352 flips=8192
+  [68/100] n03933933/n03933933_31954.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33028
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [68/100] n03933933/n03933933_31954.JPEG  baseline=pier(0.880)  top1=pier(0.925)  drop=-0.045
+[row] conceptual_start=25141248 end=25149440 flips=8192
+  [69/100] n03933933/n03933933_4981.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33057
+  [transient-SEFI-row] pieces=piece_17_head
+  [69/100] n03933933/n03933933_4981.JPEG  baseline=steel arch bridge(0.511)  top1=steel arch bridge(0.511)  drop=0.000
+[row] conceptual_start=12992512 end=13000704 flips=8192
+  [70/100] n03933933/n03933933_90.JPEG                    [transient-SEFI-row]  bytes=8192  bits~32824
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [70/100] n03933933/n03933933_90.JPEG  baseline=steel arch bridge(0.939)  top1=steel arch bridge(0.923)  drop=0.016
+[row] conceptual_start=22937600 end=22945792 flips=8192
+  [71/100] n04311004/n04311004_1647.JPEG                  [transient-SEFI-row]  bytes=8192  bits~33114
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [71/100] n04311004/n04311004_1647.JPEG  baseline=steel arch bridge(0.989)  top1=steel arch bridge(0.989)  drop=-0.000
+[row] conceptual_start=17784832 end=17793024 flips=8192
+  [72/100] n04311004/n04311004_2766.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32988
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [72/100] n04311004/n04311004_2766.JPEG  baseline=steel arch bridge(0.987)  top1=steel arch bridge(0.983)  drop=0.004
+[row] conceptual_start=6381568 end=6389760 flips=8192
+  [73/100] n04311004/n04311004_3501.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32742
+  [transient-SEFI-row] pieces=piece_12_layer3_4
+  [73/100] n04311004/n04311004_3501.JPEG  baseline=steel arch bridge(0.955)  top1=steel arch bridge(0.827)  drop=0.128
+[row] conceptual_start=23961600 end=23969792 flips=8192
+  [74/100] n04311004/n04311004_3797.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32771
+  [transient-SEFI-row] pieces=piece_17_head
+  [74/100] n04311004/n04311004_3797.JPEG  baseline=palace(0.383)  top1=palace(0.383)  drop=0.000
+[row] conceptual_start=20602880 end=20611072 flips=8192
+  [75/100] n04311004/n04311004_6632.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32811
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [75/100] n04311004/n04311004_6632.JPEG  baseline=steel arch bridge(0.762)  top1=steel arch bridge(0.803)  drop=-0.041
+[row] conceptual_start=14434304 end=14442496 flips=8192
+  [76/100] n04355933/n04355933_13231.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32976
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [76/100] n04355933/n04355933_13231.JPEG  baseline=hair spray(0.499)  top1=hair spray(0.422)  drop=0.077
+[row] conceptual_start=6324224 end=6332416 flips=8192
+  [77/100] n04355933/n04355933_14508.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32833
+  [transient-SEFI-row] pieces=piece_12_layer3_4
+  [77/100] n04355933/n04355933_14508.JPEG  baseline=sunglass(0.463)  top1=sunglasses, dark glasses, shades(0.546)  drop=-0.083
+[row] conceptual_start=11141120 end=11149312 flips=8192
+  [78/100] n04355933/n04355933_1754.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32931
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [78/100] n04355933/n04355933_1754.JPEG  baseline=sunglass(0.576)  top1=sunglass(0.572)  drop=0.004
+[row] conceptual_start=6471680 end=6479872 flips=8192
+  [79/100] n04355933/n04355933_2717.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32916
+  [transient-SEFI-row] pieces=piece_12_layer3_4
+  [79/100] n04355933/n04355933_2717.JPEG  baseline=sunglasses, dark glasses, shades(0.649)  top1=sunglasses, dark glasses, shades(0.589)  drop=0.060
+[row] conceptual_start=16015360 end=16023552 flips=8192
+  [80/100] n04355933/n04355933_3450.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32969
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [80/100] n04355933/n04355933_3450.JPEG  baseline=miniskirt, mini(0.383)  top1=miniskirt, mini(0.379)  drop=0.005
+[row] conceptual_start=12460032 end=12468224 flips=8192
+  [81/100] n04370456/n04370456_3046.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32852
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [81/100] n04370456/n04370456_3046.JPEG  baseline=sweatshirt(0.366)  top1=poncho(0.362)  drop=0.005
+[row] conceptual_start=14188544 end=14196736 flips=8192
+  [82/100] n04370456/n04370456_4380.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32790
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [82/100] n04370456/n04370456_4380.JPEG  baseline=lab coat, laboratory coat(0.369)  top1=hoopskirt, crinoline(0.297)  drop=0.072
+[row] conceptual_start=8806400 end=8814592 flips=8192
+  [83/100] n04370456/n04370456_5698.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32945
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [83/100] n04370456/n04370456_5698.JPEG  baseline=sweatshirt(0.829)  top1=sweatshirt(0.560)  drop=0.269
+[row] conceptual_start=4063232 end=4071424 flips=8192
+  [84/100] n04370456/n04370456_6227.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32913
+  [transient-SEFI-row] pieces=piece_09_layer3_1
+  [84/100] n04370456/n04370456_6227.JPEG  baseline=sweatshirt(0.832)  top1=sweatshirt(0.832)  drop=0.000
+[row] conceptual_start=9265152 end=9273344 flips=8192
+  [85/100] n04370456/n04370456_942.JPEG                   [transient-SEFI-row]  bytes=8192  bits~32782
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [85/100] n04370456/n04370456_942.JPEG  baseline=sweatshirt(0.997)  top1=sweatshirt(0.996)  drop=0.001
+[row] conceptual_start=19922944 end=19931136 flips=8192
+  [86/100] n04557648/n04557648_1727.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32796
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [86/100] n04557648/n04557648_1727.JPEG  baseline=pop bottle, soda bottle(0.153)  top1=wok(0.293)  drop=-0.139
+[row] conceptual_start=22519808 end=22528000 flips=8192
+  [87/100] n04557648/n04557648_2063.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32976
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [87/100] n04557648/n04557648_2063.JPEG  baseline=peacock(0.163)  top1=peacock(0.141)  drop=0.023
+[row] conceptual_start=4145152 end=4153344 flips=8192
+  [88/100] n04557648/n04557648_29432.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32780
+  [transient-SEFI-row] pieces=piece_10_layer3_2
+  [88/100] n04557648/n04557648_29432.JPEG  baseline=washbasin, handbasin, washbowl, lavabo, wash-hand basin(0.589)  top1=washbasin, handbasin, washbowl, lavabo, wash-hand basin(0.608)  drop=-0.018
+[row] conceptual_start=24805376 end=24813568 flips=8192
+  [89/100] n04557648/n04557648_310.JPEG                   [transient-SEFI-row]  bytes=8192  bits~32824
+  [transient-SEFI-row] pieces=piece_17_head
+  [89/100] n04557648/n04557648_310.JPEG  baseline=water bottle(0.455)  top1=water bottle(0.455)  drop=0.000
+[row] conceptual_start=278528 end=286720 flips=8192
+  [90/100] n04557648/n04557648_8444.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32815
+  [transient-SEFI-row] pieces=piece_04_layer2_0
+  [90/100] n04557648/n04557648_8444.JPEG  baseline=water bottle(0.366)  top1=water bottle(0.558)  drop=-0.192
+[row] conceptual_start=245760 end=253952 flips=8192
+  [91/100] n09399592/n09399592_17820.JPEG                 [transient-SEFI-row]  bytes=8192  bits~33096
+  [transient-SEFI-row] pieces=piece_04_layer2_0
+  [91/100] n09399592/n09399592_17820.JPEG  baseline=promontory, headland, head, foreland(0.888)  top1=planetarium(0.456)  drop=0.432
+[row] conceptual_start=22134784 end=22142976 flips=8192
+  [92/100] n09399592/n09399592_57381.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32837
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [92/100] n09399592/n09399592_57381.JPEG  baseline=promontory, headland, head, foreland(0.864)  top1=promontory, headland, head, foreland(0.865)  drop=-0.001
+[row] conceptual_start=6406144 end=6414336 flips=8192
+  [93/100] n09399592/n09399592_58193.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32979
+  [transient-SEFI-row] pieces=piece_12_layer3_4
+  [93/100] n09399592/n09399592_58193.JPEG  baseline=promontory, headland, head, foreland(0.959)  top1=promontory, headland, head, foreland(0.770)  drop=0.189
+[row] conceptual_start=22421504 end=22429696 flips=8192
+  [94/100] n09399592/n09399592_74394.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32746
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [94/100] n09399592/n09399592_74394.JPEG  baseline=promontory, headland, head, foreland(0.781)  top1=promontory, headland, head, foreland(0.801)  drop=-0.020
+[row] conceptual_start=16080896 end=16089088 flips=8192
+  [95/100] n09399592/n09399592_87777.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32961
+  [transient-SEFI-row] pieces=piece_15_layer4_1
+  [95/100] n09399592/n09399592_87777.JPEG  baseline=promontory, headland, head, foreland(0.534)  top1=promontory, headland, head, foreland(0.472)  drop=0.062
+[row] conceptual_start=10149888 end=10158080 flips=8192
+  [96/100] n12985857/n12985857_10703.JPEG                 [transient-SEFI-row]  bytes=8192  bits~32973
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [96/100] n12985857/n12985857_10703.JPEG  baseline=coral fungus(0.946)  top1=coral fungus(0.941)  drop=0.005
+[row] conceptual_start=21143552 end=21151744 flips=8192
+  [97/100] n12985857/n12985857_1312.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32927
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [97/100] n12985857/n12985857_1312.JPEG  baseline=coral fungus(1.000)  top1=coral fungus(0.999)  drop=0.000
+[row] conceptual_start=12394496 end=12402688 flips=8192
+  [98/100] n12985857/n12985857_6677.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32869
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [98/100] n12985857/n12985857_6677.JPEG  baseline=coral fungus(0.412)  top1=coral fungus(0.422)  drop=-0.010
+[row] conceptual_start=9379840 end=9388032 flips=8192
+  [99/100] n12985857/n12985857_7042.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32995
+  [transient-SEFI-row] pieces=piece_14_layer4_0
+  [99/100] n12985857/n12985857_7042.JPEG  baseline=coral fungus(0.461)  top1=coral fungus(0.571)  drop=-0.110
+[row] conceptual_start=23437312 end=23445504 flips=8192
+  [100/100] n12985857/n12985857_7767.JPEG                  [transient-SEFI-row]  bytes=8192  bits~32627
+  [transient-SEFI-row] pieces=piece_16_layer4_2
+  [100/100] n12985857/n12985857_7767.JPEG  baseline=coral fungus(0.987)  top1=coral fungus(0.989)  drop=-0.001
+
+[Summary] target=weights         baseline=76.00%  faulty=69.00%

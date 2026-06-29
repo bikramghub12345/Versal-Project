@@ -1,0 +1,2 @@
+[Setup] Input  ResNet__input_0_fix  size=150528 h=224 w=224
+[Setup] Output ResNet__ResNet_Linear_fc__8290_fix  size=1000

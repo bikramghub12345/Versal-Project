@@ -1,0 +1,516 @@
+[Setup] Input  ResNet__input_0_fix  size=150528 h=224 w=224
+[Setup] Output ResNet__ResNet_Linear_fc__8290_fix  size=1000
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001D600000  size=25726976 B
+[DDR4] Input tensor: phys=0x000000001B9C0000  total=152608 B  pixel_start=+2080 B
+[Snapshot] Weight backup taken: 25726976 B @ 0x000000001D600000
+[Baseline] Accuracy: 6/100 = 6.00%
+
+──── target=weights ────
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E8DE000  size=8192 B  bits~32980
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E8DE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DFA2000  size=8192 B  bits~32681
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DFA2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E8CC000  size=8192 B  bits~33056
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E8CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DCA0000  size=8192 B  bits~32898
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DCA0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DF38000  size=8192 B  bits~33048
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DF38000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D992000  size=8192 B  bits~32891
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D992000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D8FC000  size=8192 B  bits~32845
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D8FC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DBE0000  size=8192 B  bits~32752
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DBE0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E37C000  size=8192 B  bits~32808
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E37C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DC08000  size=8192 B  bits~33007
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DC08000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EBCC000  size=8192 B  bits~32878
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EBCC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EE0A000  size=8192 B  bits~32706
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EE0A000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E71E000  size=8192 B  bits~32659
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E71E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E11C000  size=8192 B  bits~32929
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E11C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E834000  size=8192 B  bits~32995
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E834000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DD60000  size=8192 B  bits~33033
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DD60000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D814000  size=8192 B  bits~32736
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D814000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E31A000  size=8192 B  bits~32913
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E31A000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E502000  size=8192 B  bits~32758
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E502000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DC0E000  size=8192 B  bits~32745
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DC0E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DBB4000  size=8192 B  bits~32900
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DBB4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DBE2000  size=8192 B  bits~33143
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DBE2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E4C6000  size=8192 B  bits~33026
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E4C6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E18E000  size=8192 B  bits~32782
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E18E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EE7C000  size=8192 B  bits~32810
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EE7C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E886000  size=8192 B  bits~32715
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E886000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E0AC000  size=8192 B  bits~32913
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E0AC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DF78000  size=8192 B  bits~33050
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DF78000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001ED6E000  size=8192 B  bits~32861
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001ED6E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DB5C000  size=8192 B  bits~32881
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DB5C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E6A6000  size=8192 B  bits~33230
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E6A6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D83A000  size=8192 B  bits~32748
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D83A000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D8FA000  size=8192 B  bits~33095
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D8FA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EB50000  size=8192 B  bits~33146
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EB50000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E33A000  size=8192 B  bits~32878
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E33A000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E3E4000  size=8192 B  bits~32898
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E3E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DC46000  size=8192 B  bits~32830
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DC46000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E47E000  size=8192 B  bits~32826
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E47E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D7AC000  size=8192 B  bits~33008
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D7AC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EDEA000  size=8192 B  bits~33009
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EDEA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D732000  size=8192 B  bits~32962
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D732000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DB10000  size=8192 B  bits~32819
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DB10000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E9FA000  size=8192 B  bits~32655
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E9FA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D936000  size=8192 B  bits~32748
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D936000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E076000  size=8192 B  bits~32641
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E076000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DAD8000  size=8192 B  bits~32648
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DAD8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DF6C000  size=8192 B  bits~32918
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DF6C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DC70000  size=8192 B  bits~32689
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DC70000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DCF6000  size=8192 B  bits~32916
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DCF6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E828000  size=8192 B  bits~33004
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E828000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DDB4000  size=8192 B  bits~32922
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DDB4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D762000  size=8192 B  bits~32845
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D762000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E4FE000  size=8192 B  bits~32723
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E4FE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EB7C000  size=8192 B  bits~32773
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EB7C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DACC000  size=8192 B  bits~32926
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DACC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E748000  size=8192 B  bits~32917
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E748000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D7D0000  size=8192 B  bits~32900
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D7D0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EAA8000  size=8192 B  bits~33217
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EAA8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E0A0000  size=8192 B  bits~32709
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E0A0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E00E000  size=8192 B  bits~33047
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E00E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D9C0000  size=8192 B  bits~32913
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D9C0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EE3E000  size=8192 B  bits~32904
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EE3E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DD9E000  size=8192 B  bits~32881
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DD9E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E9C4000  size=8192 B  bits~32898
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E9C4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001ED1C000  size=8192 B  bits~32837
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001ED1C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E608000  size=8192 B  bits~32985
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E608000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E20C000  size=8192 B  bits~32956
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E20C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E8CC000  size=8192 B  bits~33008
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E8CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EAA0000  size=8192 B  bits~33065
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EAA0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DF9A000  size=8192 B  bits~32834
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DF9A000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E040000  size=8192 B  bits~32887
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E040000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E562000  size=8192 B  bits~33084
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E562000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E940000  size=8192 B  bits~32749
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E940000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E5DE000  size=8192 B  bits~32877
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E5DE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E6CE000  size=8192 B  bits~33094
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E6CE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E878000  size=8192 B  bits~32835
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E878000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001ECF6000  size=8192 B  bits~32788
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001ECF6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E33C000  size=8192 B  bits~33061
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E33C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D7E8000  size=8192 B  bits~32791
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D7E8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E6E2000  size=8192 B  bits~32726
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E6E2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DFA0000  size=8192 B  bits~32648
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DFA0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DB1A000  size=8192 B  bits~32850
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DB1A000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EB6E000  size=8192 B  bits~32893
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EB6E000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E0E8000  size=8192 B  bits~32916
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E0E8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E082000  size=8192 B  bits~32834
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E082000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D7B4000  size=8192 B  bits~32897
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D7B4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E15C000  size=8192 B  bits~32951
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E15C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E656000  size=8192 B  bits~33030
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E656000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E26C000  size=8192 B  bits~32926
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E26C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EC4C000  size=8192 B  bits~33016
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EC4C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E142000  size=8192 B  bits~32935
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E142000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E08C000  size=8192 B  bits~32689
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E08C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DB74000  size=8192 B  bits~32619
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DB74000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D9C6000  size=8192 B  bits~32894
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D9C6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EC70000  size=8192 B  bits~32754
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EC70000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001DCCE000  size=8192 B  bits~32893
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001DCCE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D69C000  size=8192 B  bits~32968
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D69C000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001E1C6000  size=8192 B  bits~32830
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001E1C6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001D988000  size=8192 B  bits~32909
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001D988000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001EADE000  size=8192 B  bits~33057
+  [transient-SEFI-row] regions_covered: [weights]  phys=0x000000001EADE000  size=8192 B
+[Summary] target=weights  baseline=6.00%  faulty=3.00%
+
+──── target=input_tensor ────
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C0000  size=8192 B  bits~33007
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D0000  size=8192 B  bits~33115
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CA000  size=8192 B  bits~32996
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CC000  size=8192 B  bits~32865
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DE000  size=8192 B  bits~33037
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D0000  size=8192 B  bits~32662
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E4000  size=8192 B  bits~33067
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E2000  size=8192 B  bits~32999
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~32887
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C0000  size=8192 B  bits~32989
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~32817
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~33049
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~32869
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E2000  size=8192 B  bits~32880
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DC000  size=8192 B  bits~32870
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D0000  size=8192 B  bits~32910
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C4000  size=8192 B  bits~32869
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~32660
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DA000  size=8192 B  bits~33059
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~32848
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E2000  size=8192 B  bits~32972
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DA000  size=8192 B  bits~32846
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C0000  size=8192 B  bits~32926
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C2000  size=8192 B  bits~32819
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~32673
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DA000  size=8192 B  bits~32923
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CE000  size=8192 B  bits~32895
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CA000  size=8192 B  bits~32812
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C4000  size=8192 B  bits~32812
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C6000  size=8192 B  bits~32951
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D0000  size=8192 B  bits~32781
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CA000  size=8192 B  bits~33025
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~33119
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E2000  size=8192 B  bits~32890
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C0000  size=8192 B  bits~32762
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DA000  size=8192 B  bits~33179
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CC000  size=8192 B  bits~32935
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D2000  size=8192 B  bits~32991
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C2000  size=8192 B  bits~32746
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~33108
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C6000  size=8192 B  bits~32986
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C6000  size=8192 B  bits~32727
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E2000  size=8192 B  bits~33022
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~32985
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~32785
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D2000  size=8192 B  bits~32801
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CC000  size=8192 B  bits~33186
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E4000  size=8192 B  bits~32764
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C2000  size=8192 B  bits~33136
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DC000  size=8192 B  bits~33072
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CA000  size=8192 B  bits~32894
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DC000  size=8192 B  bits~32882
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E4000  size=8192 B  bits~32896
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~33036
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DC000  size=8192 B  bits~32937
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D6000  size=8192 B  bits~33075
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E4000  size=8192 B  bits~32858
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E4000  size=8192 B  bits~32748
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CC000  size=8192 B  bits~32895
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E0000  size=8192 B  bits~32976
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CA000  size=8192 B  bits~33044
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CA000  size=8192 B  bits~32861
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D6000  size=8192 B  bits~32931
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D2000  size=8192 B  bits~32868
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DE000  size=8192 B  bits~32995
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D8000  size=8192 B  bits~32710
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CC000  size=8192 B  bits~33018
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~32990
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E4000  size=8192 B  bits~32970
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DE000  size=8192 B  bits~32847
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DE000  size=8192 B  bits~32982
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CE000  size=8192 B  bits~32946
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CC000  size=8192 B  bits~32980
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D8000  size=8192 B  bits~32839
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DC000  size=8192 B  bits~32877
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D6000  size=8192 B  bits~33037
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~32644
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D0000  size=8192 B  bits~32956
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E4000  size=8192 B  bits~33066
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E0000  size=8192 B  bits~32869
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9E2000  size=8192 B  bits~32645
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9E2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D8000  size=8192 B  bits~32778
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C6000  size=8192 B  bits~32866
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C6000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C8000  size=8192 B  bits~32992
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C0000  size=8192 B  bits~33061
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D2000  size=8192 B  bits~32921
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DC000  size=8192 B  bits~32797
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CC000  size=8192 B  bits~32870
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CC000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D8000  size=8192 B  bits~32789
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D8000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~33029
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CE000  size=8192 B  bits~32851
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CA000  size=8192 B  bits~32860
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9DA000  size=8192 B  bits~32871
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9DA000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C0000  size=8192 B  bits~33079
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C2000  size=8192 B  bits~33264
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D0000  size=8192 B  bits~33117
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D0000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C2000  size=8192 B  bits~32999
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C2000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9CE000  size=8192 B  bits~32736
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9CE000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9D4000  size=8192 B  bits~32933
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9D4000  size=8192 B
+  [transient-SEFI-row] SEFI-row(cross-region)  row_phys=0x000000001B9C2000  size=8192 B  bits~32808
+  [transient-SEFI-row] regions_covered: [input_tensor]  phys=0x000000001B9C2000  size=8192 B
+[Summary] target=input_tensor  baseline=6.00%  faulty=6.00%
+
+──── target=buffers ────
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4027
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4099
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3973
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3979
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4145
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4090
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4075
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4019
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4049
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4064
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3993
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4024
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3966
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4037
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4096
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4141
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4062
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4004
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3944
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3980
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4041
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4011
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4035
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4033
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4108
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3998
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4050
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4068
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4116
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4044
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3960
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4054
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3969
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4105
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4015
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4011
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4059
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4017
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3982
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4084
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4053
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3961
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4007
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4051
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4074
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4025
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3998
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4063
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4066
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4027
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4117
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4069
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4080
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4095
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4024
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4142
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4033
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4009
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4034
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4056
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4022
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4074
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4062
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3936
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4059
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3980
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3992
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4032
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4037
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4046
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4038
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4085
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4055
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4018
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4039
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4075
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4089
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4064
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4025
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4094
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4014
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4109
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4102
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4008
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4059
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4058
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4068
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4090
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4141
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4065
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4046
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3980
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~3946
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4038
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4052
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4022
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4061
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4116
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4132
+  [buffers_post] SEFI-block  phys=0x00000000058F9000  start=0  size=1008 B  bits~4016
+[Summary] target=buffers  baseline=6.00%  faulty=0.00%

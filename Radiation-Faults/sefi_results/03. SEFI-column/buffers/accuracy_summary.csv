@@ -1,0 +1,2 @@
+sefi_mode,total_images,baseline_correct,baseline_accuracy_pct,faulty_correct,faulty_wrong,faulty_accuracy_pct
+SEFI-column,100,75,75.0000,41,59,41.0000

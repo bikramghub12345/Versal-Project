@@ -1,0 +1,1216 @@
+[Setup] Input  data_fixed  size=150528 h=224 w=224
+[Setup] Output fc1000_fixed  size=1000
+[DDR4] Instructions: reg_val=0x1B900  phys=0x000000001B900000  size=742492 B
+[DDR4] Weights:      phys=0x000000001C100000  size=25726976 B
+[DDR4] Input tensor: phys=0x000000001B9C0000  total=152608 B  pixel_start=+2080 B
+[Snapshot] Weight backup taken: 25726976 B @ 0x000000001C100000
+[Baseline] Accuracy: 75/100 = 75.00%
+
+──── target=weights ────
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7852  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7852  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7852  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101490
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1639  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1639  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1639  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101459
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6212  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6212  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6212  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101510
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4558  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4558  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4558  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101313
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3826  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3826  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3826  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101629
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2586  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2586  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2586  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101482
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4041  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4041  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4041  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101710
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6728  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6728  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6728  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101455
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4384  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4384  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4384  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101527
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2951  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2951  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2951  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101411
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5919  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5919  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5919  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101592
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5074  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5074  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5074  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101673
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2596  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2596  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2596  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101296
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3701  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3701  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3701  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101677
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7598  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7598  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7598  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101076
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7988  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7988  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7988  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101790
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=347  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=347  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=347  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101612
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8155  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8155  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8155  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101508
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4491  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4491  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4491  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101408
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4433  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4433  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4433  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101513
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5081  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5081  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5081  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101811
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5907  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5907  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5907  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101588
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5520  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5520  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5520  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101298
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2434  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2434  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2434  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101549
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6155  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6155  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6155  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101166
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5749  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5749  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5749  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101754
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2975  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2975  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2975  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101484
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=266  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=266  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=266  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101434
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3973  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3973  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3973  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101489
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5457  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5457  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5457  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101474
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7677  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7677  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7677  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101261
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4354  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4354  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4354  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101492
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1737  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1737  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1737  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101945
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7652  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7652  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7652  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101855
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5431  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5431  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5431  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101520
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8169  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8169  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8169  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101845
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2906  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2906  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2906  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101389
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1329  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1329  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1329  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101662
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6156  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6156  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6156  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101454
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1392  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1392  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1392  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101873
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6364  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6364  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6364  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101424
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3478  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3478  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3478  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101729
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5808  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5808  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5808  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101786
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4393  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4393  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4393  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~102009
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4375  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4375  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4375  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101661
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4608  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4608  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4608  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101919
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=571  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=571  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=571  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101600
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2933  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2933  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2933  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101292
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5973  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5973  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5973  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101213
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2473  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2473  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2473  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101517
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5279  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5279  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5279  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101823
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2067  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2067  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2067  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101292
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7265  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7265  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7265  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101408
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3226  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3226  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3226  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101731
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7090  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7090  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7090  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101179
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1753  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1753  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1753  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101336
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2208  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2208  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2208  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101516
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5911  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5911  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5911  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101421
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7718  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7718  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7718  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101725
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=658  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=658  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=658  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101570
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7549  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7549  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7549  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101587
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3918  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3918  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3918  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101187
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5156  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5156  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5156  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101789
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3271  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3271  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3271  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101675
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2034  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2034  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2034  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101451
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3145  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3145  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3145  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101626
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6540  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6540  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6540  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101422
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4284  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4284  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4284  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101708
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1428  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1428  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1428  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101602
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5597  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5597  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5597  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101427
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2358  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2358  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2358  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101494
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2178  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2178  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2178  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101803
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1514  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1514  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1514  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101225
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=710  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=710  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=710  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101260
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7268  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7268  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7268  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101500
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3223  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3223  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3223  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101595
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4560  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4560  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4560  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101446
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6491  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6491  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6491  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~102092
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3603  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3603  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3603  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101613
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6794  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6794  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6794  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101001
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7465  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7465  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7465  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101440
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6751  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6751  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6751  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101698
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=98  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=98  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=98  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101643
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2736  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2736  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2736  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101283
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=48  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=48  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=48  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101709
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1202  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1202  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1202  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101552
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5854  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5854  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5854  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101521
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1061  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1061  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1061  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101564
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4638  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4638  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4638  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101685
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2750  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2750  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2750  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101365
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2785  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2785  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2785  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101767
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=865  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=865  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=865  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101552
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3129  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3129  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3129  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101510
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7654  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7654  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7654  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101645
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2587  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2587  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2587  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101676
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5831  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5831  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5831  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101570
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3667  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3667  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3667  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101321
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5422  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5422  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5422  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101397
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6073  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6073  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6073  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101167
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6742  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6742  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6742  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101381
+[Summary] target=weights  baseline=75.00%  faulty=40.00%
+
+──── target=input_tensor ────
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4908  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4908  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4908  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101824
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5579  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5579  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5579  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101462
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7103  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7103  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7103  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101155
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4180  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4180  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4180  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101396
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7353  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7353  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7353  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101292
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7949  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7949  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7949  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101233
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2767  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2767  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2767  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101655
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1589  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1589  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1589  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101898
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5455  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5455  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5455  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101432
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=394  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=394  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=394  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101321
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2568  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2568  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2568  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101322
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7221  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7221  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7221  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101526
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6112  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6112  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6112  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101281
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=844  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=844  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=844  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101480
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5338  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5338  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5338  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101695
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1293  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1293  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1293  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101697
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6551  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6551  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6551  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101484
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2271  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2271  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2271  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101682
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6179  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6179  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6179  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101361
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3324  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3324  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3324  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101549
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8087  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8087  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8087  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101910
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1380  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1380  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1380  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101225
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7022  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7022  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7022  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101598
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=88  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=88  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=88  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101531
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7090  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7090  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7090  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101136
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4676  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4676  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4676  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~100885
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7509  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7509  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7509  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101401
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6119  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6119  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6119  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101273
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3370  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3370  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3370  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101316
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2775  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2775  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2775  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101325
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8030  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8030  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8030  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101773
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1065  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1065  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1065  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101261
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1523  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1523  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1523  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101598
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8037  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8037  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8037  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101546
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3518  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3518  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3518  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101599
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8170  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8170  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8170  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101555
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3187  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3187  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3187  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101468
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5277  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5277  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5277  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101679
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5781  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5781  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5781  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101937
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7055  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7055  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7055  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101471
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3549  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3549  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3549  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~102036
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6866  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6866  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6866  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101464
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4689  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4689  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4689  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101500
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6892  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6892  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6892  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101434
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3202  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3202  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3202  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101590
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2739  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2739  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2739  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101776
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2207  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2207  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2207  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101096
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2966  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2966  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2966  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101482
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3397  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3397  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3397  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~100962
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2351  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2351  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2351  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101789
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1534  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1534  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1534  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101464
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5319  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5319  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5319  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101483
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5567  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5567  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5567  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101118
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3634  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3634  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3634  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101534
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7071  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7071  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7071  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101811
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1333  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1333  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1333  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101574
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2464  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2464  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2464  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101311
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5301  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5301  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5301  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101539
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1844  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1844  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1844  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101444
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1441  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1441  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1441  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101590
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4416  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4416  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4416  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101398
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3848  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3848  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3848  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101596
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3088  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3088  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3088  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101269
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2042  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2042  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2042  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101376
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7577  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7577  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7577  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101456
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3818  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3818  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3818  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101886
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6058  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6058  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6058  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101428
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5296  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5296  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5296  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101359
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6707  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6707  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6707  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101325
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5354  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5354  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5354  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101037
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5279  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5279  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5279  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101031
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5230  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5230  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5230  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~102105
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4080  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4080  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4080  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101906
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5749  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5749  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5749  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101323
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5053  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5053  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5053  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101375
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=920  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=920  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=920  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101693
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=40  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=40  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=40  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101716
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7461  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7461  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7461  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101957
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6380  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6380  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6380  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101499
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1361  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1361  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1361  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101644
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4146  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4146  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4146  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101905
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3872  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3872  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3872  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101594
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5299  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5299  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5299  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101226
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7398  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7398  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7398  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101248
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6382  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6382  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6382  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101498
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6478  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6478  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6478  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101413
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5894  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5894  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5894  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101597
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1266  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1266  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1266  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101576
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6595  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6595  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6595  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101100
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4618  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4618  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4618  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101365
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5241  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5241  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5241  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101702
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1839  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1839  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1839  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101147
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6043  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6043  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6043  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101382
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2056  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2056  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2056  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101714
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3041  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3041  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3041  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101753
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6802  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6802  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6802  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101352
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=812  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=812  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=812  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101426
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8171  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8171  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8171  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101450
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7145  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7145  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7145  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101578
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8047  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8047  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8047  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101298
+[Summary] target=input_tensor  baseline=75.00%  faulty=41.00%
+
+──── target=buffers ────
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=789  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=789  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=789  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101402
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6739  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6739  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6739  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101548
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4282  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4282  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4282  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101376
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3998  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3998  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3998  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101518
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8095  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8095  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8095  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101695
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6326  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6326  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6326  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101230
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4388  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4388  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4388  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101054
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3425  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3425  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3425  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101678
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6996  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6996  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6996  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101534
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7267  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7267  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7267  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101742
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=339  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=339  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=339  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101290
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7212  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7212  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7212  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101290
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3603  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3603  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3603  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101572
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=126  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=126  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=126  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101447
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7516  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7516  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7516  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101624
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=581  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=581  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=581  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101251
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4522  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4522  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4522  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101714
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=305  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=305  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=305  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101358
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5936  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5936  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5936  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101756
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2025  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2025  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2025  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101565
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1224  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1224  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1224  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101613
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=413  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=413  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=413  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101534
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=656  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=656  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=656  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101652
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7818  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7818  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7818  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101379
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7626  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7626  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7626  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101258
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6067  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6067  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6067  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101456
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5220  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5220  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5220  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101451
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5835  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5835  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5835  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101429
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3354  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3354  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3354  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101412
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2325  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2325  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2325  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101805
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6884  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6884  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6884  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101560
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7757  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7757  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7757  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101311
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1661  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1661  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1661  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101421
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2126  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2126  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2126  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101467
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=587  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=587  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=587  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101416
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2218  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2218  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2218  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101479
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1534  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1534  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1534  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101589
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6092  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6092  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6092  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101113
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6603  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6603  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6603  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101631
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1054  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1054  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1054  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101353
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2892  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2892  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2892  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101378
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6865  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6865  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6865  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101292
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=938  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=938  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=938  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101621
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5726  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5726  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5726  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101919
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=558  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=558  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=558  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101204
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7721  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7721  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7721  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101433
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8033  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8033  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8033  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101857
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1828  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1828  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1828  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101563
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1344  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1344  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1344  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101570
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3294  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3294  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3294  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101047
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8087  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8087  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8087  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101423
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7252  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7252  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7252  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101558
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2116  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2116  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2116  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101436
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3310  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3310  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3310  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101643
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=798  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=798  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=798  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101291
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7939  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7939  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7939  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101701
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1534  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1534  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1534  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101378
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2545  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2545  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2545  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101676
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2494  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2494  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2494  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101873
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2198  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2198  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2198  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101319
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=804  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=804  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=804  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101755
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3434  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3434  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3434  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101840
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1631  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1631  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1631  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101511
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1339  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1339  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1339  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101749
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1835  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1835  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1835  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101679
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=205  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=205  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=205  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101578
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4144  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4144  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4144  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101649
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1054  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1054  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1054  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101471
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3841  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3841  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3841  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101540
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3520  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3520  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3520  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101773
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4206  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4206  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4206  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101436
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5605  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5605  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5605  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101121
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3173  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3173  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3173  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101967
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=8103  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=8103  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=8103  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101580
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6717  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6717  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6717  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101609
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4035  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4035  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4035  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101621
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3612  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3612  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3612  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101933
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=3542  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=3542  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=3542  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101556
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5968  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5968  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5968  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101136
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5440  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5440  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5440  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101796
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1212  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1212  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1212  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101790
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7470  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7470  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7470  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101531
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5030  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5030  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5030  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101359
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=302  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=302  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=302  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=8
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25288 (weights=25128 input=152 output=8)  bits~101440
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1269  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1269  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1269  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101826
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4595  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4595  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4595  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101504
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5694  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5694  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5694  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101572
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2037  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2037  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2037  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101595
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1131  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1131  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1131  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101252
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1591  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1591  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1591  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101623
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5457  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5457  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5457  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101471
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1326  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1326  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1326  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101582
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2289  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2289  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2289  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~100944
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=2571  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=2571  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=2571  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101351
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=1952  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25128
+  [transient-SEFI-col] SEFI-col 'input'  col_off=1952  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=1952  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25280 (weights=25128 input=152 output=0)  bits~101241
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=5583  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=5583  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=5583  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~102043
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=6107  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=6107  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=6107  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101359
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7420  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7420  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7420  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101255
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=7633  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=7633  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=144
+  [transient-SEFI-col] SEFI-col 'output'  col_off=7633  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25264 (weights=25120 input=144 output=0)  bits~101298
+  [transient-SEFI-col] SEFI-col 'weights'  col_off=4932  col_w=8  complete_rows=3140  partial=4096 B  bytes_hit=25120
+  [transient-SEFI-col] SEFI-col 'input'  col_off=4932  col_w=8  complete_rows=18  partial=5152 B  bytes_hit=152
+  [transient-SEFI-col] SEFI-col 'output'  col_off=4932  col_w=8  complete_rows=0  partial=1008 B  bytes_hit=0
+  [transient-SEFI-col] SEFI-col TOTAL  bytes=25272 (weights=25120 input=152 output=0)  bits~101552
+[Summary] target=buffers  baseline=75.00%  faulty=28.00%
