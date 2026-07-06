@@ -3,6 +3,7 @@
  * =========================================================================
  * Platform : Xilinx ZCU104  |  DPUCZDX8G  |  DDR4 + /dev/mem direct access
  * Network  : ResNet50 (.xmodel)  |  Vitis-AI VART runtime
+ * Author   : Bikram Maurya
  *
  * REFERENCE:
  *   Guertin, S.M., "NEPP DDR4 Radiation Evaluation FY24 Final Report",
@@ -264,10 +265,10 @@ static void clear_dir(const string& path) {
 }
 
 // Builds the output directory path for a given mode+target, creates it, and clears old results.
-// mode: SEFIMode enum; tname: target name string (e.g. "weights").
-// Returns the full path e.g. ./FaultResults/sefi_results/01. SEFI-row/weights/
-static string prepare_output_dir(SEFIMode mode, const string& tname) {
-    string tdir = "./FaultResults/sefi_results/" + sefi_folder_name(mode) + "/" + tname;
+// results_folder: user-chosen top-level folder name (e.g. "sefi_results").
+// Returns the full path e.g. ./FaultResults/<results_folder>/01. SEFI-row/weights/
+static string prepare_output_dir(const string& results_folder, SEFIMode mode, const string& tname) {
+    string tdir = "./FaultResults/" + results_folder + "/" + sefi_folder_name(mode) + "/" + tname;
     mkdirp(tdir); clear_dir(tdir);
     printf("[Dir] Output: %s\n", tdir.c_str());
     return tdir;
@@ -383,6 +384,49 @@ static void restore_region(const RegionFlip& rf) {
     if (!base) return;
     for (auto& [off, orig] : rf.restores) base[off] = orig;
     munmap(base - adj, msz);
+}
+
+// =============================================================================
+// WEIGHT SNAPSHOT (Option B — fresh-state-per-image experimental design)
+// =============================================================================
+// Sequence per image: 1) INITIALIZE (restore weights from backup)
+//                     2) FAULT INJECTION  3) INFERENCE
+//                     4) ANALYSIS  5) LOGGING  6) repeat from 1.
+// The snapshot is taken ONCE at startup right after cache_weights_address(),
+// when DDR4 weights are guaranteed clean (only baseline inferences have run).
+// restore_weights_from_backup() is then called at the start of EVERY faulty
+// run so each image is an independent single-event measurement, even in
+// permanent SEFI modes where the injection itself is never reverted.
+static vector<uint8_t> g_weights_backup;
+
+// Copies the full DDR4 weight region into a CPU-side backup buffer.
+// Must be called once, after cache_weights_address(), before any injection.
+static bool snapshot_weights() {
+    if (g_devmem_fd < 0 || g_weights_phys == 0) return false;
+    uint64_t pg; size_t adj, msz;
+    uint8_t* base = region_map_rw(g_weights_phys, DDR4_WEIGHT_SIZE, pg, adj, msz);
+    if (!base) return false;
+    g_weights_backup.resize(DDR4_WEIGHT_SIZE);
+    memcpy(g_weights_backup.data(), base, DDR4_WEIGHT_SIZE);
+    munmap(base - adj, msz);
+    printf("[Snapshot] Weight region backed up: %zu bytes from 0x%016lX\n",
+           (size_t)DDR4_WEIGHT_SIZE, g_weights_phys);
+    sim_log("[Snapshot] Weight backup taken: %zu B @ 0x%016lX\n",
+            (size_t)DDR4_WEIGHT_SIZE, g_weights_phys);
+    return true;
+}
+
+// Restores the full DDR4 weight region from the CPU backup. Called as the
+// INITIALIZATION step (step 1) before every faulty run. ~25 MB memcpy ≈ 50 ms.
+static bool restore_weights_from_backup() {
+    if (g_devmem_fd < 0 || g_weights_phys == 0 || g_weights_backup.empty())
+        return false;
+    uint64_t pg; size_t adj, msz;
+    uint8_t* base = region_map_rw(g_weights_phys, DDR4_WEIGHT_SIZE, pg, adj, msz);
+    if (!base) return false;
+    memcpy(base, g_weights_backup.data(), DDR4_WEIGHT_SIZE);
+    munmap(base - adj, msz);
+    return true;
 }
 
 // =============================================================================
@@ -768,10 +812,8 @@ struct AccuracyRow {
     int    total_images;
     // Baseline metrics
     int    baseline_correct;   float baseline_pct;
-    float  baseline_precision; float baseline_recall; float baseline_f1;
     // Faulty metrics
     int    faulty_correct;     int   faulty_wrong;    float faulty_pct;
-    float  faulty_precision;   float faulty_recall;   float faulty_f1;
     // Unused (MSEFI removed)
     int    recovered_correct = 0; float recovery_pct = 0.f;
 };
@@ -901,6 +943,18 @@ static bool perform_sefi_run(vart::Runner*& runner,
     FaultTarget eff_target = cfg.target;
     // NOTE: ALL is resolved by the outer loop in main; concrete target always passed here.
 
+    // ── STEP 1: INITIALIZATION (Option B) ─────────────────────────────────────
+    // Restore DDR4 weights to the clean snapshot so this image is an
+    // INDEPENDENT single-event experiment. Without this, permanent SEFI modes
+    // accumulate corruption across images (confirmed in sefi_results_02:
+    // BLOCK/weights degraded 7/10 correct → 0/10, faulty_top1 collapsed to
+    // class 456 by image 41). Runs for every image regardless of target —
+    // a previous weights-target run may have left corruption behind.
+    if (!restore_weights_from_backup()) {
+        sim_log("[Init] WARNING: weight restore failed for %s\n",
+                B.image_name.c_str());
+    }
+
     RES.mode           = mode;
     RES.mode_name      = sefi_name(mode);
     RES.target         = eff_target;
@@ -944,6 +998,76 @@ static bool perform_sefi_run(vart::Runner*& runner,
 
     vector<int8_t> img(imgBuf);
     RegionFlip     rf;
+
+    // SEFI-column is the ONE mode where a single physical event spans MULTIPLE
+    // regions simultaneously (one DDR4 column line crosses weights, input, AND
+    // output in the same access). For row/block modes the buffers target stays
+    // output-only, since a row/block event is spatially confined to wherever
+    // it lands. Routing column's buffers target through the same cross-region
+    // call used for weights/input_tensor targets ensures weights+input are
+    // ALSO corrupted here — previously this path injected into output ONLY,
+    // which under-reported a real column SEFI's actual blast radius.
+    bool column_mode = (mode == SEFIMode::SEFI_COLUMN ||
+                        mode == SEFIMode::TRANSIENT_SEFI_COLUMN);
+
+    if (use_output && column_mode) {
+        // Inject weights + input_tensor + output together BEFORE inference,
+        // exactly like the weights/input_tensor target dispatch below does.
+        vector<AbsFlip> col_abs_flips;
+        rf = inject_sefi_column_cross(cfg.col_width, rng, cfg.verbose,
+                                      sefi_name(mode), col_abs_flips,
+                                      RES.bytes_weights, RES.bytes_input,
+                                      RES.bytes_output);
+        string cov;
+        if (RES.bytes_weights) cov += "weights";
+        if (RES.bytes_input)   cov += (cov.empty() ? "" : ",") + string("input_tensor");
+        if (RES.bytes_output)  cov += (cov.empty() ? "" : ",") + string("output");
+        if (cov.empty()) cov = "none(column missed all regions)";
+        cov += "(instructions excluded)";
+        RES.regions_covered = cov;
+        RES.fault_phys_addr = col_abs_flips.empty() ? 0 : col_abs_flips[0].phys_addr;
+        RES.bytes_corrupted = rf.bytes_affected;
+        RES.bits_corrupted  = rf.bits_corrupted;
+
+        vector<int8_t> fcBuf(outSz, 0);
+        auto IR0 = run_inference(runner, img.data(), inSz, inH, inW,
+                                 fcBuf.data(), outSz, out_sc, inT[0], outT[0]);
+        if (!IR0.ok) {
+            if (RES.transient_mode) restore_abs_flips(col_abs_flips);
+            RES.crash = true; return false;
+        }
+        if (RES.transient_mode) restore_abs_flips(col_abs_flips);
+
+        // Output buffer (already corrupted above if the column hit it) — read
+        // post-inference so the corrupted bytes (if any) are reflected in fcBuf.
+        uint64_t out_phys2 = read_output_address();
+        if (out_phys2 != 0) {
+            uint64_t pg3 = out_phys2 & ~(uint64_t)4095;
+            size_t   adj3 = (size_t)(out_phys2 - pg3);
+            size_t   msz3 = DDR4_OUTPUT_SIZE + adj3;
+            void* dm3 = mmap(NULL, msz3, PROT_READ, MAP_SHARED, g_devmem_fd, (off_t)pg3);
+            if (dm3 != MAP_FAILED) {
+                memcpy(fcBuf.data(),
+                       reinterpret_cast<int8_t*>((uint8_t*)dm3 + adj3),
+                       min((size_t)outSz, DDR4_OUTPUT_SIZE));
+                munmap(dm3, msz3);
+            }
+        }
+
+        vector<float> sm(outSz);
+        CPUCalcSoftmax(fcBuf.data(), outSz, sm.data(), out_sc);
+        auto tk = topk(sm.data(), outSz, 3);
+        for (int i = 0; i < 3; i++) {
+            RES.faulty_class[i] = tk[i];
+            RES.faulty_prob[i]  = sm[tk[i]];
+            RES.faulty_name[i]  = (tk[i] >= 0 && tk[i] < (int)kinds.size())
+                                   ? kinds[tk[i]] : "?";
+        }
+        RES.correctly_classified = (tk[0] == B.ground_truth_class);
+        RES.prob_drop            = B.baseline_prob - sm[tk[0]];
+        return true;
+    }
+
     if (use_output) {
         vector<int8_t> fcBuf(outSz, 0);
         auto IR0 = run_inference(runner, img.data(), inSz, inH, inW,
@@ -953,9 +1077,60 @@ static bool perform_sefi_run(vart::Runner*& runner,
         uint64_t out_phys = read_output_address();
         RegionFlip rfo;
         if (out_phys != 0) {
-            size_t blk = min(cfg.block_size, DDR4_OUTPUT_SIZE);
-            rfo = inject_sefi_block(out_phys, DDR4_OUTPUT_SIZE,
-                                    blk, rng, cfg.verbose, "buffers_post");
+            // Mode-aware output buffer injection:
+            //   SEFI-row:    the 1008 B buffer sits inside ONE 8 KB DDR4 row, so a
+            //                row event corrupts the whole buffer → full 1008 B. ✓
+            //   SEFI-column: stripe = col_width bytes at a random column offset.
+            //                The offset is drawn from [0, 8192-col_width); it hits
+            //                the buffer only if col_start < 1008. A miss (0 bytes)
+            //                is a VALID physical outcome and is recorded as such.
+            //   SEFI-block:  contiguous block clamped to buffer size (as before).
+            if (mode == SEFIMode::SEFI_COLUMN ||
+                mode == SEFIMode::TRANSIENT_SEFI_COLUMN) {
+                size_t cw = cfg.col_width ? cfg.col_width : DDR4_COL_DEFAULT;
+                cw = min(cw, DDR4_ROW_BYTES);
+                uniform_int_distribution<size_t> cdist(0, DDR4_ROW_BYTES - cw);
+                size_t col_start = cdist(rng);
+
+                rfo.phys_base   = out_phys;
+                rfo.region_size = DDR4_OUTPUT_SIZE;
+                if (col_start < DDR4_OUTPUT_SIZE) {
+                    size_t n = min(cw, DDR4_OUTPUT_SIZE - col_start);
+                    uint64_t pg2; size_t adj2, msz2;
+                    uint8_t* b2 = region_map_rw(out_phys, DDR4_OUTPUT_SIZE,
+                                                pg2, adj2, msz2);
+                    if (b2) {
+                        uniform_int_distribution<uint8_t> maskd(1, 255);
+                        size_t bits = 0;
+                        for (size_t c = 0; c < n; c++) {
+                            uint8_t xm   = maskd(rng);
+                            uint8_t orig = b2[col_start + c];
+                            b2[col_start + c] ^= xm;
+                            rfo.restores.push_back({col_start + c, orig});
+                            bits += (size_t)__builtin_popcount(xm);
+                        }
+                        munmap(b2 - adj2, msz2);
+                        rfo.bytes_affected = n;
+                        rfo.bits_corrupted = bits;
+                        sim_log("  [buffers_post] SEFI-col stripe  col_off=%zu "
+                                "col_w=%zu  bytes_hit=%zu\n", col_start, cw, n);
+                    }
+                } else {
+                    sim_log("  [buffers_post] SEFI-col stripe MISSED buffer "
+                            "(col_off=%zu >= %zu)  bytes_hit=0\n",
+                            col_start, (size_t)DDR4_OUTPUT_SIZE);
+                }
+            } else {
+                // SEFI-row → full buffer (inside one physical row).
+                // SEFI-block → block_size clamped to buffer.
+                size_t blk = (mode == SEFIMode::SEFI_ROW ||
+                              mode == SEFIMode::TRANSIENT_SEFI_ROW)
+                             ? DDR4_OUTPUT_SIZE
+                             : min(cfg.block_size, DDR4_OUTPUT_SIZE);
+                rfo = inject_sefi_block(out_phys, DDR4_OUTPUT_SIZE,
+                                        blk, rng, cfg.verbose, "buffers_post");
+            }
+
             uint64_t pg  = out_phys & ~(uint64_t)4095;
             size_t   adj = (size_t)(out_phys - pg);
             size_t   msz = DDR4_OUTPUT_SIZE + adj;
@@ -970,7 +1145,8 @@ static bool perform_sefi_run(vart::Runner*& runner,
             RES.bytes_corrupted = rfo.bytes_affected;
             RES.bits_corrupted  = rfo.bits_corrupted;
             RES.fault_phys_addr = out_phys + (rfo.restores.empty() ? 0 : rfo.restores[0].first);
-            RES.regions_covered = "output";
+            // Only claim the region if bytes actually landed there
+            RES.regions_covered = rfo.bytes_affected > 0 ? "output" : "none(column missed buffer)";
             RES.bytes_output    = rfo.bytes_affected;
         }
 
@@ -1007,24 +1183,51 @@ static bool perform_sefi_run(vart::Runner*& runner,
     vector<AbsFlip> col_abs_flips;  // only used by SEFI-column
     switch (mode) {
         case SEFIMode::SEFI_ROW:
-        case SEFIMode::TRANSIENT_SEFI_ROW:
+        case SEFIMode::TRANSIENT_SEFI_ROW: {
             rf = inject_sefi_row_cross(phys, rgsz, rng, cfg.verbose, sefi_name(mode));
             RES.regions_covered = compute_regions_covered(
                 rf.phys_base, rf.region_size, out_phys_for_log, sefi_name(mode));
             // fault_phys_addr = the actual row base that was injected (random per image)
             RES.fault_phys_addr = rf.phys_base;
+
+            // Per-region byte breakdown: overlap of [row_base, row_base+8192)
+            // with each known region (row events physically cross boundaries).
+            auto overlap = [](uint64_t a0, uint64_t a1,
+                              uint64_t b0, uint64_t b1) -> size_t {
+                uint64_t lo = max(a0, b0), hi = min(a1, b1);
+                return hi > lo ? (size_t)(hi - lo) : 0;
+            };
+            uint64_t r0 = rf.phys_base, r1 = rf.phys_base + rf.region_size;
+            if (g_weights_phys)
+                RES.bytes_weights = overlap(r0, r1, g_weights_phys,
+                                            g_weights_phys + DDR4_WEIGHT_SIZE);
+            if (g_input_phys)
+                RES.bytes_input   = overlap(r0, r1, g_input_phys,
+                                            g_input_phys + DDR4_INPUT_SIZE);
+            if (out_phys_for_log)
+                RES.bytes_output  = overlap(r0, r1, out_phys_for_log,
+                                            out_phys_for_log + DDR4_OUTPUT_SIZE);
             break;
+        }
 
         case SEFIMode::SEFI_COLUMN:
-        case SEFIMode::TRANSIENT_SEFI_COLUMN:
+        case SEFIMode::TRANSIENT_SEFI_COLUMN: {
             rf = inject_sefi_column_cross(cfg.col_width, rng, cfg.verbose,
                                           sefi_name(mode), col_abs_flips,
                                           RES.bytes_weights, RES.bytes_input,
                                           RES.bytes_output);
-            RES.regions_covered = "weights,input_tensor,output(instructions excluded)";
+            // Only list regions where bytes actually landed (output is missed
+            // whenever col_start >= 1008 — probability ~88% with 8 KB rows).
+            string cov;
+            if (RES.bytes_weights) cov += "weights";
+            if (RES.bytes_input)   cov += (cov.empty() ? "" : ",") + string("input_tensor");
+            if (RES.bytes_output)  cov += (cov.empty() ? "" : ",") + string("output");
+            cov += "(instructions excluded)";
+            RES.regions_covered = cov;
             // fault_phys_addr = physical address of first byte actually flipped
             RES.fault_phys_addr = col_abs_flips.empty() ? 0 : col_abs_flips[0].phys_addr;
             break;
+        }
 
         case SEFIMode::SEFI_BLOCK:
         case SEFIMode::TRANSIENT_SEFI_BLOCK:
@@ -1032,6 +1235,12 @@ static bool perform_sefi_run(vart::Runner*& runner,
                                    rng, cfg.verbose, sefi_name(mode));
             RES.regions_covered  = targetName(eff_target);
             RES.fault_phys_addr  = phys + (rf.restores.empty() ? 0 : rf.restores[0].first);
+
+            // Block is region-confined by design: all bytes land in eff_target.
+            if (eff_target == FaultTarget::WEIGHTS)
+                RES.bytes_weights = rf.bytes_affected;
+            else if (eff_target == FaultTarget::INPUT_TENSOR)
+                RES.bytes_input   = rf.bytes_affected;
             break;
 
         default: break;
@@ -1077,71 +1286,6 @@ static bool perform_sefi_run(vart::Runner*& runner,
 // METRICS COMPUTATION
 // =============================================================================
 
-// Computes macro-averaged precision, recall, and F1 across all classes present
-// in results. Uses top-1 predicted class vs ground truth class.
-//
-// For each class c:
-//   TP_c = images where ground_truth==c AND predicted==c
-//   FP_c = images where ground_truth!=c AND predicted==c
-//   FN_c = images where ground_truth==c AND predicted!=c
-//   precision_c = TP_c / (TP_c + FP_c),  recall_c = TP_c / (TP_c + FN_c)
-//
-// Macro average = mean over all classes that appear in ground truth.
-// use_faulty: if true uses faulty_class[0]; if false uses baseline_class.
-struct Metrics { float precision; float recall; float f1; };
-
-static Metrics compute_metrics(const vector<RunResultSEFI>& results, bool use_faulty) {
-    // Build per-class TP/FP/FN
-    map<int,int> tp, fp, fn;
-    for (auto& R : results) {
-        if (R.crash) continue;
-        int gt   = R.ground_truth_class;
-        int pred = use_faulty ? R.faulty_class[0] : R.baseline_class;
-        if (gt < 0 || pred < 0) continue;
-        if (tp.find(gt)  == tp.end()) { tp[gt]=0; fn[gt]=0; }
-        if (fp.find(pred)== fp.end())   fp[pred]=0;
-        if (pred == gt) { tp[gt]++; }
-        else            { fn[gt]++; fp[pred]++; }
-    }
-    float sum_p=0, sum_r=0, n=0;
-    for (auto& [cls, tpc] : tp) {
-        int fpc = fp.count(cls) ? fp[cls] : 0;
-        int fnc = fn.count(cls) ? fn[cls] : 0;
-        float p = (tpc+fpc)>0 ? (float)tpc/(tpc+fpc) : 0.f;
-        float r = (tpc+fnc)>0 ? (float)tpc/(tpc+fnc) : 0.f;
-        sum_p += p; sum_r += r; n++;
-    }
-    float prec = n>0 ? sum_p/n : 0.f;
-    float rec  = n>0 ? sum_r/n : 0.f;
-    float f1   = (prec+rec)>0 ? 2*prec*rec/(prec+rec) : 0.f;
-    return {prec, rec, f1};
-}
-
-// Computes baseline precision/recall/F1 from baselines vector (no RunResultSEFI needed).
-// For baseline: predicted = baseline_class, gt = ground_truth_class.
-static Metrics compute_baseline_metrics(const vector<BaselineResult>& baselines) {
-    map<int,int> tp, fp, fn;
-    for (auto& B : baselines) {
-        if (!B.valid) continue;
-        int gt=B.ground_truth_class, pred=B.baseline_class;
-        if (gt<0||pred<0) continue;
-        if (tp.find(gt)  ==tp.end()) {tp[gt]=0;fn[gt]=0;}
-        if (fp.find(pred)==fp.end())  fp[pred]=0;
-        if (pred==gt) tp[gt]++;
-        else          {fn[gt]++; fp[pred]++;}
-    }
-    float sum_p=0,sum_r=0,n=0;
-    for (auto& [cls,tpc]:tp){
-        int fpc=fp.count(cls)?fp[cls]:0, fnc=fn.count(cls)?fn[cls]:0;
-        float p=(tpc+fpc)>0?(float)tpc/(tpc+fpc):0.f;
-        float r=(tpc+fnc)>0?(float)tpc/(tpc+fnc):0.f;
-        sum_p+=p; sum_r+=r; n++;
-    }
-    float prec=n>0?sum_p/n:0.f, rec=n>0?sum_r/n:0.f;
-    float f1=(prec+rec)>0?2*prec*rec/(prec+rec):0.f;
-    return {prec,rec,f1};
-}
-
 // =============================================================================
 // CSV OUTPUT
 // =============================================================================
@@ -1185,23 +1329,19 @@ static void write_results_csv(const vector<RunResultSEFI>& results,
     printf("[CSV] Saved: %s\n", path.c_str());
 }
 
-// Writes a single-row accuracy+metrics summary CSV for one mode+target combination.
-// Includes accuracy, precision, recall, and F1 for both baseline and faulty runs.
+// Writes a single-row accuracy summary CSV for one mode+target combination.
 static void write_accuracy_csv(const AccuracyRow& row, const string& out_dir) {
     string path = out_dir + "/accuracy_summary.csv";
     ofstream f(path);
     if (!f) { fprintf(stderr, "[CSV] Cannot write %s\n", path.c_str()); return; }
     f << "sefi_mode,total_images,"
-         "baseline_correct,baseline_accuracy_pct,baseline_precision,baseline_recall,baseline_f1,"
-         "faulty_correct,faulty_wrong,faulty_accuracy_pct,faulty_precision,faulty_recall,faulty_f1\n";
+         "baseline_correct,baseline_accuracy_pct,"
+         "faulty_correct,faulty_wrong,faulty_accuracy_pct\n";
     f << row.mode_name << "," << row.total_images << ","
       << row.baseline_correct << ","
-      << fixed << setprecision(4)
-      << row.baseline_pct       << "," << row.baseline_precision << ","
-      << row.baseline_recall    << "," << row.baseline_f1        << ","
+      << fixed << setprecision(4) << row.baseline_pct << ","
       << row.faulty_correct << "," << row.faulty_wrong << ","
-      << row.faulty_pct         << "," << row.faulty_precision  << ","
-      << row.faulty_recall      << "," << row.faulty_f1         << "\n";
+      << row.faulty_pct << "\n";
     printf("[CSV] Saved: %s\n", path.c_str());
 }
 
@@ -1293,6 +1433,13 @@ int main(int argc, char* argv[]) {
     cfg.verbose = (argc >= 4 && string(argv[3]) == "-v");
 
     cfg.mode = select_sefi_mode();
+
+    // Results folder prompt
+    printf("Results folder name [default sefi_results]: ");
+    fflush(stdout);
+    string results_folder;
+    getline(cin, results_folder);
+    if (results_folder.empty()) results_folder = "sefi_results";
     const char* mname = sefi_name(cfg.mode);
 
     if (cfg.mode == SEFIMode::SEFI_COLUMN || cfg.mode == SEFIMode::TRANSIENT_SEFI_COLUMN) {
@@ -1325,14 +1472,14 @@ int main(int argc, char* argv[]) {
     printf("\n[Config] SEFI mode    = %s\n", mname);
     printf("[Config] target       = %s\n",   targetName(cfg.target).c_str());
     printf("[Config] image folder = %s\n",   cfg.val_folder.c_str());
-    printf("[Config] results in   = ./FaultResults/sefi_results/%s/<target>/\n",
-           sefi_folder_name(cfg.mode).c_str());
+    printf("[Config] results in   = ./FaultResults/%s/%s/<target>/\n",
+           results_folder.c_str(), sefi_folder_name(cfg.mode).c_str());
     if (cfg.mode == SEFIMode::SEFI_COLUMN || cfg.mode == SEFIMode::TRANSIENT_SEFI_COLUMN)
         printf("[Config] col_width    = %zu B\n", cfg.col_width);
     printf("[Config] block_size   = %zu B\n", cfg.block_size);
 
-    mkdirp("./FaultResults/sefi_results/" + sefi_folder_name(cfg.mode));
-    string logpath = "./FaultResults/sefi_results/" + sefi_folder_name(cfg.mode) + "/sefi_sim.log";
+    mkdirp("./FaultResults/" + results_folder + "/" + sefi_folder_name(cfg.mode));
+    string logpath = "./FaultResults/" + results_folder + "/" + sefi_folder_name(cfg.mode) + "/sefi_sim.log";
     g_logfp = fopen(logpath.c_str(), "w");
     if (!g_logfp) fprintf(stderr, "[Warn] Cannot open log %s\n", logpath.c_str());
 
@@ -1393,6 +1540,15 @@ int main(int argc, char* argv[]) {
     cache_weights_address();
     cache_input_address();
 
+    // Option B: snapshot clean weights ONCE. Restored before every faulty run
+    // (step 1 of the per-image sequence) so every image starts from identical
+    // clean state, even in permanent SEFI modes.
+    if (!snapshot_weights()) {
+        fprintf(stderr, "[Error] Weight snapshot failed — cannot guarantee "
+                        "fresh state per image. Aborting.\n");
+        return -1;
+    }
+
     int base_correct = 0, base_total = 0;
     for (auto& B : baselines) {
         if (!B.valid) continue;
@@ -1418,7 +1574,7 @@ int main(int argc, char* argv[]) {
     // ── Per-target injection loop ─────────────────────────────────────────────
     for (FaultTarget cur_target : targets_to_run) {
         string tname   = targetName(cur_target);
-        string out_dir = prepare_output_dir(cfg.mode, tname);
+        string out_dir = prepare_output_dir(results_folder, cfg.mode, tname);
 
         SimConfig tcfg = cfg;
         tcfg.target    = cur_target;
@@ -1463,53 +1619,18 @@ int main(int argc, char* argv[]) {
 
         float faulty_pct = img_total > 0 ? 100.f * total_correct / img_total : 0.f;
 
-        Metrics fm = compute_metrics(results, true);   // faulty run metrics
-        // Baseline metrics computed from global baselines (same for every target)
-        // We re-use the global baselines vector via a local lambda
-        // build a dummy results vector for baseline metrics re-use
-        Metrics bm;
-        {
-            // compute baseline metrics directly from baselines[]
-            map<int,int> tp, fp, fn;
-            for (auto& B : baselines) {
-                if (!B.valid) continue;
-                int gt=B.ground_truth_class, pred=B.baseline_class;
-                if (gt<0||pred<0) continue;
-                if (tp.find(gt)==tp.end()){tp[gt]=0;fn[gt]=0;}
-                if (fp.find(pred)==fp.end()) fp[pred]=0;
-                if (pred==gt) tp[gt]++;
-                else {fn[gt]++;fp[pred]++;}
-            }
-            float sp=0,sr=0,n=0;
-            for (auto& [cls,tpc]:tp){
-                int fpc=fp.count(cls)?fp[cls]:0,fnc=fn.count(cls)?fn[cls]:0;
-                float p=(tpc+fpc)>0?(float)tpc/(tpc+fpc):0.f;
-                float r=(tpc+fnc)>0?(float)tpc/(tpc+fnc):0.f;
-                sp+=p;sr+=r;n++;
-            }
-            float pr=n>0?sp/n:0.f,rc=n>0?sr/n:0.f;
-            bm={pr,rc,(pr+rc)>0?2*pr*rc/(pr+rc):0.f};
-        }
-
         AccuracyRow acc;
-        acc.mode_name          = mname;
-        acc.total_images       = img_total;
-        acc.baseline_correct   = base_correct;    acc.baseline_pct       = base_pct;
-        acc.baseline_precision = bm.precision;    acc.baseline_recall    = bm.recall;
-        acc.baseline_f1        = bm.f1;
-        acc.faulty_correct     = total_correct;   acc.faulty_wrong       = img_total - total_correct;
-        acc.faulty_pct         = faulty_pct;
-        acc.faulty_precision   = fm.precision;    acc.faulty_recall      = fm.recall;
-        acc.faulty_f1          = fm.f1;
+        acc.mode_name        = mname;
+        acc.total_images     = img_total;
+        acc.baseline_correct = base_correct;  acc.baseline_pct = base_pct;
+        acc.faulty_correct   = total_correct; acc.faulty_wrong  = img_total - total_correct;
+        acc.faulty_pct       = faulty_pct;
         write_accuracy_csv(acc, out_dir);
 
-        printf("  [Summary] target=%-14s  baseline=%.2f%%  faulty=%.2f%%"
-               "  P=%.3f  R=%.3f  F1=%.3f\n",
-               tname.c_str(), base_pct, faulty_pct,
-               fm.precision, fm.recall, fm.f1);
-        sim_log("[Summary] target=%s  baseline=%.2f%%  faulty=%.2f%%  P=%.3f  R=%.3f  F1=%.3f\n",
-                tname.c_str(), base_pct, faulty_pct,
-                fm.precision, fm.recall, fm.f1);
+        printf("  [Summary] target=%-14s  baseline=%.2f%%  faulty=%.2f%%\n",
+               tname.c_str(), base_pct, faulty_pct);
+        sim_log("[Summary] target=%s  baseline=%.2f%%  faulty=%.2f%%\n",
+                tname.c_str(), base_pct, faulty_pct);
     }
 
     // ── Final summary ─────────────────────────────────────────────────────────
@@ -1519,14 +1640,14 @@ int main(int argc, char* argv[]) {
     printf("║  Baseline (clean model): %d/%d = %.2f%%\n", base_correct, base_total, base_pct);
     printf("╠══════════════════════════════════════════════════════╣\n");
     printf("║  Results saved in:\n");
-    printf("║    ./FaultResults/sefi_results/%s/\n", sefi_folder_name(cfg.mode).c_str());
+    printf("║    ./FaultResults/%s/%s/\n", results_folder.c_str(), sefi_folder_name(cfg.mode).c_str());
     for (FaultTarget t : targets_to_run)
         printf("║      %s/\n", targetName(t).c_str());
     printf("║  Each folder: results_%s.csv\n", mname);
     printf("║               accuracy_summary.csv\n");
     printf("╚══════════════════════════════════════════════════════╝\n");
     printf("\nTo generate plots, run on host:\n");
-    printf("  python3 ./FaultResults/sefi_results/plot_all.py\n");
+    printf("  python3 ./FaultResults/sefi_plot.py\n");
 
     if (g_logfp) fclose(g_logfp);
     if (g_devmem_fd >= 0) close(g_devmem_fd);

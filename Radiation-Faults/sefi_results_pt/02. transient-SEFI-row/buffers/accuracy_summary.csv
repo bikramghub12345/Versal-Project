@@ -1,2 +1,2 @@
 sefi_mode,total_images,baseline_correct,baseline_accuracy_pct,faulty_correct,faulty_wrong,faulty_accuracy_pct
-transient-SEFI-row,100,6,6.0000,0,100,0.0000
+transient-SEFI-row,100,71,71.0000,0,100,0.0000

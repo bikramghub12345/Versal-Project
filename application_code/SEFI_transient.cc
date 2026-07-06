@@ -17,7 +17,7 @@
  *
  * OUTPUT FILES (per mode run):
  *   results_<mode>.csv            — per-image: matches SEFI_simulate.cc format
- *   accuracy_summary.csv          — accuracy/precision/recall/F1 baseline vs faulty
+ *   accuracy_summary.csv          — accuracy baseline vs faulty
  *   per_layer_details_<mode>.csv  — per-image per-piece: injection addresses, bytes, bits
  *   sefi_transient.log            — full verbose log (addresses, scales, injection details)
  *
@@ -65,7 +65,7 @@ using namespace cv;
 // =============================================================================
 // CONSTANTS
 // =============================================================================
-#define TOP_K 5
+#define TOP_K 3
 static const size_t   DDR4_ROW_BYTES   = 8192;
 static const size_t   DDR4_COL_DEFAULT = 8;
 static const uint64_t DPU_CTRL_BASE    = 0x80000000ULL;
@@ -73,8 +73,26 @@ static const uint32_t OFF_BASE0_LO     = 0x60;
 static const uint32_t OFF_BASE0_HI     = 0x64;
 
 // =============================================================================
-// SEFI MODE
+// DPU TIMEOUT / ABORT HANDLING
+// VART calls abort() (SIGABRT) on DPU timeout — not catchable by try/catch.
+// We install a signal handler that longjmps back into exec_piece so the
+// program can record crash=true and continue with the next image.
 // =============================================================================
+#include <setjmp.h>
+#include <signal.h>
+static sigjmp_buf  g_dpu_jmp;
+static volatile bool g_in_dpu_exec = false;
+
+static void dpu_abort_handler(int) {
+    if (g_in_dpu_exec) {
+        g_in_dpu_exec = false;
+        siglongjmp(g_dpu_jmp, 1);   // jump back to exec_piece
+    }
+    // Not in our exec — re-raise default behaviour
+    signal(SIGABRT, SIG_DFL);
+    raise(SIGABRT);
+}
+
 enum class TransientMode { ROW, COLUMN, BLOCK };
 static const char* mode_name(TransientMode m) {
     switch(m){ case TransientMode::ROW:    return "transient-SEFI-row";
@@ -87,6 +105,30 @@ static string mode_folder(TransientMode m) {
                case TransientMode::COLUMN: return "04. transient-SEFI-col";
                case TransientMode::BLOCK:  return "06. transient-SEFI-blk"; }
     return "00";
+}
+
+enum class FaultTarget { WEIGHTS, INPUT_TENSOR, BUFFERS, ALL };
+static const char* targetName(FaultTarget t) {
+    switch(t){ case FaultTarget::WEIGHTS:      return "weights";
+               case FaultTarget::INPUT_TENSOR: return "input_tensor";
+               case FaultTarget::BUFFERS:      return "buffers";
+               case FaultTarget::ALL:          return "all"; }
+    return "?";
+}
+static FaultTarget parse_target(const string& s) {
+    string lo = s;
+    transform(lo.begin(), lo.end(), lo.begin(), ::tolower);
+    if (lo == "weights")                              return FaultTarget::WEIGHTS;
+    if (lo == "input_tensor" || lo == "input")        return FaultTarget::INPUT_TENSOR;
+    if (lo == "buffers"      || lo == "output")       return FaultTarget::BUFFERS;
+    if (lo == "all")                                  return FaultTarget::ALL;
+    fprintf(stderr, "[Config] Unknown target '%s', using all\n", s.c_str());
+    return FaultTarget::ALL;
+}
+static vector<FaultTarget> expand_target(FaultTarget t) {
+    if (t == FaultTarget::ALL)
+        return {FaultTarget::WEIGHTS, FaultTarget::INPUT_TENSOR, FaultTarget::BUFFERS};
+    return {t};
 }
 
 // =============================================================================
@@ -278,23 +320,111 @@ static void restore_flips(int kid,const vector<ByteFlip>&flips,uint64_t wp,size_
     munmap(base-adj,msz);
 }
 
+// CPU-side buffer injection — no /dev/mem needed.
+// Used for input_tensor (in_buf) and buffers/output (out_buf) targets,
+// which are plain int8_t arrays allocated in CPU memory by CpuFlatTensorBuffer.
+static void apply_cpu_flips(int8_t* buf, size_t buf_sz, int kid,
+                             vector<ByteFlip>& flips) {
+    for (auto& f : flips) {
+        if (f.piece_id != kid || f.local_offset >= buf_sz) continue;
+        f.original = (uint8_t)buf[f.local_offset];
+        buf[f.local_offset] ^= (int8_t)f.xor_mask;
+    }
+}
+static void restore_cpu_flips(int8_t* buf, size_t buf_sz, int kid,
+                               const vector<ByteFlip>& flips) {
+    for (auto& f : flips) {
+        if (f.piece_id != kid || f.local_offset >= buf_sz) continue;
+        buf[f.local_offset] = (int8_t)f.original;
+    }
+}
+
 // Execute one piece (ephemeral runner), optionally with flips
 static bool exec_piece(PieceInfo&p,int kid,int8_t*in_buf,int8_t*out_buf,
                        vector<ByteFlip>*flips=nullptr){
     auto runner=vart::Runner::create_runner(p.dpu_subgraph,"run");
-    if(flips)apply_flips(kid,*flips,p.weight_phys,p.weight_size);
+
     auto di=p.in_dims;di[0]=1;auto dO=p.out_dims;dO[0]=1;
     vector<shared_ptr<xir::Tensor>>bt;
     bt.push_back(shared_ptr<xir::Tensor>(xir::Tensor::create(
         p.in_tensor_name,di,xir::DataType{xir::DataType::XINT,8u})));
     bt.push_back(shared_ptr<xir::Tensor>(xir::Tensor::create(
         p.out_tensor_name,dO,xir::DataType{xir::DataType::XINT,8u})));
+
+    if(flips){
+        // Need actual physical address — DPU register only set after execute_async.
+        // Do a dummy zero-input execute first, then read register, apply flips, real exec.
+        vector<int8_t>din(p.in_elems,0),dout(p.out_elems,0);
+        {
+            auto ib0=make_unique<CpuFlatTensorBuffer>(din.data(),bt[0].get());
+            auto ob0=make_unique<CpuFlatTensorBuffer>(dout.data(),bt[1].get());
+            vector<vart::TensorBuffer*>ip0{ib0.get()},op0{ob0.get()};
+
+            // Guard dummy execute against DPU timeout abort
+            signal(SIGABRT, dpu_abort_handler);
+            g_in_dpu_exec = true;
+            if (sigsetjmp(g_dpu_jmp, 1) == 0) {
+                auto j=runner->execute_async(ip0,op0); runner->wait(j.first,-1);
+                g_in_dpu_exec = false;
+            } else {
+                // DPU aborted during dummy execute
+                signal(SIGABRT, SIG_DFL);
+                log_only("[DPU-HANG] dummy execute aborted for %s\n", p.name.c_str());
+                return false;
+            }
+            signal(SIGABRT, SIG_DFL);
+        }
+
+        uint64_t cur_phys=read_ctrl_reg64(OFF_BASE0_LO,OFF_BASE0_HI);
+        if(cur_phys==0)cur_phys=p.weight_phys;
+
+        apply_flips(kid,*flips,cur_phys,p.weight_size);
+        {
+            auto ib=make_unique<CpuFlatTensorBuffer>(in_buf,bt[0].get());
+            auto ob=make_unique<CpuFlatTensorBuffer>(out_buf,bt[1].get());
+            vector<vart::TensorBuffer*>ip{ib.get()},op{ob.get()};
+
+            // Guard real execute against DPU timeout abort
+            signal(SIGABRT, dpu_abort_handler);
+            g_in_dpu_exec = true;
+            bool ok=true;
+            if (sigsetjmp(g_dpu_jmp, 1) == 0) {
+                auto j=runner->execute_async(ip,op); runner->wait(j.first,-1);
+                g_in_dpu_exec = false;
+            } else {
+                // DPU timed out — this IS a valid SEFI result (functional interrupt)
+                g_in_dpu_exec = false;
+                signal(SIGABRT, SIG_DFL);
+                log_only("[DPU-HANG] execution aborted for %s — recording crash=true\n",
+                         p.name.c_str());
+                restore_flips(kid,*flips,cur_phys,p.weight_size);
+                return false;
+            }
+            signal(SIGABRT, SIG_DFL);
+
+            restore_flips(kid,*flips,cur_phys,p.weight_size);
+            return ok;
+        }
+    }
+
+    // No injection path — single execute with SIGABRT guard
     auto ib=make_unique<CpuFlatTensorBuffer>(in_buf,bt[0].get());
     auto ob=make_unique<CpuFlatTensorBuffer>(out_buf,bt[1].get());
     vector<vart::TensorBuffer*>ip{ib.get()},op{ob.get()};
+
+    signal(SIGABRT, dpu_abort_handler);
+    g_in_dpu_exec = true;
     bool ok=true;
-    try{auto j=runner->execute_async(ip,op);runner->wait(j.first,-1);}catch(...){ok=false;}
-    if(flips)restore_flips(kid,*flips,p.weight_phys,p.weight_size);
+    if (sigsetjmp(g_dpu_jmp, 1) == 0) {
+        auto j=runner->execute_async(ip,op); runner->wait(j.first,-1);
+        g_in_dpu_exec = false;
+    } else {
+        g_in_dpu_exec = false;
+        signal(SIGABRT, SIG_DFL);
+        log_only("[DPU-HANG] no-inject execution aborted for %s\n", p.name.c_str());
+        return false;
+    }
+    signal(SIGABRT, SIG_DFL);
     return ok;
 }
 
@@ -391,28 +521,6 @@ struct LayerDetail {
     size_t   bytes_in_piece, bits_in_piece;
 };
 
-struct Metrics { float precision,recall,f1; };
-static Metrics compute_metrics(const vector<TransientResult>&R,bool faulty){
-    map<int,int>tp,fp,fn;
-    for(auto&r:R){
-        if(r.crash)continue;
-        int gt=r.ground_truth_class, pred=faulty?r.faulty_class[0]:r.baseline_class;
-        if(gt<0||pred<0)continue;
-        if(tp.find(gt)==tp.end()){tp[gt]=0;fn[gt]=0;}
-        if(fp.find(pred)==fp.end())fp[pred]=0;
-        if(pred==gt)tp[gt]++;else{fn[gt]++;fp[pred]++;}
-    }
-    float sp=0,sr=0,n=0;
-    for(auto&[cls,tpc]:tp){
-        int fpc=fp.count(cls)?fp[cls]:0,fnc=fn.count(cls)?fn[cls]:0;
-        float p=(tpc+fpc)>0?(float)tpc/(tpc+fpc):0.f;
-        float r=(tpc+fnc)>0?(float)tpc/(tpc+fnc):0.f;
-        sp+=p;sr+=r;n++;
-    }
-    float pr=n>0?sp/n:0.f,rc=n>0?sr/n:0.f;
-    return{pr,rc,(pr+rc)>0?2*pr*rc/(pr+rc):0.f};
-}
-
 // =============================================================================
 // CSV OUTPUT
 // =============================================================================
@@ -443,18 +551,17 @@ static void write_results_csv(const vector<TransientResult>&results,
 }
 
 static void write_accuracy_csv(const string&out_dir,const char*mname,
-        int total,int base_correct,float base_pct,Metrics bm,
-        int faulty_correct,int faulty_wrong,float faulty_pct,Metrics fm){
+        int total,int base_correct,float base_pct,
+        int faulty_correct,int faulty_wrong,float faulty_pct){
     string path=out_dir+"/accuracy_summary.csv";
     ofstream f(path);if(!f)return;
     f<<"sefi_mode,total_images,"
-      "baseline_correct,baseline_accuracy_pct,baseline_precision,baseline_recall,baseline_f1,"
-      "faulty_correct,faulty_wrong,faulty_accuracy_pct,faulty_precision,faulty_recall,faulty_f1\n";
+      "baseline_correct,baseline_accuracy_pct,"
+      "faulty_correct,faulty_wrong,faulty_accuracy_pct\n";
     f<<fixed<<setprecision(4)
      <<mname<<","<<total<<","
-     <<base_correct<<","<<base_pct<<","<<bm.precision<<","<<bm.recall<<","<<bm.f1<<","
-     <<faulty_correct<<","<<faulty_wrong<<","
-     <<faulty_pct<<","<<fm.precision<<","<<fm.recall<<","<<fm.f1<<"\n";
+     <<base_correct<<","<<base_pct<<","
+     <<faulty_correct<<","<<faulty_wrong<<","<<faulty_pct<<"\n";
     printf("[CSV] Saved: %s\n",path.c_str());
 }
 
@@ -505,13 +612,18 @@ int main(int argc,char*argv[]) {
     {char buf[512];if(fgets(buf,sizeof(buf),stdin)&&buf[0]!='\n'){
         buf[strcspn(buf,"\n")]=0;if(buf[0])val_folder=buf;}}
 
+    string results_folder="sefi_transient_results";
+    printf("Results folder name [default sefi_transient_results]: ");fflush(stdout);
+    {char buf[256];if(fgets(buf,sizeof(buf),stdin)&&buf[0]!='\n'){
+        buf[strcspn(buf,"\n")]=0;if(buf[0])results_folder=buf;}}
+
     g_devmem_fd=open("/dev/mem",O_RDWR|O_SYNC);
     if(g_devmem_fd<0){perror("open /dev/mem");return -1;}
     mt19937 rng(time(nullptr)^getpid());
 
-    string out_dir="./FaultResults/sefi_transient_results/"+mode_folder(mode)+"/weights";
+    string out_dir="./FaultResults/"+results_folder+"/"+mode_folder(mode)+"/weights";
     mkdirp(out_dir);clear_dir(out_dir);
-    string log_dir="./FaultResults/sefi_transient_results/"+mode_folder(mode);
+    string log_dir="./FaultResults/"+results_folder+"/"+mode_folder(mode);
     mkdirp(log_dir);
     g_logfp=fopen((log_dir+"/sefi_transient.log").c_str(),"w");
 
@@ -550,22 +662,13 @@ int main(int argc,char*argv[]) {
     }
 
     // Discover addresses — log only, not terminal
-    log_only("[Discover] Piece addresses and scales:\n");
+    log_only("[Discover] Piece addresses:\n");
     for(int k=0;k<N_PIECES;k++){
         discover_piece(pieces[k]);
-        log_only("  [%02d] %-30s  w_phys=0x%lX  w_size=%zu  in_sc=%.5f  out_sc=%.5f\n",
-                 k,pieces[k].name.c_str(),pieces[k].weight_phys,pieces[k].weight_size,
-                 pieces[k].in_scale,pieces[k].out_scale);
+        log_only("  [%02d] %-30s  w_phys=0x%lX  w_size=%zu\n",
+                 k,pieces[k].name.c_str(),pieces[k].weight_phys,pieces[k].weight_size);
     }
     log_only("  total_conceptual=%zu B\n\n",total);
-    // Scale ratios — log only
-    log_only("[ScaleCheck] Inter-piece ratios:\n");
-    for(int k=0;k<N_PIECES-1;k++){
-        float r=pieces[k].out_scale*pieces[k+1].in_scale;
-        log_only("  piece_%02d→%02d ratio=%.5f%s\n",k,k+1,r,
-                 fabs(r-1.f)>0.05f?" [requantize]":"");
-    }
-    log_only("\n");
 
     // ── Preprocess all images ────────────────────────────────────────────────
     int inH=224,inW=224;
@@ -693,25 +796,27 @@ int main(int argc,char*argv[]) {
             sim_log("  [%s] pieces=%s\n",mode_name(mode),R.pieces_affected.c_str());
 
         // Full detail to log file only
-        log_only("  detail: top1=%s  drop=%.3f%s\n",
-                 R.faulty_name[0].c_str(),R.prob_drop,R.crash?" CRASH":"");
+        log_only("  [%zu/%zu] %s  baseline=%s(%.3f)  top1=%s(%.3f)  drop=%.3f%s\n",
+                 i+1,entries.size(),entries[i].name.c_str(),
+                 R.baseline_name.c_str(),R.baseline_prob,
+                 R.faulty_name[0].c_str(),R.faulty_prob[0],
+                 R.prob_drop,R.crash?" CRASH":"");
     }
 
     // ── Summary & output ──────────────────────────────────────────────────────
     float faulty_pct=results.size()>0?100.f*total_correct/results.size():0.f;
-    Metrics bm=compute_metrics(results,false);
-    Metrics fm=compute_metrics(results,true);
 
-    sim_log("\n[Summary] target=%-14s  baseline=%.2f%%  faulty=%.2f%%"
-            "  P=%.3f  R=%.3f  F1=%.3f\n",
-            "weights",base_pct,faulty_pct,fm.precision,fm.recall,fm.f1);
-    log_only("[Summary] baseline P=%.3f R=%.3f F1=%.3f\n",bm.precision,bm.recall,bm.f1);
+    sim_log("\n[Summary] target=%-14s  baseline=%.2f%%  faulty=%.2f%%\n",
+            "weights",base_pct,faulty_pct);
 
     write_results_csv(results,out_dir,mode_name(mode),kinds);
     write_accuracy_csv(out_dir,mode_name(mode),
-        (int)results.size(),base_correct,base_pct,bm,
-        total_correct,(int)results.size()-total_correct,faulty_pct,fm);
+        (int)results.size(),base_correct,base_pct,
+        total_correct,(int)results.size()-total_correct,faulty_pct);
     write_layer_details_csv(layer_details,out_dir,mode_name(mode));
+
+    printf("\nTo generate plots:\n");
+    printf("  python3 ./FaultResults/sefi_plot.py\n\n");
 
     if(g_logfp)fclose(g_logfp);
     close(g_devmem_fd);
