@@ -1,4 +1,4 @@
-# Radiation Fault Injection on DPU-Based CNN Inference (ZCU104)
+# Radiation Induced bit-flips in ResNet50 CNN model inference on ZCU104 board 
 
 This project studies the effect of radiation-induced memory faults (DDR4 bit
 upsets and SEFI events) on the accuracy of a ResNet50 image classification
